@@ -428,30 +428,30 @@
             m = 'FeatureCollection' === h,
             y = 'Feature' === h,
             v = m ? e.features.length : 1,
-            g = 0;
-          g < v;
-          g++
+            b = 0;
+          b < v;
+          b++
         ) {
-          (c = m ? e.features[g].geometry : y ? e.geometry : e),
+          (c = m ? e.features[b].geometry : y ? e.geometry : e),
             (f = !!c && 'GeometryCollection' === c.type),
             (u = f ? c.geometries.length : 1);
-          for (var b = 0; b < u; b++) {
+          for (var g = 0; g < u; g++) {
             var _ = 0,
               j = 0;
-            if (null !== (a = f ? c.geometries[b] : c)) {
+            if (null !== (a = f ? c.geometries[g] : c)) {
               l = a.coordinates;
               var x = a.type;
               switch (((p = !r || ('Polygon' !== x && 'MultiPolygon' !== x) ? 0 : 1), x)) {
                 case null:
                   break;
                 case 'Point':
-                  if (!1 === t(l, d, g, _, j)) return !1;
+                  if (!1 === t(l, d, b, _, j)) return !1;
                   d++, _++;
                   break;
                 case 'LineString':
                 case 'MultiPoint':
                   for (o = 0; o < l.length; o++) {
-                    if (!1 === t(l[o], d, g, _, j)) return !1;
+                    if (!1 === t(l[o], d, b, _, j)) return !1;
                     d++, 'MultiPoint' === x && _++;
                   }
                   'LineString' === x && _++;
@@ -460,7 +460,7 @@
                 case 'MultiLineString':
                   for (o = 0; o < l.length; o++) {
                     for (i = 0; i < l[o].length - p; i++) {
-                      if (!1 === t(l[o][i], d, g, _, j)) return !1;
+                      if (!1 === t(l[o][i], d, b, _, j)) return !1;
                       d++;
                     }
                     'MultiLineString' === x && _++, 'Polygon' === x && j++;
@@ -471,7 +471,7 @@
                   for (o = 0; o < l.length; o++) {
                     for ('MultiPolygon' === x && (j = 0), i = 0; i < l[o].length; i++) {
                       for (s = 0; s < l[o][i].length - p; s++) {
-                        if (!1 === t(l[o][i][s], d, g, _, j)) return !1;
+                        if (!1 === t(l[o][i][s], d, b, _, j)) return !1;
                         d++;
                       }
                       j++;
@@ -642,8 +642,8 @@
       m = r(88),
       y = { imports: { numberFormat: h.numberFormat }, interpolate: /{{([\s\S]+?)}}/g },
       v = (0, i.default)(m.controlTemplate, y),
-      g = (0, i.default)(m.resultsTemplate, y),
-      b = (0, i.default)(m.pointPopupTemplate, y),
+      b = (0, i.default)(m.resultsTemplate, y),
+      g = (0, i.default)(m.pointPopupTemplate, y),
       _ = (0, i.default)(m.linePopupTemplate, y),
       j = (0, i.default)(m.areaPopupTemplate, y);
     (L.Control.Measure = L.Control.extend({
@@ -851,7 +851,7 @@
           t = (this._resultsModel = L.extend({}, e, this._getMeasurementDisplayStrings(e), {
             pointCount: this._latlngs.length
           }));
-        this.$results.innerHTML = g({ model: t });
+        this.$results.innerHTML = b({ model: t });
       },
       _handleMeasureMove: function(e) {
         this._measureDrag
@@ -871,7 +871,7 @@
           var n = (0, l.default)(e);
           1 === e.length
             ? ((t = L.circleMarker(e[0], this._symbols.getSymbol('resultPoint'))),
-              (r = b({ model: n })))
+              (r = g({ model: n })))
             : 2 === e.length
             ? ((t = L.polyline(e, this._symbols.getSymbol('resultLine'))),
               (r = _({ model: L.extend({}, n, this._getMeasurementDisplayStrings(n)) })))
@@ -1011,9 +1011,9 @@
         (S += "';\n");
       var T = M.call(t, 'variable') && t.variable;
       if (T) {
-        if (b.test(T)) throw new Error(m);
+        if (g.test(T)) throw new Error(m);
       } else S = 'with (obj) {\n' + S + '\n}\n';
-      (S = (O ? S.replace(y, '') : S).replace(v, '$1').replace(g, '$1;')),
+      (S = (O ? S.replace(y, '') : S).replace(v, '$1').replace(b, '$1;')),
         (S =
           'function(' +
           (T || 'obj') +
@@ -1046,8 +1046,8 @@
       m = 'Invalid `variable` option passed into `_.template`',
       y = /\b__p \+= '';/g,
       v = /\b(__p \+=) '' \+/g,
-      g = /(__e\(.*?\)|\b__t\)) \+\n'';/g,
-      b = /[()=,{}\[\]\/\s]/,
+      b = /(__e\(.*?\)|\b__t\)) \+\n'';/g,
+      g = /[()=,{}\[\]\/\s]/,
       _ = /\$\{([^\\}]*(?:\\.[^\\}]*)*)\}/g,
       j = /($^)/,
       x = /['\n\r\u2028\u2029\\]/g,
@@ -1974,7 +1974,7 @@
   },
   function(e, t, r) {
     e.exports =
-      ' <span class=result-wrapper> <div class=startprompt> <div class="d-flex justify-content-between"> <div class="col leaflet-control-measure fw-500"> Zmeraná vzdialenosť (dĺžka) </div> </div> </div> <p>{{ model.lengthDisplay }}</p> <div class="js-finish mt-3 d-flex align-items-center justify-content-center"> <button class="js-deletemarkup btn btn-outline-secondary btn-sm d-flex align-items-center" type=button><i class="fa-sm fa-regular fa-trash-can pe-2"></i> Zmazať </button> </div> </span>';
+      ' <span class=result-wrapper> <div class=startprompt> <div class="d-flex justify-content-between"> <div class="col leaflet-control-measure fw-500"> Zmeraná vzdialenosť (dĺžka) </div> </div> </div> <p>{{ model.lengthDisplay }}</p> <div class="js-finish mt-3 d-flex align-items-center justify-content-center"> <button class="js-deletemarkup btn btn-outline-secondary btn-sm" type=button><i class="fa-sm fa-regular fa-trash-can pe-2"></i> Zmazať </button> </div> </span>';
   },
   function(e, t, r) {
     e.exports =

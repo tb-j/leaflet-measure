@@ -170,6 +170,12 @@ $button-icon-spacing: 4px;
     font-size: 20px !important;
     color: black !important;
     opacity: 0.5 !important;
+    display: -webkit-box !important;
+    display: -moz-box !important;
+    display: -ms-flexbox !important;
+    display: -webkit-flex !important;
+    display: flex !important;
+    align-items: center !important;
   }
   a.zoomto {
     @include button(focus);

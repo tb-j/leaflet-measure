@@ -427,12 +427,12 @@
             h = t.type,
             m = 'FeatureCollection' === h,
             y = 'Feature' === h,
-            g = m ? t.features.length : 1,
-            v = 0;
-          v < g;
-          v++
+            v = m ? t.features.length : 1,
+            g = 0;
+          g < v;
+          g++
         ) {
-          (c = m ? t.features[v].geometry : y ? t.geometry : t),
+          (c = m ? t.features[g].geometry : y ? t.geometry : t),
             (p = !!c && 'GeometryCollection' === c.type),
             (u = p ? c.geometries.length : 1);
           for (var b = 0; b < u; b++) {
@@ -445,13 +445,13 @@
                 case null:
                   break;
                 case 'Point':
-                  if (!1 === e(l, d, v, _, j)) return !1;
+                  if (!1 === e(l, d, g, _, j)) return !1;
                   d++, _++;
                   break;
                 case 'LineString':
                 case 'MultiPoint':
                   for (o = 0; o < l.length; o++) {
-                    if (!1 === e(l[o], d, v, _, j)) return !1;
+                    if (!1 === e(l[o], d, g, _, j)) return !1;
                     d++, 'MultiPoint' === x && _++;
                   }
                   'LineString' === x && _++;
@@ -460,7 +460,7 @@
                 case 'MultiLineString':
                   for (o = 0; o < l.length; o++) {
                     for (i = 0; i < l[o].length - f; i++) {
-                      if (!1 === e(l[o][i], d, v, _, j)) return !1;
+                      if (!1 === e(l[o][i], d, g, _, j)) return !1;
                       d++;
                     }
                     'MultiLineString' === x && _++, 'Polygon' === x && j++;
@@ -471,7 +471,7 @@
                   for (o = 0; o < l.length; o++) {
                     for ('MultiPolygon' === x && (j = 0), i = 0; i < l[o].length; i++) {
                       for (s = 0; s < l[o][i].length - f; s++) {
-                        if (!1 === e(l[o][i][s], d, v, _, j)) return !1;
+                        if (!1 === e(l[o][i][s], d, g, _, j)) return !1;
                         d++;
                       }
                       j++;
@@ -641,8 +641,8 @@
       h = r(87),
       m = r(88),
       y = { imports: { numberFormat: h.numberFormat }, interpolate: /{{([\s\S]+?)}}/g },
-      g = (0, i.default)(m.controlTemplate, y),
-      v = (0, i.default)(m.resultsTemplate, y),
+      v = (0, i.default)(m.controlTemplate, y),
+      g = (0, i.default)(m.resultsTemplate, y),
       b = (0, i.default)(m.pointPopupTemplate, y),
       _ = (0, i.default)(m.linePopupTemplate, y),
       j = (0, i.default)(m.areaPopupTemplate, y);
@@ -683,7 +683,7 @@
       _initLayout: function() {
         var t = this._className,
           e = (this._container = L.DomUtil.create('div', t + ' leaflet-bar'));
-        (e.innerHTML = g({ model: { className: t } })),
+        (e.innerHTML = v({ model: { className: t } })),
           e.setAttribute('aria-haspopup', !0),
           L.DomEvent.disableClickPropagation(e),
           L.DomEvent.disableScrollPropagation(e);
@@ -851,7 +851,7 @@
           e = (this._resultsModel = L.extend({}, t, this._getMeasurementDisplayStrings(t), {
             pointCount: this._latlngs.length
           }));
-        this.$results.innerHTML = v({ model: e });
+        this.$results.innerHTML = g({ model: e });
       },
       _handleMeasureMove: function(t) {
         this._measureDrag
@@ -1013,7 +1013,7 @@
       if (T) {
         if (b.test(T)) throw new Error(m);
       } else S = 'with (obj) {\n' + S + '\n}\n';
-      (S = (k ? S.replace(y, '') : S).replace(g, '$1').replace(v, '$1;')),
+      (S = (k ? S.replace(y, '') : S).replace(v, '$1').replace(g, '$1;')),
         (S =
           'function(' +
           (T || 'obj') +
@@ -1045,8 +1045,8 @@
       h = r(26),
       m = 'Invalid `variable` option passed into `_.template`',
       y = /\b__p \+= '';/g,
-      g = /\b(__p \+=) '' \+/g,
-      v = /(__e\(.*?\)|\b__t\)) \+\n'';/g,
+      v = /\b(__p \+=) '' \+/g,
+      g = /(__e\(.*?\)|\b__t\)) \+\n'';/g,
       b = /[()=,{}\[\]\/\s]/,
       _ = /\$\{([^\\}]*(?:\\.[^\\}]*)*)\}/g,
       j = /($^)/,
@@ -1974,7 +1974,7 @@
   },
   function(t, e, r) {
     t.exports =
-      ' <span class=result-wrapper> <div class=startprompt> <div class="d-flex justify-content-between"> <div class="col leaflet-control-measure fw-500"> Pagsukat ng guhit </div> </div> </div> <p>{{ model.lengthDisplay }}</p> <div class="js-finish mt-3 d-flex align-items-center justify-content-center"> <button class="js-deletemarkup btn btn-outline-secondary btn-sm d-flex align-items-center" type=button><i class="fa-sm fa-regular fa-trash-can pe-2"></i> Tanggalin </button> </div> </span>';
+      ' <span class=result-wrapper> <div class=startprompt> <div class="d-flex justify-content-between"> <div class="col leaflet-control-measure fw-500"> Pagsukat ng guhit </div> </div> </div> <p>{{ model.lengthDisplay }}</p> <div class="js-finish mt-3 d-flex align-items-center justify-content-center"> <button class="js-deletemarkup btn btn-outline-secondary btn-sm" type=button><i class="fa-sm fa-regular fa-trash-can pe-2"></i> Tanggalin </button> </div> </span>';
   },
   function(t, e, r) {
     t.exports =
