@@ -1,22 +1,20 @@
-<div class="d-flex">
-  <div>${ __('lastPoint') }</div>
-  <div>{{ model.lastCoord.dms.y }} <span class="coorddivider">/</span> {{ model.lastCoord.dms.x }}</div>
-  <div>{{ numberFormat(model.lastCoord.dd.y, 6) }} <span class="coorddivider">/</span> {{ numberFormat(model.lastCoord.dd.x, 6) }}</div>
+<div>
+  <p class="mt-3">${ __('lastPoint') }</p>
+  <p class="m-0">{{ model.lastCoord.dms.y }} <span class="coorddivider">/</span> {{ model.lastCoord.dms.x }}</p>
+  <p class="m-0">{{ numberFormat(model.lastCoord.dd.y, 6) }} <span class="coorddivider">/</span> {{
+    numberFormat(model.lastCoord.dd.x, 6) }}</p>
+
+  <% if (model.pointCount> 1) { %>
+    <p class="mt-3">
+      ${ __('pathDistance') }:
+    </p>
+    <p class="mt-0">
+      {{ model.lengthDisplay }}
+    </p>
+    <% } %>
+      <% if (model.pointCount> 2) { %>
+        <p class="mt-3">${ __('area') }</p>
+        <p class="m-0"> {{ model.areaDisplay }}</p>
+          <% } %>
+        </div>
 </div>
-<!-- 
-<div class="group">
-  <p class="lastpoint heading">${ __('lastPoint') }</p>
-  <p>{{ model.lastCoord.dms.y }} <span class="coorddivider">/</span> {{ model.lastCoord.dms.x }}</p>
-  <p>{{ numberFormat(model.lastCoord.dd.y, 6) }} <span class="coorddivider">/</span> {{ numberFormat(model.lastCoord.dd.x, 6) }}</p>
-</div>
-<% if (model.pointCount > 1) { %>
-<div class="group">
-  <p><span class="heading">${ __('pathDistance') }</span> {{ model.lengthDisplay }}</p>
-</div>
-<% } %>
-<% if (model.pointCount > 2) { %>
-<div class="group">
-  <p><span class="heading">${ __('area') }</span> {{ model.areaDisplay }}</p>
-</div>
-<% } %> 
--->

@@ -1,35 +1,35 @@
-!(function(e) {
-  function t(n) {
+!(function(t) {
+  function e(n) {
     if (r[n]) return r[n].exports;
     var o = (r[n] = { i: n, l: !1, exports: {} });
-    return e[n].call(o.exports, o, o.exports, t), (o.l = !0), o.exports;
+    return t[n].call(o.exports, o, o.exports, e), (o.l = !0), o.exports;
   }
   var r = {};
-  (t.m = e),
-    (t.c = r),
-    (t.d = function(e, r, n) {
-      t.o(e, r) || Object.defineProperty(e, r, { configurable: !1, enumerable: !0, get: n });
+  (e.m = t),
+    (e.c = r),
+    (e.d = function(t, r, n) {
+      e.o(t, r) || Object.defineProperty(t, r, { configurable: !1, enumerable: !0, get: n });
     }),
-    (t.n = function(e) {
+    (e.n = function(t) {
       var r =
-        e && e.__esModule
+        t && t.__esModule
           ? function() {
-              return e.default;
+              return t.default;
             }
           : function() {
-              return e;
+              return t;
             };
-      return t.d(r, 'a', r), r;
+      return e.d(r, 'a', r), r;
     }),
-    (t.o = function(e, t) {
-      return Object.prototype.hasOwnProperty.call(e, t);
+    (e.o = function(t, e) {
+      return Object.prototype.hasOwnProperty.call(t, e);
     }),
-    (t.p = '/dist/'),
-    t((t.s = 28));
+    (e.p = '/dist/'),
+    e((e.s = 28));
 })([
-  function(e, t, r) {
-    function n(e) {
-      return null == e ? (void 0 === e ? u : s) : l && l in Object(e) ? i(e) : a(e);
+  function(t, e, r) {
+    function n(t) {
+      return null == t ? (void 0 === t ? u : s) : l && l in Object(t) ? i(t) : a(t);
     }
     var o = r(4),
       i = r(38),
@@ -37,44 +37,44 @@
       s = '[object Null]',
       u = '[object Undefined]',
       l = o ? o.toStringTag : void 0;
-    e.exports = n;
+    t.exports = n;
   },
-  function(e, t) {
-    function r(e) {
-      return null != e && 'object' == typeof e;
+  function(t, e) {
+    function r(t) {
+      return null != t && 'object' == typeof t;
     }
-    e.exports = r;
+    t.exports = r;
   },
-  function(e, t) {
-    function r(e) {
-      var t = typeof e;
-      return null != e && ('object' == t || 'function' == t);
+  function(t, e) {
+    function r(t) {
+      var e = typeof t;
+      return null != t && ('object' == e || 'function' == e);
     }
-    e.exports = r;
+    t.exports = r;
   },
-  function(e, t, r) {
+  function(t, e, r) {
     'use strict';
-    function n(e, t, r) {
-      if (((r = r || {}), !h(r))) throw new Error('options is invalid');
+    function n(t, e, r) {
+      if (((r = r || {}), !d(r))) throw new Error('options is invalid');
       var n = r.bbox,
         o = r.id;
-      if (void 0 === e) throw new Error('geometry is required');
-      if (t && t.constructor !== Object) throw new Error('properties must be an Object');
-      n && d(n), o && m(o);
+      if (void 0 === t) throw new Error('geometry is required');
+      if (e && e.constructor !== Object) throw new Error('properties must be an Object');
+      n && h(n), o && m(o);
       var i = { type: 'Feature' };
-      return o && (i.id = o), n && (i.bbox = n), (i.properties = t || {}), (i.geometry = e), i;
+      return o && (i.id = o), n && (i.bbox = n), (i.properties = e || {}), (i.geometry = t), i;
     }
-    function o(e, t, r) {
-      if (!e) throw new Error('coordinates is required');
-      if (!Array.isArray(e)) throw new Error('coordinates must be an Array');
-      if (e.length < 2) throw new Error('coordinates must be at least 2 numbers long');
-      if (!p(e[0]) || !p(e[1])) throw new Error('coordinates must contain numbers');
-      return n({ type: 'Point', coordinates: e }, t, r);
+    function o(t, e, r) {
+      if (!t) throw new Error('coordinates is required');
+      if (!Array.isArray(t)) throw new Error('coordinates must be an Array');
+      if (t.length < 2) throw new Error('coordinates must be at least 2 numbers long');
+      if (!p(t[0]) || !p(t[1])) throw new Error('coordinates must contain numbers');
+      return n({ type: 'Point', coordinates: t }, e, r);
     }
-    function i(e, t, r) {
-      if (!e) throw new Error('coordinates is required');
-      for (var o = 0; o < e.length; o++) {
-        var i = e[o];
+    function i(t, e, r) {
+      if (!t) throw new Error('coordinates is required');
+      for (var o = 0; o < t.length; o++) {
+        var i = t[o];
         if (i.length < 4)
           throw new Error('Each LinearRing of a Polygon must have 4 or more Positions.');
         for (var a = 0; a < i[i.length - 1].length; a++) {
@@ -84,77 +84,77 @@
             throw new Error('First and last Position are not equivalent.');
         }
       }
-      return n({ type: 'Polygon', coordinates: e }, t, r);
+      return n({ type: 'Polygon', coordinates: t }, e, r);
     }
-    function a(e, t, r) {
-      if (!e) throw new Error('coordinates is required');
-      if (e.length < 2) throw new Error('coordinates must be an array of two or more positions');
-      if (!p(e[0][1]) || !p(e[0][1])) throw new Error('coordinates must contain numbers');
-      return n({ type: 'LineString', coordinates: e }, t, r);
+    function a(t, e, r) {
+      if (!t) throw new Error('coordinates is required');
+      if (t.length < 2) throw new Error('coordinates must be an array of two or more positions');
+      if (!p(t[0][1]) || !p(t[0][1])) throw new Error('coordinates must contain numbers');
+      return n({ type: 'LineString', coordinates: t }, e, r);
     }
-    function s(e, t, r) {
-      if (!e) throw new Error('coordinates is required');
-      return n({ type: 'MultiLineString', coordinates: e }, t, r);
+    function s(t, e, r) {
+      if (!t) throw new Error('coordinates is required');
+      return n({ type: 'MultiLineString', coordinates: t }, e, r);
     }
-    function u(e, t, r) {
-      if (!e) throw new Error('coordinates is required');
-      return n({ type: 'MultiPoint', coordinates: e }, t, r);
+    function u(t, e, r) {
+      if (!t) throw new Error('coordinates is required');
+      return n({ type: 'MultiPoint', coordinates: t }, e, r);
     }
-    function l(e, t, r) {
-      if (!e) throw new Error('coordinates is required');
-      return n({ type: 'MultiPolygon', coordinates: e }, t, r);
+    function l(t, e, r) {
+      if (!t) throw new Error('coordinates is required');
+      return n({ type: 'MultiPolygon', coordinates: t }, e, r);
     }
-    function c(e, t) {
-      if (void 0 === e || null === e) throw new Error('radians is required');
-      if (t && 'string' != typeof t) throw new Error('units must be a string');
-      var r = y[t || 'kilometers'];
-      if (!r) throw new Error(t + ' units is invalid');
-      return e * r;
+    function c(t, e) {
+      if (void 0 === t || null === t) throw new Error('radians is required');
+      if (e && 'string' != typeof e) throw new Error('units must be a string');
+      var r = y[e || 'kilometers'];
+      if (!r) throw new Error(e + ' units is invalid');
+      return t * r;
     }
-    function f(e) {
-      if (null === e || void 0 === e) throw new Error('degrees is required');
-      return ((e % 360) * Math.PI) / 180;
+    function f(t) {
+      if (null === t || void 0 === t) throw new Error('degrees is required');
+      return ((t % 360) * Math.PI) / 180;
     }
-    function p(e) {
-      return !isNaN(e) && null !== e && !Array.isArray(e);
+    function p(t) {
+      return !isNaN(t) && null !== t && !Array.isArray(t);
     }
-    function h(e) {
-      return !!e && e.constructor === Object;
+    function d(t) {
+      return !!t && t.constructor === Object;
     }
-    function d(e) {
-      if (!e) throw new Error('bbox is required');
-      if (!Array.isArray(e)) throw new Error('bbox must be an Array');
-      if (4 !== e.length && 6 !== e.length)
+    function h(t) {
+      if (!t) throw new Error('bbox is required');
+      if (!Array.isArray(t)) throw new Error('bbox must be an Array');
+      if (4 !== t.length && 6 !== t.length)
         throw new Error('bbox must be an Array of 4 or 6 numbers');
-      e.forEach(function(e) {
-        if (!p(e)) throw new Error('bbox must only contain numbers');
+      t.forEach(function(t) {
+        if (!p(t)) throw new Error('bbox must only contain numbers');
       });
     }
-    function m(e) {
-      if (!e) throw new Error('id is required');
-      if (-1 === ['string', 'number'].indexOf(typeof e))
+    function m(t) {
+      if (!t) throw new Error('id is required');
+      if (-1 === ['string', 'number'].indexOf(typeof t))
         throw new Error('id must be a number or a string');
     }
-    r.d(t, 'b', function() {
+    r.d(e, 'b', function() {
       return n;
     }),
-      r.d(t, 'f', function() {
+      r.d(e, 'f', function() {
         return o;
       }),
-      r.d(t, 'e', function() {
+      r.d(e, 'e', function() {
         return a;
       }),
-      r.d(t, 'g', function() {
+      r.d(e, 'g', function() {
         return c;
       }),
-      r.d(t, 'a', function() {
+      r.d(e, 'a', function() {
         return f;
       }),
-      r.d(t, 'c', function() {
+      r.d(e, 'c', function() {
         return p;
       }),
-      r.d(t, 'd', function() {
-        return h;
+      r.d(e, 'd', function() {
+        return d;
       });
     var y = {
       meters: 6371008.8,
@@ -174,55 +174,55 @@
       degrees: 6371008.8 / 111325
     };
   },
-  function(e, t, r) {
+  function(t, e, r) {
     var n = r(5),
       o = n.Symbol;
-    e.exports = o;
+    t.exports = o;
   },
-  function(e, t, r) {
+  function(t, e, r) {
     var n = r(11),
       o = 'object' == typeof self && self && self.Object === Object && self,
       i = n || o || Function('return this')();
-    e.exports = i;
+    t.exports = i;
   },
-  function(e, t) {
-    function r(e, t) {
-      return e === t || (e !== e && t !== t);
+  function(t, e) {
+    function r(t, e) {
+      return t === e || (t !== t && e !== e);
     }
-    e.exports = r;
+    t.exports = r;
   },
-  function(e, t, r) {
-    function n(e) {
-      return null != e && i(e.length) && !o(e);
+  function(t, e, r) {
+    function n(t) {
+      return null != t && i(t.length) && !o(t);
     }
     var o = r(10),
       i = r(16);
-    e.exports = n;
+    t.exports = n;
   },
-  function(e, t, r) {
-    function n(e, t, r) {
-      '__proto__' == t && o
-        ? o(e, t, { configurable: !0, enumerable: !0, value: r, writable: !0 })
-        : (e[t] = r);
+  function(t, e, r) {
+    function n(t, e, r) {
+      '__proto__' == e && o
+        ? o(t, e, { configurable: !0, enumerable: !0, value: r, writable: !0 })
+        : (t[e] = r);
     }
     var o = r(9);
-    e.exports = n;
+    t.exports = n;
   },
-  function(e, t, r) {
+  function(t, e, r) {
     var n = r(35),
       o = (function() {
         try {
-          var e = n(Object, 'defineProperty');
-          return e({}, '', {}), e;
-        } catch (e) {}
+          var t = n(Object, 'defineProperty');
+          return t({}, '', {}), t;
+        } catch (t) {}
       })();
-    e.exports = o;
+    t.exports = o;
   },
-  function(e, t, r) {
-    function n(e) {
-      if (!i(e)) return !1;
-      var t = o(e);
-      return t == s || t == u || t == a || t == l;
+  function(t, e, r) {
+    function n(t) {
+      if (!i(t)) return !1;
+      var e = o(t);
+      return e == s || e == u || e == a || e == l;
     }
     var o = r(0),
       i = r(2),
@@ -230,97 +230,97 @@
       s = '[object Function]',
       u = '[object GeneratorFunction]',
       l = '[object Proxy]';
-    e.exports = n;
+    t.exports = n;
   },
-  function(e, t, r) {
-    (function(t) {
-      var r = 'object' == typeof t && t && t.Object === Object && t;
-      e.exports = r;
-    }.call(t, r(37)));
+  function(t, e, r) {
+    (function(e) {
+      var r = 'object' == typeof e && e && e.Object === Object && e;
+      t.exports = r;
+    }.call(e, r(37)));
   },
-  function(e, t, r) {
-    function n(e, t) {
-      return a(i(e, t, o), e + '');
+  function(t, e, r) {
+    function n(t, e) {
+      return a(i(t, e, o), t + '');
     }
     var o = r(13),
       i = r(45),
       a = r(46);
-    e.exports = n;
+    t.exports = n;
   },
-  function(e, t) {
-    function r(e) {
-      return e;
+  function(t, e) {
+    function r(t) {
+      return t;
     }
-    e.exports = r;
+    t.exports = r;
   },
-  function(e, t) {
-    function r(e, t, r) {
+  function(t, e) {
+    function r(t, e, r) {
       switch (r.length) {
         case 0:
-          return e.call(t);
+          return t.call(e);
         case 1:
-          return e.call(t, r[0]);
+          return t.call(e, r[0]);
         case 2:
-          return e.call(t, r[0], r[1]);
+          return t.call(e, r[0], r[1]);
         case 3:
-          return e.call(t, r[0], r[1], r[2]);
+          return t.call(e, r[0], r[1], r[2]);
       }
-      return e.apply(t, r);
+      return t.apply(e, r);
     }
-    e.exports = r;
+    t.exports = r;
   },
-  function(e, t, r) {
-    function n(e, t, r) {
+  function(t, e, r) {
+    function n(t, e, r) {
       if (!s(r)) return !1;
-      var n = typeof t;
-      return !!('number' == n ? i(r) && a(t, r.length) : 'string' == n && t in r) && o(r[t], e);
+      var n = typeof e;
+      return !!('number' == n ? i(r) && a(e, r.length) : 'string' == n && e in r) && o(r[e], t);
     }
     var o = r(6),
       i = r(7),
       a = r(17),
       s = r(2);
-    e.exports = n;
+    t.exports = n;
   },
-  function(e, t) {
-    function r(e) {
-      return 'number' == typeof e && e > -1 && e % 1 == 0 && e <= n;
+  function(t, e) {
+    function r(t) {
+      return 'number' == typeof t && t > -1 && t % 1 == 0 && t <= n;
     }
     var n = 9007199254740991;
-    e.exports = r;
+    t.exports = r;
   },
-  function(e, t) {
-    function r(e, t) {
-      var r = typeof e;
+  function(t, e) {
+    function r(t, e) {
+      var r = typeof t;
       return (
-        !!(t = null == t ? n : t) &&
-        ('number' == r || ('symbol' != r && o.test(e))) &&
-        e > -1 &&
-        e % 1 == 0 &&
-        e < t
+        !!(e = null == e ? n : e) &&
+        ('number' == r || ('symbol' != r && o.test(t))) &&
+        t > -1 &&
+        t % 1 == 0 &&
+        t < e
       );
     }
     var n = 9007199254740991,
       o = /^(?:0|[1-9]\d*)$/;
-    e.exports = r;
+    t.exports = r;
   },
-  function(e, t, r) {
-    function n(e, t) {
-      var r = a(e),
-        n = !r && i(e),
-        c = !r && !n && s(e),
-        p = !r && !n && !c && l(e),
-        h = r || n || c || p,
-        d = h ? o(e.length, String) : [],
-        m = d.length;
-      for (var y in e)
-        (!t && !f.call(e, y)) ||
-          (h &&
+  function(t, e, r) {
+    function n(t, e) {
+      var r = a(t),
+        n = !r && i(t),
+        c = !r && !n && s(t),
+        p = !r && !n && !c && l(t),
+        d = r || n || c || p,
+        h = d ? o(t.length, String) : [],
+        m = h.length;
+      for (var y in t)
+        (!e && !f.call(t, y)) ||
+          (d &&
             ('length' == y ||
               (c && ('offset' == y || 'parent' == y)) ||
               (p && ('buffer' == y || 'byteLength' == y || 'byteOffset' == y)) ||
               u(y, m))) ||
-          d.push(y);
-      return d;
+          h.push(y);
+      return h;
     }
     var o = r(51),
       i = r(52),
@@ -330,50 +330,50 @@
       l = r(56),
       c = Object.prototype,
       f = c.hasOwnProperty;
-    e.exports = n;
+    t.exports = n;
   },
-  function(e, t) {
+  function(t, e) {
     var r = Array.isArray;
-    e.exports = r;
+    t.exports = r;
   },
-  function(e, t) {
-    e.exports = function(e) {
+  function(t, e) {
+    t.exports = function(t) {
       return (
-        e.webpackPolyfill ||
-          ((e.deprecate = function() {}),
-          (e.paths = []),
-          e.children || (e.children = []),
-          Object.defineProperty(e, 'loaded', {
+        t.webpackPolyfill ||
+          ((t.deprecate = function() {}),
+          (t.paths = []),
+          t.children || (t.children = []),
+          Object.defineProperty(t, 'loaded', {
             enumerable: !0,
             get: function() {
-              return e.l;
+              return t.l;
             }
           }),
-          Object.defineProperty(e, 'id', {
+          Object.defineProperty(t, 'id', {
             enumerable: !0,
             get: function() {
-              return e.i;
+              return t.i;
             }
           }),
-          (e.webpackPolyfill = 1)),
-        e
+          (t.webpackPolyfill = 1)),
+        t
       );
     };
   },
-  function(e, t) {
-    function r(e) {
-      var t = e && e.constructor;
-      return e === (('function' == typeof t && t.prototype) || n);
+  function(t, e) {
+    function r(t) {
+      var e = t && t.constructor;
+      return t === (('function' == typeof e && e.prototype) || n);
     }
     var n = Object.prototype;
-    e.exports = r;
+    t.exports = r;
   },
-  function(e, t, r) {
-    function n(e) {
-      if (!i(e)) return !1;
-      var t = o(e);
+  function(t, e, r) {
+    function n(t) {
+      if (!i(t)) return !1;
+      var e = o(t);
       return (
-        t == u || t == s || ('string' == typeof e.message && 'string' == typeof e.name && !a(e))
+        e == u || e == s || ('string' == typeof t.message && 'string' == typeof t.name && !a(t))
       );
     }
     var o = r(0),
@@ -381,38 +381,38 @@
       a = r(63),
       s = '[object DOMException]',
       u = '[object Error]';
-    e.exports = n;
+    t.exports = n;
   },
-  function(e, t) {
-    function r(e, t) {
+  function(t, e) {
+    function r(t, e) {
       return function(r) {
-        return e(t(r));
+        return t(e(r));
       };
     }
-    e.exports = r;
+    t.exports = r;
   },
-  function(e, t) {
-    function r(e, t) {
-      for (var r = -1, n = null == e ? 0 : e.length, o = Array(n); ++r < n; ) o[r] = t(e[r], r, e);
+  function(t, e) {
+    function r(t, e) {
+      for (var r = -1, n = null == t ? 0 : t.length, o = Array(n); ++r < n; ) o[r] = e(t[r], r, t);
       return o;
     }
-    e.exports = r;
+    t.exports = r;
   },
-  function(e, t) {
+  function(t, e) {
     var r = /<%=([\s\S]+?)%>/g;
-    e.exports = r;
+    t.exports = r;
   },
-  function(e, t, r) {
-    function n(e) {
-      return null == e ? '' : o(e);
+  function(t, e, r) {
+    function n(t) {
+      return null == t ? '' : o(t);
     }
     var o = r(75);
-    e.exports = n;
+    t.exports = n;
   },
-  function(e, t, r) {
+  function(t, e, r) {
     'use strict';
-    function n(e, t, r) {
-      if (null !== e)
+    function n(t, e, r) {
+      if (null !== t)
         for (
           var o,
             i,
@@ -423,16 +423,16 @@
             c,
             f,
             p = 0,
-            h = 0,
-            d = e.type,
-            m = 'FeatureCollection' === d,
-            y = 'Feature' === d,
-            g = m ? e.features.length : 1,
+            d = 0,
+            h = t.type,
+            m = 'FeatureCollection' === h,
+            y = 'Feature' === h,
+            g = m ? t.features.length : 1,
             v = 0;
           v < g;
           v++
         ) {
-          (c = m ? e.features[v].geometry : y ? e.geometry : e),
+          (c = m ? t.features[v].geometry : y ? t.geometry : t),
             (f = !!c && 'GeometryCollection' === c.type),
             (u = f ? c.geometries.length : 1);
           for (var b = 0; b < u; b++) {
@@ -445,14 +445,14 @@
                 case null:
                   break;
                 case 'Point':
-                  if (!1 === t(l, h, v, _, j)) return !1;
-                  h++, _++;
+                  if (!1 === e(l, d, v, _, j)) return !1;
+                  d++, _++;
                   break;
                 case 'LineString':
                 case 'MultiPoint':
                   for (o = 0; o < l.length; o++) {
-                    if (!1 === t(l[o], h, v, _, j)) return !1;
-                    h++, 'MultiPoint' === x && _++;
+                    if (!1 === e(l[o], d, v, _, j)) return !1;
+                    d++, 'MultiPoint' === x && _++;
                   }
                   'LineString' === x && _++;
                   break;
@@ -460,8 +460,8 @@
                 case 'MultiLineString':
                   for (o = 0; o < l.length; o++) {
                     for (i = 0; i < l[o].length - p; i++) {
-                      if (!1 === t(l[o][i], h, v, _, j)) return !1;
-                      h++;
+                      if (!1 === e(l[o][i], d, v, _, j)) return !1;
+                      d++;
                     }
                     'MultiLineString' === x && _++, 'Polygon' === x && j++;
                   }
@@ -471,8 +471,8 @@
                   for (o = 0; o < l.length; o++) {
                     for ('MultiPolygon' === x && (j = 0), i = 0; i < l[o].length; i++) {
                       for (a = 0; a < l[o][i].length - p; a++) {
-                        if (!1 === t(l[o][i][a], h, v, _, j)) return !1;
-                        h++;
+                        if (!1 === e(l[o][i][a], d, v, _, j)) return !1;
+                        d++;
                       }
                       j++;
                     }
@@ -481,7 +481,7 @@
                   break;
                 case 'GeometryCollection':
                   for (o = 0; o < s.geometries.length; o++)
-                    if (!1 === n(s.geometries[o], t, r)) return !1;
+                    if (!1 === n(s.geometries[o], e, r)) return !1;
                   break;
                 default:
                   throw new Error('Unknown Geometry Type');
@@ -490,7 +490,7 @@
           }
         }
     }
-    function o(e, t) {
+    function o(t, e) {
       var r,
         n,
         o,
@@ -502,15 +502,15 @@
         c,
         f,
         p = 0,
-        h = 'FeatureCollection' === e.type,
-        d = 'Feature' === e.type,
-        m = h ? e.features.length : 1;
+        d = 'FeatureCollection' === t.type,
+        h = 'Feature' === t.type,
+        m = d ? t.features.length : 1;
       for (r = 0; r < m; r++) {
         for (
-          s = h ? e.features[r].geometry : d ? e.geometry : e,
-            l = h ? e.features[r].properties : d ? e.properties : {},
-            c = h ? e.features[r].bbox : d ? e.bbox : void 0,
-            f = h ? e.features[r].id : d ? e.id : void 0,
+          s = d ? t.features[r].geometry : h ? t.geometry : t,
+            l = d ? t.features[r].properties : h ? t.properties : {},
+            c = d ? t.features[r].bbox : h ? t.bbox : void 0,
+            f = d ? t.features[r].id : h ? t.id : void 0,
             u = !!s && 'GeometryCollection' === s.type,
             a = u ? s.geometries.length : 1,
             o = 0;
@@ -525,37 +525,37 @@
               case 'Polygon':
               case 'MultiLineString':
               case 'MultiPolygon':
-                if (!1 === t(i, p, l, c, f)) return !1;
+                if (!1 === e(i, p, l, c, f)) return !1;
                 break;
               case 'GeometryCollection':
                 for (n = 0; n < i.geometries.length; n++)
-                  if (!1 === t(i.geometries[n], p, l, c, f)) return !1;
+                  if (!1 === e(i.geometries[n], p, l, c, f)) return !1;
                 break;
               default:
                 throw new Error('Unknown Geometry Type');
             }
-          else if (!1 === t(null, p, l, c, f)) return !1;
+          else if (!1 === e(null, p, l, c, f)) return !1;
         p++;
       }
     }
-    function i(e, t, r) {
+    function i(t, e, r) {
       var n = r;
       return (
-        o(e, function(e, o, i, a, s) {
-          n = 0 === o && void 0 === r ? e : t(n, e, o, i, a, s);
+        o(t, function(t, o, i, a, s) {
+          n = 0 === o && void 0 === r ? t : e(n, t, o, i, a, s);
         }),
         n
       );
     }
-    function a(e, t) {
-      o(e, function(e, r, n, o, i) {
-        var a = null === e ? null : e.type;
+    function a(t, e) {
+      o(t, function(t, r, n, o, i) {
+        var a = null === t ? null : t.type;
         switch (a) {
           case null:
           case 'Point':
           case 'LineString':
           case 'Polygon':
-            if (!1 === t(Object(l.b)(e, n, { bbox: o, id: i }), r, 0)) return !1;
+            if (!1 === e(Object(l.b)(t, n, { bbox: o, id: i }), r, 0)) return !1;
             return;
         }
         var s;
@@ -569,26 +569,26 @@
           case 'MultiPolygon':
             s = 'Polygon';
         }
-        for (var u = 0; u < e.coordinates.length; u++) {
-          var c = e.coordinates[u],
+        for (var u = 0; u < t.coordinates.length; u++) {
+          var c = t.coordinates[u],
             f = { type: s, coordinates: c };
-          if (!1 === t(Object(l.b)(f, n), r, u)) return !1;
+          if (!1 === e(Object(l.b)(f, n), r, u)) return !1;
         }
       });
     }
-    function s(e, t) {
-      a(e, function(e, r, o) {
+    function s(t, e) {
+      a(t, function(t, r, o) {
         var i = 0;
-        if (e.geometry) {
-          var a = e.geometry.type;
+        if (t.geometry) {
+          var a = t.geometry.type;
           if ('Point' !== a && 'MultiPoint' !== a) {
             var s;
             return (
               !1 !==
-                n(e, function(n, a, u, c, f) {
+                n(t, function(n, a, u, c, f) {
                   if (void 0 === s) return void (s = n);
-                  var p = Object(l.e)([s, n], e.properties);
-                  if (!1 === t(p, r, o, f, i)) return !1;
+                  var p = Object(l.e)([s, n], t.properties);
+                  if (!1 === e(p, r, o, f, i)) return !1;
                   i++, (s = n);
                 }) && void 0
             );
@@ -596,31 +596,31 @@
         }
       });
     }
-    function u(e, t, r) {
+    function u(t, e, r) {
       var n = r,
         o = !1;
       return (
-        s(e, function(e, i, a, s, u) {
-          (n = !1 === o && void 0 === r ? e : t(n, e, i, a, s, u)), (o = !0);
+        s(t, function(t, i, a, s, u) {
+          (n = !1 === o && void 0 === r ? t : e(n, t, i, a, s, u)), (o = !0);
         }),
         n
       );
     }
-    r.d(t, 'a', function() {
+    r.d(e, 'a', function() {
       return i;
     }),
-      r.d(t, 'b', function() {
+      r.d(e, 'b', function() {
         return u;
       });
     var l = r(3);
   },
-  function(e, t, r) {
-    e.exports = r(29);
+  function(t, e, r) {
+    t.exports = r(29);
   },
-  function(e, t, r) {
+  function(t, e, r) {
     'use strict';
-    function n(e) {
-      return e && e.__esModule ? e : { default: e };
+    function n(t) {
+      return t && t.__esModule ? t : { default: t };
     }
     r(30);
     var o = r(31),
@@ -630,17 +630,17 @@
       u = r(80),
       l = n(u),
       c = r(85),
-      f = (function(e) {
-        if (e && e.__esModule) return e;
-        var t = {};
-        if (null != e) for (var r in e) Object.prototype.hasOwnProperty.call(e, r) && (t[r] = e[r]);
-        return (t.default = e), t;
+      f = (function(t) {
+        if (t && t.__esModule) return t;
+        var e = {};
+        if (null != t) for (var r in t) Object.prototype.hasOwnProperty.call(t, r) && (e[r] = t[r]);
+        return (e.default = t), e;
       })(c),
       p = r(86),
-      h = n(p),
-      d = r(87),
+      d = n(p),
+      h = r(87),
       m = r(88),
-      y = { imports: { numberFormat: d.numberFormat }, interpolate: /{{([\s\S]+?)}}/g },
+      y = { imports: { numberFormat: h.numberFormat }, interpolate: /{{([\s\S]+?)}}/g },
       g = (0, i.default)(m.controlTemplate, y),
       v = (0, i.default)(m.resultsTemplate, y),
       b = (0, i.default)(m.pointPopupTemplate, y),
@@ -659,49 +659,49 @@
         captureZIndex: 1e4,
         popupOptions: { className: 'leaflet-measure-resultpopup', autoPanPadding: [10, 10] }
       },
-      initialize: function(e) {
-        L.setOptions(this, e);
-        var t = this.options,
-          r = t.activeColor,
-          n = t.completedColor;
-        (this._symbols = new h.default({ activeColor: r, completedColor: n })),
+      initialize: function(t) {
+        L.setOptions(this, t);
+        var e = this.options,
+          r = e.activeColor,
+          n = e.completedColor;
+        (this._symbols = new d.default({ activeColor: r, completedColor: n })),
           (this.options.units = L.extend({}, s.default, this.options.units));
       },
-      onAdd: function(e) {
+      onAdd: function(t) {
         return (
-          (this._map = e),
+          (this._map = t),
           (this._latlngs = []),
           this._initLayout(),
-          e.on('click', this._collapse, this),
-          (this._layer = L.layerGroup().addTo(e)),
+          t.on('click', this._collapse, this),
+          (this._layer = L.layerGroup().addTo(t)),
           this._container
         );
       },
-      onRemove: function(e) {
-        e.off('click', this._collapse, this), e.removeLayer(this._layer);
+      onRemove: function(t) {
+        t.off('click', this._collapse, this), t.removeLayer(this._layer);
       },
       _initLayout: function() {
-        var e = this._className,
-          t = (this._container = L.DomUtil.create('div', e + ' leaflet-bar'));
-        (t.innerHTML = g({ model: { className: e } })),
-          t.setAttribute('aria-haspopup', !0),
-          L.DomEvent.disableClickPropagation(t),
-          L.DomEvent.disableScrollPropagation(t);
-        var r = (this.$toggle = (0, c.selectOne)('.js-toggle', t));
-        this.$interaction = (0, c.selectOne)('.js-interaction', t);
-        var n = (0, c.selectOne)('.js-start', t),
-          o = (0, c.selectOne)('.js-cancel', t),
-          i = (0, c.selectOne)('.js-finish', t);
-        (this.$startPrompt = (0, c.selectOne)('.js-startprompt', t)),
-          (this.$measuringPrompt = (0, c.selectOne)('.js-measuringprompt', t)),
-          (this.$startHelp = (0, c.selectOne)('.js-starthelp', t)),
-          (this.$results = (0, c.selectOne)('.js-results', t)),
-          (this.$measureTasks = (0, c.selectOne)('.js-measuretasks', t)),
+        var t = this._className,
+          e = (this._container = L.DomUtil.create('div', t + ' leaflet-bar'));
+        (e.innerHTML = g({ model: { className: t } })),
+          e.setAttribute('aria-haspopup', !0),
+          L.DomEvent.disableClickPropagation(e),
+          L.DomEvent.disableScrollPropagation(e);
+        var r = (this.$toggle = (0, c.selectOne)('.js-toggle', e));
+        this.$interaction = (0, c.selectOne)('.js-interaction', e);
+        var n = (0, c.selectOne)('.js-start', e),
+          o = (0, c.selectOne)('.js-cancel', e),
+          i = (0, c.selectOne)('.js-finish', e);
+        (this.$startPrompt = (0, c.selectOne)('.js-startprompt', e)),
+          (this.$measuringPrompt = (0, c.selectOne)('.js-measuringprompt', e)),
+          (this.$startHelp = (0, c.selectOne)('.js-starthelp', e)),
+          (this.$results = (0, c.selectOne)('.js-results', e)),
+          (this.$measureTasks = (0, c.selectOne)('.js-measuretasks', e)),
           this._collapse(),
           this._updateMeasureNotStarted(),
           L.Browser.android ||
-            (L.DomEvent.on(t, 'mouseenter', this._expand, this),
-            L.DomEvent.on(t, 'mouseleave', this._collapse, this)),
+            (L.DomEvent.on(e, 'mouseenter', this._expand, this),
+            L.DomEvent.on(e, 'mouseleave', this._collapse, this)),
           L.DomEvent.on(r, 'click', L.DomEvent.stop),
           L.Browser.touch
             ? L.DomEvent.on(r, 'click', this._expand, this)
@@ -763,7 +763,7 @@
           this._map.fire('measurestart', null, !1);
       },
       _finishMeasure: function() {
-        var e = L.extend({}, this._resultsModel, { points: this._latlngs });
+        var t = L.extend({}, this._resultsModel, { points: this._latlngs });
         (this._locked = !1),
           L.DomEvent.off(this._container, 'mouseover', this._handleMapMouseOut, this),
           this._clearMeasure(),
@@ -780,7 +780,7 @@
           (this._measureVertexes = null),
           this._updateMeasureNotStarted(),
           this._collapse(),
-          this._map.fire('measurefinish', e, !1);
+          this._map.fire('measurefinish', t, !1);
       },
       _clearMeasure: function() {
         (this._latlngs = []),
@@ -799,18 +799,18 @@
       _setCaptureMarkerIcon: function() {
         this._captureMarker.setIcon(L.divIcon({ iconSize: this._map.getSize().multiplyBy(2) }));
       },
-      _getMeasurementDisplayStrings: function(e) {
-        function t(e, t, o, i, a) {
-          if (t && n[t]) {
-            var s = r(e, n[t], i, a);
+      _getMeasurementDisplayStrings: function(t) {
+        function e(t, e, o, i, a) {
+          if (e && n[e]) {
+            var s = r(t, n[e], i, a);
             if (o && n[o]) {
-              s = s + ' (' + r(e, n[o], i, a) + ')';
+              s = s + ' (' + r(t, n[o], i, a) + ')';
             }
             return s;
           }
-          return r(e, null, i, a);
+          return r(t, null, i, a);
         }
-        function r(e, t, r, n) {
+        function r(t, e, r, n) {
           var o = {
               acres: 'Acres',
               feet: 'Talampakan',
@@ -822,23 +822,23 @@
               sqmeters: 'Metro Kwadrado',
               sqmiles: 'Milya Kwadrado'
             },
-            i = L.extend({ factor: 1, decimals: 0 }, t);
+            i = L.extend({ factor: 1, decimals: 0 }, e);
           return [
-            (0, d.numberFormat)(e * i.factor, i.decimals, r || '.', n || ','),
+            (0, h.numberFormat)(t * i.factor, i.decimals, r || '.', n || ','),
             o[i.display] || i.display
           ].join(' ');
         }
         var n = this.options.units;
         return {
-          lengthDisplay: t(
-            e.length,
+          lengthDisplay: e(
+            t.length,
             this.options.primaryLengthUnit,
             this.options.secondaryLengthUnit,
             this.options.decPoint,
             this.options.thousandsSep
           ),
-          areaDisplay: t(
-            e.area,
+          areaDisplay: e(
+            t.area,
             this.options.primaryAreaUnit,
             this.options.secondaryAreaUnit,
             this.options.decPoint,
@@ -847,35 +847,35 @@
         };
       },
       _updateResults: function() {
-        var e = (0, l.default)(this._latlngs),
-          t = (this._resultsModel = L.extend({}, e, this._getMeasurementDisplayStrings(e), {
+        var t = (0, l.default)(this._latlngs),
+          e = (this._resultsModel = L.extend({}, t, this._getMeasurementDisplayStrings(t), {
             pointCount: this._latlngs.length
           }));
-        this.$results.innerHTML = v({ model: t });
+        this.$results.innerHTML = v({ model: e });
       },
-      _handleMeasureMove: function(e) {
+      _handleMeasureMove: function(t) {
         this._measureDrag
-          ? this._measureDrag.setLatLng(e.latlng)
+          ? this._measureDrag.setLatLng(t.latlng)
           : (this._measureDrag = L.circleMarker(
-              e.latlng,
+              t.latlng,
               this._symbols.getSymbol('measureDrag')
             ).addTo(this._layer)),
           this._measureDrag.bringToFront();
       },
       _handleMeasureDoubleClick: function() {
-        var e = this._latlngs,
-          t = void 0,
+        var t = this._latlngs,
+          e = void 0,
           r = void 0;
-        if ((this._finishMeasure(), e.length)) {
-          e.length > 2 && e.push(e[0]);
-          var n = (0, l.default)(e);
-          1 === e.length
-            ? ((t = L.circleMarker(e[0], this._symbols.getSymbol('resultPoint'))),
+        if ((this._finishMeasure(), t.length)) {
+          t.length > 2 && t.push(t[0]);
+          var n = (0, l.default)(t);
+          1 === t.length
+            ? ((e = L.circleMarker(t[0], this._symbols.getSymbol('resultPoint'))),
               (r = b({ model: n })))
-            : 2 === e.length
-            ? ((t = L.polyline(e, this._symbols.getSymbol('resultLine'))),
+            : 2 === t.length
+            ? ((e = L.polyline(t, this._symbols.getSymbol('resultLine'))),
               (r = _({ model: L.extend({}, n, this._getMeasurementDisplayStrings(n)) })))
-            : ((t = L.polygon(e, this._symbols.getSymbol('resultArea'))),
+            : ((e = L.polygon(t, this._symbols.getSymbol('resultArea'))),
               (r = j({ model: L.extend({}, n, this._getMeasurementDisplayStrings(n)) })));
           var o = L.DomUtil.create('div', '');
           o.innerHTML = r;
@@ -886,9 +886,9 @@
               i,
               'click',
               function() {
-                t.getBounds
-                  ? this._map.fitBounds(t.getBounds(), { padding: [20, 20], maxZoom: 17 })
-                  : t.getLatLng && this._map.panTo(t.getLatLng());
+                e.getBounds
+                  ? this._map.fitBounds(e.getBounds(), { padding: [20, 20], maxZoom: 17 })
+                  : e.getLatLng && this._map.panTo(e.getLatLng());
               },
               this
             ));
@@ -899,29 +899,29 @@
               a,
               'click',
               function() {
-                this._layer.removeLayer(t);
+                this._layer.removeLayer(e);
               },
               this
             )),
-            t.addTo(this._layer),
-            t.bindPopup(o, this.options.popupOptions),
-            t.getBounds
-              ? t.openPopup(t.getBounds().getCenter())
-              : t.getLatLng && t.openPopup(t.getLatLng());
+            e.addTo(this._layer),
+            e.bindPopup(o, this.options.popupOptions),
+            e.getBounds
+              ? e.openPopup(e.getBounds().getCenter())
+              : e.getLatLng && e.openPopup(e.getLatLng());
         }
       },
-      _handleMeasureClick: function(e) {
-        var t = this._map.mouseEventToLatLng(e.originalEvent),
+      _handleMeasureClick: function(t) {
+        var e = this._map.mouseEventToLatLng(t.originalEvent),
           r = this._latlngs[this._latlngs.length - 1],
           n = this._symbols.getSymbol('measureVertex');
-        (r && t.equals(r)) ||
-          (this._latlngs.push(t),
+        (r && e.equals(r)) ||
+          (this._latlngs.push(e),
           this._addMeasureArea(this._latlngs),
           this._addMeasureBoundary(this._latlngs),
-          this._measureVertexes.eachLayer(function(e) {
-            e.setStyle(n), e._path && e._path.setAttribute('class', n.className);
+          this._measureVertexes.eachLayer(function(t) {
+            t.setStyle(n), t._path && t._path.setAttribute('class', n.className);
           }),
-          this._addNewVertex(t),
+          this._addNewVertex(e),
           this._measureBoundary && this._measureBoundary.bringToFront(),
           this._measureVertexes.bringToFront()),
           this._updateResults(),
@@ -931,33 +931,33 @@
         this._measureDrag &&
           (this._layer.removeLayer(this._measureDrag), (this._measureDrag = null));
       },
-      _addNewVertex: function(e) {
-        L.circleMarker(e, this._symbols.getSymbol('measureVertexActive')).addTo(
+      _addNewVertex: function(t) {
+        L.circleMarker(t, this._symbols.getSymbol('measureVertexActive')).addTo(
           this._measureVertexes
         );
       },
-      _addMeasureArea: function(e) {
-        if (e.length < 3)
+      _addMeasureArea: function(t) {
+        if (t.length < 3)
           return void (
             this._measureArea &&
             (this._layer.removeLayer(this._measureArea), (this._measureArea = null))
           );
         this._measureArea
-          ? this._measureArea.setLatLngs(e)
-          : (this._measureArea = L.polygon(e, this._symbols.getSymbol('measureArea')).addTo(
+          ? this._measureArea.setLatLngs(t)
+          : (this._measureArea = L.polygon(t, this._symbols.getSymbol('measureArea')).addTo(
               this._layer
             ));
       },
-      _addMeasureBoundary: function(e) {
-        if (e.length < 2)
+      _addMeasureBoundary: function(t) {
+        if (t.length < 2)
           return void (
             this._measureBoundary &&
             (this._layer.removeLayer(this._measureBoundary), (this._measureBoundary = null))
           );
         this._measureBoundary
-          ? this._measureBoundary.setLatLngs(e)
+          ? this._measureBoundary.setLatLngs(t)
           : (this._measureBoundary = L.polyline(
-              e,
+              t,
               this._symbols.getSymbol('measureBoundary')
             ).addTo(this._layer));
       }
@@ -966,50 +966,50 @@
       L.Map.addInitHook(function() {
         this.options.measureControl && (this.measureControl = new L.Control.Measure().addTo(this));
       }),
-      (L.control.measure = function(e) {
-        return new L.Control.Measure(e);
+      (L.control.measure = function(t) {
+        return new L.Control.Measure(t);
       });
   },
-  function(e, t) {},
-  function(e, t, r) {
-    function n(e, t, r) {
-      var n = h.imports._.templateSettings || h;
-      r && c(e, t, r) && (t = void 0), (e = d(e)), (t = o({}, t, n, s));
+  function(t, e) {},
+  function(t, e, r) {
+    function n(t, e, r) {
+      var n = d.imports._.templateSettings || d;
+      r && c(t, e, r) && (e = void 0), (t = h(t)), (e = o({}, e, n, s));
       var w,
         k,
-        L = o({}, t.imports, n.imports, s),
+        L = o({}, e.imports, n.imports, s),
         O = f(L),
         P = a(L, O),
         E = 0,
-        C = t.interpolate || j,
+        C = e.interpolate || j,
         S = "__p += '",
         A = RegExp(
-          (t.escape || j).source +
+          (e.escape || j).source +
             '|' +
             C.source +
             '|' +
             (C === p ? _ : j).source +
             '|' +
-            (t.evaluate || j).source +
+            (e.evaluate || j).source +
             '|$',
           'g'
         ),
-        D = M.call(t, 'sourceURL')
-          ? '//# sourceURL=' + (t.sourceURL + '').replace(/\s/g, ' ') + '\n'
+        D = M.call(e, 'sourceURL')
+          ? '//# sourceURL=' + (e.sourceURL + '').replace(/\s/g, ' ') + '\n'
           : '';
-      e.replace(A, function(t, r, n, o, i, a) {
+      t.replace(A, function(e, r, n, o, i, a) {
         return (
           n || (n = o),
-          (S += e.slice(E, a).replace(x, u)),
+          (S += t.slice(E, a).replace(x, u)),
           r && ((w = !0), (S += "' +\n__e(" + r + ") +\n'")),
           i && ((k = !0), (S += "';\n" + i + ";\n__p += '")),
           n && (S += "' +\n((__t = (" + n + ")) == null ? '' : __t) +\n'"),
-          (E = a + t.length),
-          t
+          (E = a + e.length),
+          e
         );
       }),
         (S += "';\n");
-      var T = M.call(t, 'variable') && t.variable;
+      var T = M.call(e, 'variable') && e.variable;
       if (T) {
         if (b.test(T)) throw new Error(m);
       } else S = 'with (obj) {\n' + S + '\n}\n';
@@ -1041,8 +1041,8 @@
       c = r(15),
       f = r(68),
       p = r(25),
-      h = r(71),
-      d = r(26),
+      d = r(71),
+      h = r(26),
       m = 'Invalid `variable` option passed into `_.template`',
       y = /\b__p \+= '';/g,
       g = /\b(__p \+=) '' \+/g,
@@ -1053,55 +1053,55 @@
       x = /['\n\r\u2028\u2029\\]/g,
       w = Object.prototype,
       M = w.hasOwnProperty;
-    e.exports = n;
+    t.exports = n;
   },
-  function(e, t, r) {
+  function(t, e, r) {
     var n = r(33),
       o = r(44),
       i = r(50),
-      a = o(function(e, t, r, o) {
-        n(t, i(t), e, o);
+      a = o(function(t, e, r, o) {
+        n(e, i(e), t, o);
       });
-    e.exports = a;
+    t.exports = a;
   },
-  function(e, t, r) {
-    function n(e, t, r, n) {
+  function(t, e, r) {
+    function n(t, e, r, n) {
       var a = !r;
       r || (r = {});
-      for (var s = -1, u = t.length; ++s < u; ) {
-        var l = t[s],
-          c = n ? n(r[l], e[l], l, r, e) : void 0;
-        void 0 === c && (c = e[l]), a ? i(r, l, c) : o(r, l, c);
+      for (var s = -1, u = e.length; ++s < u; ) {
+        var l = e[s],
+          c = n ? n(r[l], t[l], l, r, t) : void 0;
+        void 0 === c && (c = t[l]), a ? i(r, l, c) : o(r, l, c);
       }
       return r;
     }
     var o = r(34),
       i = r(8);
-    e.exports = n;
+    t.exports = n;
   },
-  function(e, t, r) {
-    function n(e, t, r) {
-      var n = e[t];
-      (s.call(e, t) && i(n, r) && (void 0 !== r || t in e)) || o(e, t, r);
+  function(t, e, r) {
+    function n(t, e, r) {
+      var n = t[e];
+      (s.call(t, e) && i(n, r) && (void 0 !== r || e in t)) || o(t, e, r);
     }
     var o = r(8),
       i = r(6),
       a = Object.prototype,
       s = a.hasOwnProperty;
-    e.exports = n;
+    t.exports = n;
   },
-  function(e, t, r) {
-    function n(e, t) {
-      var r = i(e, t);
+  function(t, e, r) {
+    function n(t, e) {
+      var r = i(t, e);
       return o(r) ? r : void 0;
     }
     var o = r(36),
       i = r(43);
-    e.exports = n;
+    t.exports = n;
   },
-  function(e, t, r) {
-    function n(e) {
-      return !(!a(e) || i(e)) && (o(e) ? d : l).test(s(e));
+  function(t, e, r) {
+    function n(t) {
+      return !(!a(t) || i(t)) && (o(t) ? h : l).test(s(t));
     }
     var o = r(10),
       i = r(40),
@@ -1112,199 +1112,199 @@
       c = Function.prototype,
       f = Object.prototype,
       p = c.toString,
-      h = f.hasOwnProperty,
-      d = RegExp(
+      d = f.hasOwnProperty,
+      h = RegExp(
         '^' +
           p
-            .call(h)
+            .call(d)
             .replace(u, '\\$&')
             .replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, '$1.*?') +
           '$'
       );
-    e.exports = n;
+    t.exports = n;
   },
-  function(e, t) {
+  function(t, e) {
     var r;
     r = (function() {
       return this;
     })();
     try {
       r = r || Function('return this')() || (0, eval)('this');
-    } catch (e) {
+    } catch (t) {
       'object' == typeof window && (r = window);
     }
-    e.exports = r;
+    t.exports = r;
   },
-  function(e, t, r) {
-    function n(e) {
-      var t = a.call(e, u),
-        r = e[u];
+  function(t, e, r) {
+    function n(t) {
+      var e = a.call(t, u),
+        r = t[u];
       try {
-        e[u] = void 0;
+        t[u] = void 0;
         var n = !0;
-      } catch (e) {}
-      var o = s.call(e);
-      return n && (t ? (e[u] = r) : delete e[u]), o;
+      } catch (t) {}
+      var o = s.call(t);
+      return n && (e ? (t[u] = r) : delete t[u]), o;
     }
     var o = r(4),
       i = Object.prototype,
       a = i.hasOwnProperty,
       s = i.toString,
       u = o ? o.toStringTag : void 0;
-    e.exports = n;
+    t.exports = n;
   },
-  function(e, t) {
-    function r(e) {
-      return o.call(e);
+  function(t, e) {
+    function r(t) {
+      return o.call(t);
     }
     var n = Object.prototype,
       o = n.toString;
-    e.exports = r;
+    t.exports = r;
   },
-  function(e, t, r) {
-    function n(e) {
-      return !!i && i in e;
+  function(t, e, r) {
+    function n(t) {
+      return !!i && i in t;
     }
     var o = r(41),
       i = (function() {
-        var e = /[^.]+$/.exec((o && o.keys && o.keys.IE_PROTO) || '');
-        return e ? 'Symbol(src)_1.' + e : '';
+        var t = /[^.]+$/.exec((o && o.keys && o.keys.IE_PROTO) || '');
+        return t ? 'Symbol(src)_1.' + t : '';
       })();
-    e.exports = n;
+    t.exports = n;
   },
-  function(e, t, r) {
+  function(t, e, r) {
     var n = r(5),
       o = n['__core-js_shared__'];
-    e.exports = o;
+    t.exports = o;
   },
-  function(e, t) {
-    function r(e) {
-      if (null != e) {
+  function(t, e) {
+    function r(t) {
+      if (null != t) {
         try {
-          return o.call(e);
-        } catch (e) {}
+          return o.call(t);
+        } catch (t) {}
         try {
-          return e + '';
-        } catch (e) {}
+          return t + '';
+        } catch (t) {}
       }
       return '';
     }
     var n = Function.prototype,
       o = n.toString;
-    e.exports = r;
+    t.exports = r;
   },
-  function(e, t) {
-    function r(e, t) {
-      return null == e ? void 0 : e[t];
+  function(t, e) {
+    function r(t, e) {
+      return null == t ? void 0 : t[e];
     }
-    e.exports = r;
+    t.exports = r;
   },
-  function(e, t, r) {
-    function n(e) {
-      return o(function(t, r) {
+  function(t, e, r) {
+    function n(t) {
+      return o(function(e, r) {
         var n = -1,
           o = r.length,
           a = o > 1 ? r[o - 1] : void 0,
           s = o > 2 ? r[2] : void 0;
         for (
-          a = e.length > 3 && 'function' == typeof a ? (o--, a) : void 0,
+          a = t.length > 3 && 'function' == typeof a ? (o--, a) : void 0,
             s && i(r[0], r[1], s) && ((a = o < 3 ? void 0 : a), (o = 1)),
-            t = Object(t);
+            e = Object(e);
           ++n < o;
 
         ) {
           var u = r[n];
-          u && e(t, u, n, a);
+          u && t(e, u, n, a);
         }
-        return t;
+        return e;
       });
     }
     var o = r(12),
       i = r(15);
-    e.exports = n;
+    t.exports = n;
   },
-  function(e, t, r) {
-    function n(e, t, r) {
+  function(t, e, r) {
+    function n(t, e, r) {
       return (
-        (t = i(void 0 === t ? e.length - 1 : t, 0)),
+        (e = i(void 0 === e ? t.length - 1 : e, 0)),
         function() {
-          for (var n = arguments, a = -1, s = i(n.length - t, 0), u = Array(s); ++a < s; )
-            u[a] = n[t + a];
+          for (var n = arguments, a = -1, s = i(n.length - e, 0), u = Array(s); ++a < s; )
+            u[a] = n[e + a];
           a = -1;
-          for (var l = Array(t + 1); ++a < t; ) l[a] = n[a];
-          return (l[t] = r(u)), o(e, this, l);
+          for (var l = Array(e + 1); ++a < e; ) l[a] = n[a];
+          return (l[e] = r(u)), o(t, this, l);
         }
       );
     }
     var o = r(14),
       i = Math.max;
-    e.exports = n;
+    t.exports = n;
   },
-  function(e, t, r) {
+  function(t, e, r) {
     var n = r(47),
       o = r(49),
       i = o(n);
-    e.exports = i;
+    t.exports = i;
   },
-  function(e, t, r) {
+  function(t, e, r) {
     var n = r(48),
       o = r(9),
       i = r(13),
       a = o
-        ? function(e, t) {
-            return o(e, 'toString', {
+        ? function(t, e) {
+            return o(t, 'toString', {
               configurable: !0,
               enumerable: !1,
-              value: n(t),
+              value: n(e),
               writable: !0
             });
           }
         : i;
-    e.exports = a;
+    t.exports = a;
   },
-  function(e, t) {
-    function r(e) {
+  function(t, e) {
+    function r(t) {
       return function() {
-        return e;
+        return t;
       };
     }
-    e.exports = r;
+    t.exports = r;
   },
-  function(e, t) {
-    function r(e) {
-      var t = 0,
+  function(t, e) {
+    function r(t) {
+      var e = 0,
         r = 0;
       return function() {
         var a = i(),
           s = o - (a - r);
         if (((r = a), s > 0)) {
-          if (++t >= n) return arguments[0];
-        } else t = 0;
-        return e.apply(void 0, arguments);
+          if (++e >= n) return arguments[0];
+        } else e = 0;
+        return t.apply(void 0, arguments);
       };
     }
     var n = 800,
       o = 16,
       i = Date.now;
-    e.exports = r;
+    t.exports = r;
   },
-  function(e, t, r) {
-    function n(e) {
-      return a(e) ? o(e, !0) : i(e);
+  function(t, e, r) {
+    function n(t) {
+      return a(t) ? o(t, !0) : i(t);
     }
     var o = r(18),
       i = r(60),
       a = r(7);
-    e.exports = n;
+    t.exports = n;
   },
-  function(e, t) {
-    function r(e, t) {
-      for (var r = -1, n = Array(e); ++r < e; ) n[r] = t(r);
+  function(t, e) {
+    function r(t, e) {
+      for (var r = -1, n = Array(t); ++r < t; ) n[r] = e(r);
       return n;
     }
-    e.exports = r;
+    t.exports = r;
   },
-  function(e, t, r) {
+  function(t, e, r) {
     var n = r(53),
       o = r(1),
       i = Object.prototype,
@@ -1316,50 +1316,50 @@
         })()
       )
         ? n
-        : function(e) {
-            return o(e) && a.call(e, 'callee') && !s.call(e, 'callee');
+        : function(t) {
+            return o(t) && a.call(t, 'callee') && !s.call(t, 'callee');
           };
-    e.exports = u;
+    t.exports = u;
   },
-  function(e, t, r) {
-    function n(e) {
-      return i(e) && o(e) == a;
+  function(t, e, r) {
+    function n(t) {
+      return i(t) && o(t) == a;
     }
     var o = r(0),
       i = r(1),
       a = '[object Arguments]';
-    e.exports = n;
+    t.exports = n;
   },
-  function(e, t, r) {
-    (function(e) {
+  function(t, e, r) {
+    (function(t) {
       var n = r(5),
         o = r(55),
-        i = 'object' == typeof t && t && !t.nodeType && t,
-        a = i && 'object' == typeof e && e && !e.nodeType && e,
+        i = 'object' == typeof e && e && !e.nodeType && e,
+        a = i && 'object' == typeof t && t && !t.nodeType && t,
         s = a && a.exports === i,
         u = s ? n.Buffer : void 0,
         l = u ? u.isBuffer : void 0,
         c = l || o;
-      e.exports = c;
-    }.call(t, r(20)(e)));
+      t.exports = c;
+    }.call(e, r(20)(t)));
   },
-  function(e, t) {
+  function(t, e) {
     function r() {
       return !1;
     }
-    e.exports = r;
+    t.exports = r;
   },
-  function(e, t, r) {
+  function(t, e, r) {
     var n = r(57),
       o = r(58),
       i = r(59),
       a = i && i.isTypedArray,
       s = a ? o(a) : n;
-    e.exports = s;
+    t.exports = s;
   },
-  function(e, t, r) {
-    function n(e) {
-      return a(e) && i(e.length) && !!s[o(e)];
+  function(t, e, r) {
+    function n(t) {
+      return a(t) && i(t.length) && !!s[o(t)];
     }
     var o = r(0),
       i = r(16),
@@ -1377,38 +1377,38 @@
       ] = s['[object Map]'] = s['[object Number]'] = s['[object Object]'] = s[
         '[object RegExp]'
       ] = s['[object Set]'] = s['[object String]'] = s['[object WeakMap]'] = !1),
-      (e.exports = n);
+      (t.exports = n);
   },
-  function(e, t) {
-    function r(e) {
-      return function(t) {
-        return e(t);
+  function(t, e) {
+    function r(t) {
+      return function(e) {
+        return t(e);
       };
     }
-    e.exports = r;
+    t.exports = r;
   },
-  function(e, t, r) {
-    (function(e) {
+  function(t, e, r) {
+    (function(t) {
       var n = r(11),
-        o = 'object' == typeof t && t && !t.nodeType && t,
-        i = o && 'object' == typeof e && e && !e.nodeType && e,
+        o = 'object' == typeof e && e && !e.nodeType && e,
+        i = o && 'object' == typeof t && t && !t.nodeType && t,
         a = i && i.exports === o,
         s = a && n.process,
         u = (function() {
           try {
-            var e = i && i.require && i.require('util').types;
-            return e || (s && s.binding && s.binding('util'));
-          } catch (e) {}
+            var t = i && i.require && i.require('util').types;
+            return t || (s && s.binding && s.binding('util'));
+          } catch (t) {}
         })();
-      e.exports = u;
-    }.call(t, r(20)(e)));
+      t.exports = u;
+    }.call(e, r(20)(t)));
   },
-  function(e, t, r) {
-    function n(e) {
-      if (!o(e)) return a(e);
-      var t = i(e),
+  function(t, e, r) {
+    function n(t) {
+      if (!o(t)) return a(t);
+      var e = i(t),
         r = [];
-      for (var n in e) ('constructor' != n || (!t && u.call(e, n))) && r.push(n);
+      for (var n in t) ('constructor' != n || (!e && u.call(t, n))) && r.push(n);
       return r;
     }
     var o = r(2),
@@ -1416,35 +1416,35 @@
       a = r(61),
       s = Object.prototype,
       u = s.hasOwnProperty;
-    e.exports = n;
+    t.exports = n;
   },
-  function(e, t) {
-    function r(e) {
-      var t = [];
-      if (null != e) for (var r in Object(e)) t.push(r);
-      return t;
+  function(t, e) {
+    function r(t) {
+      var e = [];
+      if (null != t) for (var r in Object(t)) e.push(r);
+      return e;
     }
-    e.exports = r;
+    t.exports = r;
   },
-  function(e, t, r) {
+  function(t, e, r) {
     var n = r(14),
       o = r(12),
       i = r(22),
-      a = o(function(e, t) {
+      a = o(function(t, e) {
         try {
-          return n(e, void 0, t);
-        } catch (e) {
-          return i(e) ? e : new Error(e);
+          return n(t, void 0, e);
+        } catch (t) {
+          return i(t) ? t : new Error(t);
         }
       });
-    e.exports = a;
+    t.exports = a;
   },
-  function(e, t, r) {
-    function n(e) {
-      if (!a(e) || o(e) != s) return !1;
-      var t = i(e);
-      if (null === t) return !0;
-      var r = f.call(t, 'constructor') && t.constructor;
+  function(t, e, r) {
+    function n(t) {
+      if (!a(t) || o(t) != s) return !1;
+      var e = i(t);
+      if (null === e) return !0;
+      var r = f.call(e, 'constructor') && e.constructor;
       return 'function' == typeof r && r instanceof r && c.call(r) == p;
     }
     var o = r(0),
@@ -1456,104 +1456,104 @@
       c = u.toString,
       f = l.hasOwnProperty,
       p = c.call(Object);
-    e.exports = n;
+    t.exports = n;
   },
-  function(e, t, r) {
+  function(t, e, r) {
     var n = r(23),
       o = n(Object.getPrototypeOf, Object);
-    e.exports = o;
+    t.exports = o;
   },
-  function(e, t, r) {
-    function n(e, t) {
-      return o(t, function(t) {
-        return e[t];
+  function(t, e, r) {
+    function n(t, e) {
+      return o(e, function(e) {
+        return t[e];
       });
     }
     var o = r(24);
-    e.exports = n;
+    t.exports = n;
   },
-  function(e, t, r) {
-    function n(e, t, r, n) {
-      return void 0 === e || (o(e, i[r]) && !a.call(n, r)) ? t : e;
+  function(t, e, r) {
+    function n(t, e, r, n) {
+      return void 0 === t || (o(t, i[r]) && !a.call(n, r)) ? e : t;
     }
     var o = r(6),
       i = Object.prototype,
       a = i.hasOwnProperty;
-    e.exports = n;
+    t.exports = n;
   },
-  function(e, t) {
-    function r(e) {
-      return '\\' + n[e];
+  function(t, e) {
+    function r(t) {
+      return '\\' + n[t];
     }
     var n = { '\\': '\\', "'": "'", '\n': 'n', '\r': 'r', '\u2028': 'u2028', '\u2029': 'u2029' };
-    e.exports = r;
+    t.exports = r;
   },
-  function(e, t, r) {
-    function n(e) {
-      return a(e) ? o(e) : i(e);
+  function(t, e, r) {
+    function n(t) {
+      return a(t) ? o(t) : i(t);
     }
     var o = r(18),
       i = r(69),
       a = r(7);
-    e.exports = n;
+    t.exports = n;
   },
-  function(e, t, r) {
-    function n(e) {
-      if (!o(e)) return i(e);
-      var t = [];
-      for (var r in Object(e)) s.call(e, r) && 'constructor' != r && t.push(r);
-      return t;
+  function(t, e, r) {
+    function n(t) {
+      if (!o(t)) return i(t);
+      var e = [];
+      for (var r in Object(t)) s.call(t, r) && 'constructor' != r && e.push(r);
+      return e;
     }
     var o = r(21),
       i = r(70),
       a = Object.prototype,
       s = a.hasOwnProperty;
-    e.exports = n;
+    t.exports = n;
   },
-  function(e, t, r) {
+  function(t, e, r) {
     var n = r(23),
       o = n(Object.keys, Object);
-    e.exports = o;
+    t.exports = o;
   },
-  function(e, t, r) {
+  function(t, e, r) {
     var n = r(72),
       o = r(77),
       i = r(78),
       a = r(25),
       s = { escape: o, evaluate: i, interpolate: a, variable: '', imports: { _: { escape: n } } };
-    e.exports = s;
+    t.exports = s;
   },
-  function(e, t, r) {
-    function n(e) {
-      return (e = i(e)), e && s.test(e) ? e.replace(a, o) : e;
+  function(t, e, r) {
+    function n(t) {
+      return (t = i(t)), t && s.test(t) ? t.replace(a, o) : t;
     }
     var o = r(73),
       i = r(26),
       a = /[&<>"']/g,
       s = RegExp(a.source);
-    e.exports = n;
+    t.exports = n;
   },
-  function(e, t, r) {
+  function(t, e, r) {
     var n = r(74),
       o = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' },
       i = n(o);
-    e.exports = i;
+    t.exports = i;
   },
-  function(e, t) {
-    function r(e) {
-      return function(t) {
-        return null == e ? void 0 : e[t];
+  function(t, e) {
+    function r(t) {
+      return function(e) {
+        return null == t ? void 0 : t[e];
       };
     }
-    e.exports = r;
+    t.exports = r;
   },
-  function(e, t, r) {
-    function n(e) {
-      if ('string' == typeof e) return e;
-      if (a(e)) return i(e, n) + '';
-      if (s(e)) return c ? c.call(e) : '';
-      var t = e + '';
-      return '0' == t && 1 / e == -u ? '-0' : t;
+  function(t, e, r) {
+    function n(t) {
+      if ('string' == typeof t) return t;
+      if (a(t)) return i(t, n) + '';
+      if (s(t)) return c ? c.call(t) : '';
+      var e = t + '';
+      return '0' == e && 1 / t == -u ? '-0' : e;
     }
     var o = r(4),
       i = r(24),
@@ -1562,29 +1562,29 @@
       u = 1 / 0,
       l = o ? o.prototype : void 0,
       c = l ? l.toString : void 0;
-    e.exports = n;
+    t.exports = n;
   },
-  function(e, t, r) {
-    function n(e) {
-      return 'symbol' == typeof e || (i(e) && o(e) == a);
+  function(t, e, r) {
+    function n(t) {
+      return 'symbol' == typeof t || (i(t) && o(t) == a);
     }
     var o = r(0),
       i = r(1),
       a = '[object Symbol]';
-    e.exports = n;
+    t.exports = n;
   },
-  function(e, t) {
+  function(t, e) {
     var r = /<%-([\s\S]+?)%>/g;
-    e.exports = r;
+    t.exports = r;
   },
-  function(e, t) {
+  function(t, e) {
     var r = /<%([\s\S]+?)%>/g;
-    e.exports = r;
+    t.exports = r;
   },
-  function(e, t, r) {
+  function(t, e, r) {
     'use strict';
-    Object.defineProperty(t, '__esModule', { value: !0 }),
-      (t.default = {
+    Object.defineProperty(e, '__esModule', { value: !0 }),
+      (e.default = {
         acres: { factor: 24711e-8, display: 'acres', decimals: 2 },
         feet: { factor: 3.2808, display: 'feet', decimals: 0 },
         kilometers: { factor: 0.001, display: 'kilometers', decimals: 2 },
@@ -1596,26 +1596,26 @@
         sqmiles: { factor: 3.86102e-7, display: 'sqmiles', decimals: 2 }
       });
   },
-  function(e, t, r) {
+  function(t, e, r) {
     'use strict';
-    function n(e) {
-      return e && e.__esModule ? e : { default: e };
+    function n(t) {
+      return t && t.__esModule ? t : { default: t };
     }
-    function o(e) {
-      return e < 10 ? '0' + e.toString() : e.toString();
+    function o(t) {
+      return t < 10 ? '0' + t.toString() : t.toString();
     }
-    function i(e, t, r) {
-      var n = Math.abs(e),
+    function i(t, e, r) {
+      var n = Math.abs(t),
         i = Math.floor(n),
         a = Math.floor(60 * (n - i)),
         s = Math.round(3600 * (n - i - a / 60) * 100) / 100,
-        u = n === e ? t : r;
+        u = n === t ? e : r;
       return o(i) + '&deg; ' + o(a) + "' " + o(s) + '" ' + u;
     }
-    function a(e) {
-      var t = e[e.length - 1],
-        r = e.map(function(e) {
-          return [e.lat, e.lng];
+    function a(t) {
+      var e = t[t.length - 1],
+        r = t.map(function(t) {
+          return [t.lat, t.lng];
         }),
         n = L.polyline(r),
         o = L.polygon(r),
@@ -1623,46 +1623,46 @@
         s = (0, c.default)(o.toGeoJSON());
       return {
         lastCoord: {
-          dd: { x: t.lng, y: t.lat },
-          dms: { x: i(t.lng, 'E', 'W'), y: i(t.lat, 'N', 'S') }
+          dd: { x: e.lng, y: e.lat },
+          dms: { x: i(e.lng, 'E', 'W'), y: i(e.lat, 'N', 'S') }
         },
         length: a,
         area: s
       };
     }
-    Object.defineProperty(t, '__esModule', { value: !0 }), (t.default = a);
+    Object.defineProperty(e, '__esModule', { value: !0 }), (e.default = a);
     var s = r(81),
       u = n(s),
       l = r(84),
       c = n(l);
   },
-  function(e, t, r) {
+  function(t, e, r) {
     'use strict';
-    function n(e, t) {
-      if (((t = t || {}), !Object(a.d)(t))) throw new Error('options is invalid');
-      if (!e) throw new Error('geojson is required');
+    function n(t, e) {
+      if (((e = e || {}), !Object(a.d)(e))) throw new Error('options is invalid');
+      if (!t) throw new Error('geojson is required');
       return Object(i.b)(
-        e,
-        function(e, r) {
+        t,
+        function(t, r) {
           var n = r.geometry.coordinates;
-          return e + Object(o.a)(n[0], n[1], t);
+          return t + Object(o.a)(n[0], n[1], e);
         },
         0
       );
     }
-    Object.defineProperty(t, '__esModule', { value: !0 });
+    Object.defineProperty(e, '__esModule', { value: !0 });
     var o = r(82),
       i = r(27),
       a = r(3);
-    t.default = n;
+    e.default = n;
   },
-  function(e, t, r) {
+  function(t, e, r) {
     'use strict';
-    function n(e, t, r) {
+    function n(t, e, r) {
       if (((r = r || {}), !Object(i.d)(r))) throw new Error('options is invalid');
       var n = r.units,
-        a = Object(o.a)(e),
-        s = Object(o.a)(t),
+        a = Object(o.a)(t),
+        s = Object(o.a)(e),
         u = Object(i.a)(s[1] - a[1]),
         l = Object(i.a)(s[0] - a[0]),
         c = Object(i.a)(a[1]),
@@ -1672,43 +1672,43 @@
     }
     var o = r(83),
       i = r(3);
-    t.a = n;
+    e.a = n;
   },
-  function(e, t, r) {
+  function(t, e, r) {
     'use strict';
-    function n(e) {
-      if (!e) throw new Error('coord is required');
-      if ('Feature' === e.type && null !== e.geometry && 'Point' === e.geometry.type)
-        return e.geometry.coordinates;
-      if ('Point' === e.type) return e.coordinates;
-      if (Array.isArray(e) && e.length >= 2 && void 0 === e[0].length && void 0 === e[1].length)
-        return e;
+    function n(t) {
+      if (!t) throw new Error('coord is required');
+      if ('Feature' === t.type && null !== t.geometry && 'Point' === t.geometry.type)
+        return t.geometry.coordinates;
+      if ('Point' === t.type) return t.coordinates;
+      if (Array.isArray(t) && t.length >= 2 && void 0 === t[0].length && void 0 === t[1].length)
+        return t;
       throw new Error('coord must be GeoJSON Point or an Array of numbers');
     }
-    r.d(t, 'a', function() {
+    r.d(e, 'a', function() {
       return n;
     });
     r(3);
   },
-  function(e, t, r) {
+  function(t, e, r) {
     'use strict';
-    function n(e) {
+    function n(t) {
       return Object(u.a)(
-        e,
-        function(e, t) {
-          return e + o(t);
+        t,
+        function(t, e) {
+          return t + o(e);
         },
         0
       );
     }
-    function o(e) {
-      var t,
+    function o(t) {
+      var e,
         r = 0;
-      switch (e.type) {
+      switch (t.type) {
         case 'Polygon':
-          return i(e.coordinates);
+          return i(t.coordinates);
         case 'MultiPolygon':
-          for (t = 0; t < e.coordinates.length; t++) r += i(e.coordinates[t]);
+          for (e = 0; e < t.coordinates.length; e++) r += i(t.coordinates[e]);
           return r;
         case 'Point':
         case 'MultiPoint':
@@ -1716,20 +1716,20 @@
         case 'MultiLineString':
           return 0;
         case 'GeometryCollection':
-          for (t = 0; t < e.geometries.length; t++) r += o(e.geometries[t]);
+          for (e = 0; e < t.geometries.length; e++) r += o(t.geometries[e]);
           return r;
       }
     }
-    function i(e) {
-      var t = 0;
-      if (e && e.length > 0) {
-        t += Math.abs(a(e[0]));
-        for (var r = 1; r < e.length; r++) t -= Math.abs(a(e[r]));
+    function i(t) {
+      var e = 0;
+      if (t && t.length > 0) {
+        e += Math.abs(a(t[0]));
+        for (var r = 1; r < t.length; r++) e -= Math.abs(a(t[r]));
       }
-      return t;
+      return e;
     }
-    function a(e) {
-      var t,
+    function a(t) {
+      var e,
         r,
         n,
         o,
@@ -1737,7 +1737,7 @@
         a,
         u,
         c = 0,
-        f = e.length;
+        f = t.length;
       if (f > 2) {
         for (u = 0; u < f; u++)
           u === f - 2
@@ -1745,72 +1745,72 @@
             : u === f - 1
             ? ((o = f - 1), (i = 0), (a = 1))
             : ((o = u), (i = u + 1), (a = u + 2)),
-            (t = e[o]),
-            (r = e[i]),
-            (n = e[a]),
-            (c += (s(n[0]) - s(t[0])) * Math.sin(s(r[1])));
+            (e = t[o]),
+            (r = t[i]),
+            (n = t[a]),
+            (c += (s(n[0]) - s(e[0])) * Math.sin(s(r[1])));
         c = (c * l * l) / 2;
       }
       return c;
     }
-    function s(e) {
-      return (e * Math.PI) / 180;
+    function s(t) {
+      return (t * Math.PI) / 180;
     }
-    Object.defineProperty(t, '__esModule', { value: !0 });
+    Object.defineProperty(e, '__esModule', { value: !0 });
     var u = r(27),
       l = 6378137;
-    t.default = n;
+    e.default = n;
   },
-  function(e, t, r) {
+  function(t, e, r) {
     'use strict';
-    function n(e, t) {
-      return t || (t = document), t.querySelector(e);
+    function n(t, e) {
+      return e || (e = document), e.querySelector(t);
     }
-    function o(e, t) {
-      return t || (t = document), Array.prototype.slice.call(t.querySelectorAll(e));
+    function o(t, e) {
+      return e || (e = document), Array.prototype.slice.call(e.querySelectorAll(t));
     }
-    function i(e) {
-      if (e) return e.setAttribute('style', 'display:none;'), e;
+    function i(t) {
+      if (t) return t.setAttribute('style', 'display:none;'), t;
     }
-    function a(e) {
-      if (e) return e.removeAttribute('style'), e;
+    function a(t) {
+      if (t) return t.removeAttribute('style'), t;
     }
-    Object.defineProperty(t, '__esModule', { value: !0 }),
-      (t.selectOne = n),
-      (t.selectAll = o),
-      (t.hide = i),
-      (t.show = a);
+    Object.defineProperty(e, '__esModule', { value: !0 }),
+      (e.selectOne = n),
+      (e.selectAll = o),
+      (e.hide = i),
+      (e.show = a);
   },
-  function(e, t, r) {
+  function(t, e, r) {
     'use strict';
-    function n(e, t) {
-      if (!(e instanceof t)) throw new TypeError('Cannot call a class as a function');
+    function n(t, e) {
+      if (!(t instanceof e)) throw new TypeError('Cannot call a class as a function');
     }
-    Object.defineProperty(t, '__esModule', { value: !0 });
+    Object.defineProperty(e, '__esModule', { value: !0 });
     var o = (function() {
-        function e(e, t) {
-          for (var r = 0; r < t.length; r++) {
-            var n = t[r];
+        function t(t, e) {
+          for (var r = 0; r < e.length; r++) {
+            var n = e[r];
             (n.enumerable = n.enumerable || !1),
               (n.configurable = !0),
               'value' in n && (n.writable = !0),
-              Object.defineProperty(e, n.key, n);
+              Object.defineProperty(t, n.key, n);
           }
         }
-        return function(t, r, n) {
-          return r && e(t.prototype, r), n && e(t, n), t;
+        return function(e, r, n) {
+          return r && t(e.prototype, r), n && t(e, n), e;
         };
       })(),
       i = { activeColor: '#ABE67E', completedColor: '#C8F2BE' },
       a = (function() {
-        function e(t) {
-          n(this, e), (this._options = L.extend({}, i, this._options, t));
+        function t(e) {
+          n(this, t), (this._options = L.extend({}, i, this._options, e));
         }
         return (
-          o(e, [
+          o(t, [
             {
               key: 'getSymbol',
-              value: function(e) {
+              value: function(t) {
                 return {
                   measureDrag: {
                     clickable: !1,
@@ -1884,100 +1884,100 @@
                     fillOpacity: 0.7,
                     className: 'layer-measure-resultpoint'
                   }
-                }[e];
+                }[t];
               }
             }
           ]),
-          e
+          t
         );
       })();
-    t.default = a;
+    e.default = a;
   },
-  function(e, t, r) {
+  function(t, e, r) {
     'use strict';
-    function n(e) {
-      var t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : 2,
+    function n(t) {
+      var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : 2,
         r = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : '.',
         n = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : ',',
-        o = e < 0 ? '-' : '',
-        i = Math.abs(+e || 0),
-        a = parseInt(i.toFixed(t), 10) + '',
+        o = t < 0 ? '-' : '',
+        i = Math.abs(+t || 0),
+        a = parseInt(i.toFixed(e), 10) + '',
         s = a.length > 3 ? a.length % 3 : 0;
       return [
         o,
         s ? a.substr(0, s) + n : '',
         a.substr(s).replace(/(\d{3})(?=\d)/g, '$1' + n),
-        t
+        e
           ? '' +
             r +
             Math.abs(i - a)
-              .toFixed(t)
+              .toFixed(e)
               .slice(2)
           : ''
       ].join('');
     }
-    Object.defineProperty(t, '__esModule', { value: !0 }), (t.numberFormat = n);
+    Object.defineProperty(e, '__esModule', { value: !0 }), (e.numberFormat = n);
   },
-  function(e, t, r) {
+  function(t, e, r) {
     'use strict';
-    function n(e) {
-      return e && e.__esModule ? e : { default: e };
+    function n(t) {
+      return t && t.__esModule ? t : { default: t };
     }
-    Object.defineProperty(t, '__esModule', { value: !0 });
+    Object.defineProperty(e, '__esModule', { value: !0 });
     var o = r(89);
-    Object.defineProperty(t, 'controlTemplate', {
+    Object.defineProperty(e, 'controlTemplate', {
       enumerable: !0,
       get: function() {
         return n(o).default;
       }
     });
     var i = r(90);
-    Object.defineProperty(t, 'resultsTemplate', {
+    Object.defineProperty(e, 'resultsTemplate', {
       enumerable: !0,
       get: function() {
         return n(i).default;
       }
     });
     var a = r(91);
-    Object.defineProperty(t, 'pointPopupTemplate', {
+    Object.defineProperty(e, 'pointPopupTemplate', {
       enumerable: !0,
       get: function() {
         return n(a).default;
       }
     });
     var s = r(92);
-    Object.defineProperty(t, 'linePopupTemplate', {
+    Object.defineProperty(e, 'linePopupTemplate', {
       enumerable: !0,
       get: function() {
         return n(s).default;
       }
     });
     var u = r(93);
-    Object.defineProperty(t, 'areaPopupTemplate', {
+    Object.defineProperty(e, 'areaPopupTemplate', {
       enumerable: !0,
       get: function() {
         return n(u).default;
       }
     });
   },
-  function(e, t, r) {
-    e.exports =
-      '<a class="{{ model.className }}-toggle js-toggle" href=# title="Kalkulahin ang tamang distansya at sukat">Sukatss</a> <div class="{{ model.className }}-interaction js-interaction"> <div class="js-startprompt startprompt"> Kalkulahin ang tamang distansya at sukat <ul class=tasks> <a href=# class="js-start start">Lumikha ng isang bagong pagsukat</a> </ul> </div> <div class=js-measuringprompt> Kalkulahin ang tamang distansya at sukat <p class=js-starthelp>Simulan ang paglikha ng isang pagsukat sa pamamagitan ng pagdaragdag ng mga puntos sa mapa</p> <div class="js-results results"></div> <ul class="js-measuretasks tasks"> <li><a href=# class="js-cancel cancel">Kanselahin</a></li> <li><a href=# class="js-finish finish">Tapusin ang pagsukat</a></li> </ul> </div> </div> ';
+  function(t, e, r) {
+    t.exports =
+      '<a class="{{ model.className }}-toggle js-toggle" href=# title="Kalkulahin ang tamang distansya at sukat">Sukat</a> <div class="{{ model.className }}-interaction js-interaction"> <div class="js-startprompt startprompt"> <div class="d-flex justify-content-between pb-2"> <div class="col fw-500"> Kalkulahin ang tamang distansya at sukat </div> <div></div> </div> <div class="js-start mt-1 d-flex align-items-center justify-content-center"> <button class="btn btn-outline-secondary btn-sm" type=button><i class="fa-solid fa-sm fa-check pe-2"></i> Lumikha ng isang bagong pagsukat </button> </div> </div> <div class=js-measuringprompt> <div class="d-flex justify-content-between"> <div class="col fw-500"> Kalkulahin ang tamang distansya at sukat </div> <div> <span class=js-measuretasks> <button class="js-cancel btn btn-close btn-close-min"></button> </span> </div> </div> <p class=js-starthelp>Simulan ang paglikha ng isang pagsukat sa pamamagitan ng pagdaragdag ng mga puntos sa mapa</p> <div class="js-results results"></div> <span class="js-measuretasks tasks mt-0"> <div class="js-finish mt-3 d-flex align-items-center justify-content-center"> <button class="btn btn-outline-secondary btn-sm" type=button><i class="fa-solid fa-sm fa-check pe-2"></i>Tapusin ang pagsukat</button> </div> </span> </div> </div>';
   },
-  function(e, t, r) {
-    e.exports =
-      '<div class=d-flex> <div>Huling punto sa mapa</div> <div>{{ model.lastCoord.dms.y }} <span class=coorddivider>/</span> {{ model.lastCoord.dms.x }}</div> <div>{{ numberFormat(model.lastCoord.dd.y, 6) }} <span class=coorddivider>/</span> {{ numberFormat(model.lastCoord.dd.x, 6) }}</div> </div> ';
+  function(t, e, r) {
+    t.exports =
+      '<div> <p class=mt-3>Huling punto sa mapa</p> <p class=m-0>{{ model.lastCoord.dms.y }} <span class=coorddivider>/</span> {{ model.lastCoord.dms.x }}</p> <p class=m-0>{{ numberFormat(model.lastCoord.dd.y, 6) }} <span class=coorddivider>/</span> {{ numberFormat(model.lastCoord.dd.x, 6) }}</p> <% if (model.pointCount> 1) { %> <p class=mt-3> Distansya ng daanan: </p> <p class=mt-0> {{ model.lengthDisplay }} </p> <% } %> <% if (model.pointCount> 2) { %> <p class=mt-3>Sukat</p> <p class=m-0> {{ model.areaDisplay }}</p> <% } %> </div> ';
   },
-  function(e, t, r) {
-    e.exports =
+  function(t, e, r) {
+    t.exports =
       '<h3>Lokasyon ng punto</h3> <p>{{ model.lastCoord.dms.y }} <span class=coorddivider>/</span> {{ model.lastCoord.dms.x }}</p> <p>{{ numberFormat(model.lastCoord.dd.y, 6) }} <span class=coorddivider>/</span> {{ numberFormat(model.lastCoord.dd.x, 6) }}</p> <ul class=tasks> <li><a href=# class="js-zoomto zoomto">I-sentro sa lokasyong ito</a></li> <li><a href=# class="js-deletemarkup deletemarkup">Tanggalin</a></li> </ul> ';
   },
-  function(e, t, r) {
-    e.exports =
-      '<h3>Pagsukat ng guhit</h3> <p>{{ model.lengthDisplay }}</p> <ul class=tasks> <li><a href=# class="js-zoomto zoomto">I-sentro sa linya na ito</a></li> <li><a href=# class="js-deletemarkup deletemarkup">Tanggalin</a></li> </ul> ';
+  function(t, e, r) {
+    t.exports =
+      'Pagsukat ng guhitww <p>{{ model.lengthDisplay }}</p> <a href=# class="js-zoomto zoomto">I-sentro sa linya na ito</a> <a href=# class="js-deletemarkup deletemarkup">Tanggalin</a> ';
   },
-  function(e, t, r) {
-    e.exports =
+  function(t, e, r) {
+    t.exports =
       '<h3>Kabuuang sukat</h3> <p>{{ model.areaDisplay }}</p> <p>{{ model.lengthDisplay }} Palibot</p> <ul class=tasks> <li><a href=# class="js-zoomto zoomto">I-sentro sa lugar na ito</a></li> <li><a href=# class="js-deletemarkup deletemarkup">Tanggalin</a></li> </ul> ';
   }
 ]);

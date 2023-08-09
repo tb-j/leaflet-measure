@@ -55,12 +55,12 @@
   function(e, t, r) {
     'use strict';
     function n(e, t, r) {
-      if (((r = r || {}), !h(r))) throw new Error('options is invalid');
+      if (((r = r || {}), !d(r))) throw new Error('options is invalid');
       var n = r.bbox,
         o = r.id;
       if (void 0 === e) throw new Error('geometry is required');
       if (t && t.constructor !== Object) throw new Error('properties must be an Object');
-      n && d(n), o && m(o);
+      n && h(n), o && m(o);
       var i = { type: 'Feature' };
       return o && (i.id = o), n && (i.bbox = n), (i.properties = t || {}), (i.geometry = e), i;
     }
@@ -118,10 +118,10 @@
     function p(e) {
       return !isNaN(e) && null !== e && !Array.isArray(e);
     }
-    function h(e) {
+    function d(e) {
       return !!e && e.constructor === Object;
     }
-    function d(e) {
+    function h(e) {
       if (!e) throw new Error('bbox is required');
       if (!Array.isArray(e)) throw new Error('bbox must be an Array');
       if (4 !== e.length && 6 !== e.length)
@@ -154,7 +154,7 @@
         return p;
       }),
       r.d(t, 'd', function() {
-        return h;
+        return d;
       });
     var y = {
       meters: 6371008.8,
@@ -309,18 +309,18 @@
         n = !r && i(e),
         c = !r && !n && a(e),
         p = !r && !n && !c && l(e),
-        h = r || n || c || p,
-        d = h ? o(e.length, String) : [],
-        m = d.length;
+        d = r || n || c || p,
+        h = d ? o(e.length, String) : [],
+        m = h.length;
       for (var y in e)
         (!t && !f.call(e, y)) ||
-          (h &&
+          (d &&
             ('length' == y ||
               (c && ('offset' == y || 'parent' == y)) ||
               (p && ('buffer' == y || 'byteLength' == y || 'byteOffset' == y)) ||
               u(y, m))) ||
-          d.push(y);
-      return d;
+          h.push(y);
+      return h;
     }
     var o = r(51),
       i = r(52),
@@ -423,10 +423,10 @@
             c,
             f,
             p = 0,
-            h = 0,
-            d = e.type,
-            m = 'FeatureCollection' === d,
-            y = 'Feature' === d,
+            d = 0,
+            h = e.type,
+            m = 'FeatureCollection' === h,
+            y = 'Feature' === h,
             v = m ? e.features.length : 1,
             g = 0;
           g < v;
@@ -445,14 +445,14 @@
                 case null:
                   break;
                 case 'Point':
-                  if (!1 === t(l, h, g, _, j)) return !1;
-                  h++, _++;
+                  if (!1 === t(l, d, g, _, j)) return !1;
+                  d++, _++;
                   break;
                 case 'LineString':
                 case 'MultiPoint':
                   for (o = 0; o < l.length; o++) {
-                    if (!1 === t(l[o], h, g, _, j)) return !1;
-                    h++, 'MultiPoint' === x && _++;
+                    if (!1 === t(l[o], d, g, _, j)) return !1;
+                    d++, 'MultiPoint' === x && _++;
                   }
                   'LineString' === x && _++;
                   break;
@@ -460,8 +460,8 @@
                 case 'MultiLineString':
                   for (o = 0; o < l.length; o++) {
                     for (i = 0; i < l[o].length - p; i++) {
-                      if (!1 === t(l[o][i], h, g, _, j)) return !1;
-                      h++;
+                      if (!1 === t(l[o][i], d, g, _, j)) return !1;
+                      d++;
                     }
                     'MultiLineString' === x && _++, 'Polygon' === x && j++;
                   }
@@ -471,8 +471,8 @@
                   for (o = 0; o < l.length; o++) {
                     for ('MultiPolygon' === x && (j = 0), i = 0; i < l[o].length; i++) {
                       for (s = 0; s < l[o][i].length - p; s++) {
-                        if (!1 === t(l[o][i][s], h, g, _, j)) return !1;
-                        h++;
+                        if (!1 === t(l[o][i][s], d, g, _, j)) return !1;
+                        d++;
                       }
                       j++;
                     }
@@ -502,15 +502,15 @@
         c,
         f,
         p = 0,
-        h = 'FeatureCollection' === e.type,
-        d = 'Feature' === e.type,
-        m = h ? e.features.length : 1;
+        d = 'FeatureCollection' === e.type,
+        h = 'Feature' === e.type,
+        m = d ? e.features.length : 1;
       for (r = 0; r < m; r++) {
         for (
-          a = h ? e.features[r].geometry : d ? e.geometry : e,
-            l = h ? e.features[r].properties : d ? e.properties : {},
-            c = h ? e.features[r].bbox : d ? e.bbox : void 0,
-            f = h ? e.features[r].id : d ? e.id : void 0,
+          a = d ? e.features[r].geometry : h ? e.geometry : e,
+            l = d ? e.features[r].properties : h ? e.properties : {},
+            c = d ? e.features[r].bbox : h ? e.bbox : void 0,
+            f = d ? e.features[r].id : h ? e.id : void 0,
             u = !!a && 'GeometryCollection' === a.type,
             s = u ? a.geometries.length : 1,
             o = 0;
@@ -637,10 +637,10 @@
         return (t.default = e), t;
       })(c),
       p = r(86),
-      h = n(p),
-      d = r(87),
+      d = n(p),
+      h = r(87),
       m = r(88),
-      y = { imports: { numberFormat: d.numberFormat }, interpolate: /{{([\s\S]+?)}}/g },
+      y = { imports: { numberFormat: h.numberFormat }, interpolate: /{{([\s\S]+?)}}/g },
       v = (0, i.default)(m.controlTemplate, y),
       g = (0, i.default)(m.resultsTemplate, y),
       b = (0, i.default)(m.pointPopupTemplate, y),
@@ -664,7 +664,7 @@
         var t = this.options,
           r = t.activeColor,
           n = t.completedColor;
-        (this._symbols = new h.default({ activeColor: r, completedColor: n })),
+        (this._symbols = new d.default({ activeColor: r, completedColor: n })),
           (this.options.units = L.extend({}, a.default, this.options.units));
       },
       onAdd: function(e) {
@@ -824,7 +824,7 @@
             },
             i = L.extend({ factor: 1, decimals: 0 }, t);
           return [
-            (0, d.numberFormat)(e * i.factor, i.decimals, r || '.', n || '"'),
+            (0, h.numberFormat)(e * i.factor, i.decimals, r || '.', n || '"'),
             o[i.display] || i.display
           ].join(' ');
         }
@@ -973,9 +973,9 @@
   function(e, t) {},
   function(e, t, r) {
     function n(e, t, r) {
-      var n = h.imports._.templateSettings || h;
-      r && c(e, t, r) && (t = void 0), (e = d(e)), (t = o({}, t, n, a));
-      var M,
+      var n = d.imports._.templateSettings || d;
+      r && c(e, t, r) && (t = void 0), (e = h(e)), (t = o({}, t, n, a));
+      var w,
         L,
         O = o({}, t.imports, n.imports, a),
         k = f(O),
@@ -994,14 +994,14 @@
             '|$',
           'g'
         ),
-        D = w.call(t, 'sourceURL')
+        D = M.call(t, 'sourceURL')
           ? '//# sourceURL=' + (t.sourceURL + '').replace(/\s/g, ' ') + '\n'
           : '';
       e.replace(S, function(t, r, n, o, i, s) {
         return (
           n || (n = o),
           (A += e.slice(E, s).replace(x, u)),
-          r && ((M = !0), (A += "' +\n__e(" + r + ") +\n'")),
+          r && ((w = !0), (A += "' +\n__e(" + r + ") +\n'")),
           i && ((L = !0), (A += "';\n" + i + ";\n__p += '")),
           n && (A += "' +\n((__t = (" + n + ")) == null ? '' : __t) +\n'"),
           (E = s + t.length),
@@ -1009,7 +1009,7 @@
         );
       }),
         (A += "';\n");
-      var T = w.call(t, 'variable') && t.variable;
+      var T = M.call(t, 'variable') && t.variable;
       if (T) {
         if (b.test(T)) throw new Error(m);
       } else A = 'with (obj) {\n' + A + '\n}\n';
@@ -1020,7 +1020,7 @@
           ') {\n' +
           (T ? '' : 'obj || (obj = {});\n') +
           "var __t, __p = ''" +
-          (M ? ', __e = _.escape' : '') +
+          (w ? ', __e = _.escape' : '') +
           (L
             ? ", __j = Array.prototype.join;\nfunction print() { __p += __j.call(arguments, '') }\n"
             : ';\n') +
@@ -1041,8 +1041,8 @@
       c = r(15),
       f = r(68),
       p = r(25),
-      h = r(71),
-      d = r(26),
+      d = r(71),
+      h = r(26),
       m = 'Invalid `variable` option passed into `_.template`',
       y = /\b__p \+= '';/g,
       v = /\b(__p \+=) '' \+/g,
@@ -1051,8 +1051,8 @@
       _ = /\$\{([^\\}]*(?:\\.[^\\}]*)*)\}/g,
       j = /($^)/,
       x = /['\n\r\u2028\u2029\\]/g,
-      M = Object.prototype,
-      w = M.hasOwnProperty;
+      w = Object.prototype,
+      M = w.hasOwnProperty;
     e.exports = n;
   },
   function(e, t, r) {
@@ -1101,7 +1101,7 @@
   },
   function(e, t, r) {
     function n(e) {
-      return !(!s(e) || i(e)) && (o(e) ? d : l).test(a(e));
+      return !(!s(e) || i(e)) && (o(e) ? h : l).test(a(e));
     }
     var o = r(10),
       i = r(40),
@@ -1112,11 +1112,11 @@
       c = Function.prototype,
       f = Object.prototype,
       p = c.toString,
-      h = f.hasOwnProperty,
-      d = RegExp(
+      d = f.hasOwnProperty,
+      h = RegExp(
         '^' +
           p
-            .call(h)
+            .call(d)
             .replace(u, '\\$&')
             .replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, '$1.*?') +
           '$'
@@ -1962,11 +1962,11 @@
   },
   function(e, t, r) {
     e.exports =
-      '<a class="{{ model.className }}-toggle js-toggle" href=# title="Abstände und Flächen messen">Messungss</a> <div class="{{ model.className }}-interaction js-interaction"> <div class="js-startprompt startprompt"> Abstände und Flächen messen <ul class=tasks> <a href=# class="js-start start">Eine neue Messung durchführen</a> </ul> </div> <div class=js-measuringprompt> Abstände und Flächen messen <p class=js-starthelp>Messen sie, indem Sie der Karte Punkte hinzufügen</p> <div class="js-results results"></div> <ul class="js-measuretasks tasks"> <li><a href=# class="js-cancel cancel">Abbrechen</a></li> <li><a href=# class="js-finish finish">Messung beenden</a></li> </ul> </div> </div> ';
+      '<a class="{{ model.className }}-toggle js-toggle" href=# title="Abstände und Flächen messen">Messung</a> <div class="{{ model.className }}-interaction js-interaction"> <div class="js-startprompt startprompt"> <div class="d-flex justify-content-between pb-2"> <div class="col fw-500"> Abstände und Flächen messen </div> <div></div> </div> <div class="js-start mt-1 d-flex align-items-center justify-content-center"> <button class="btn btn-outline-secondary btn-sm" type=button><i class="fa-solid fa-sm fa-check pe-2"></i> Eine neue Messung durchführen </button> </div> </div> <div class=js-measuringprompt> <div class="d-flex justify-content-between"> <div class="col fw-500"> Abstände und Flächen messen </div> <div> <span class=js-measuretasks> <button class="js-cancel btn btn-close btn-close-min"></button> </span> </div> </div> <p class=js-starthelp>Messen sie, indem Sie der Karte Punkte hinzufügen</p> <div class="js-results results"></div> <span class="js-measuretasks tasks mt-0"> <div class="js-finish mt-3 d-flex align-items-center justify-content-center"> <button class="btn btn-outline-secondary btn-sm" type=button><i class="fa-solid fa-sm fa-check pe-2"></i>Messung beenden</button> </div> </span> </div> </div>';
   },
   function(e, t, r) {
     e.exports =
-      '<div class=d-flex> <div>Letzter Punkt</div> <div>{{ model.lastCoord.dms.y }} <span class=coorddivider>/</span> {{ model.lastCoord.dms.x }}</div> <div>{{ numberFormat(model.lastCoord.dd.y, 6) }} <span class=coorddivider>/</span> {{ numberFormat(model.lastCoord.dd.x, 6) }}</div> </div> ';
+      '<div> <p class=mt-3>Letzter Punkt</p> <p class=m-0>{{ model.lastCoord.dms.y }} <span class=coorddivider>/</span> {{ model.lastCoord.dms.x }}</p> <p class=m-0>{{ numberFormat(model.lastCoord.dd.y, 6) }} <span class=coorddivider>/</span> {{ numberFormat(model.lastCoord.dd.x, 6) }}</p> <% if (model.pointCount> 1) { %> <p class=mt-3> Umfang: </p> <p class=mt-0> {{ model.lengthDisplay }} </p> <% } %> <% if (model.pointCount> 2) { %> <p class=mt-3>Fläche</p> <p class=m-0> {{ model.areaDisplay }}</p> <% } %> </div> ';
   },
   function(e, t, r) {
     e.exports =
@@ -1974,7 +1974,7 @@
   },
   function(e, t, r) {
     e.exports =
-      '<h3>Abstand</h3> <p>{{ model.lengthDisplay }}</p> <ul class=tasks> <li><a href=# class="js-zoomto zoomto">Auf diese Linie zentrieren</a></li> <li><a href=# class="js-deletemarkup deletemarkup">Löschen</a></li> </ul> ';
+      'Abstandww <p>{{ model.lengthDisplay }}</p> <a href=# class="js-zoomto zoomto">Auf diese Linie zentrieren</a> <a href=# class="js-deletemarkup deletemarkup">Löschen</a> ';
   },
   function(e, t, r) {
     e.exports =

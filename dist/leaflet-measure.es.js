@@ -1962,11 +1962,11 @@
   },
   function(e, t, r) {
     e.exports =
-      '<a class="{{ model.className }}-toggle js-toggle" href=# title="Mida distancias y áreas">Mediciónss</a> <div class="{{ model.className }}-interaction js-interaction"> <div class="js-startprompt startprompt"> Mida distancias y áreas <ul class=tasks> <a href=# class="js-start start">Crear nueva medición</a> </ul> </div> <div class=js-measuringprompt> Mida distancias y áreas <p class=js-starthelp>Empiece a crear la medición añadiendo puntos al mapa</p> <div class="js-results results"></div> <ul class="js-measuretasks tasks"> <li><a href=# class="js-cancel cancel">Cancelar</a></li> <li><a href=# class="js-finish finish">Terminar medición</a></li> </ul> </div> </div> ';
+      '<a class="{{ model.className }}-toggle js-toggle" href=# title="Mida distancias y áreas">Medición</a> <div class="{{ model.className }}-interaction js-interaction"> <div class="js-startprompt startprompt"> <div class="d-flex justify-content-between pb-2"> <div class="col fw-500"> Mida distancias y áreas </div> <div></div> </div> <div class="js-start mt-1 d-flex align-items-center justify-content-center"> <button class="btn btn-outline-secondary btn-sm" type=button><i class="fa-solid fa-sm fa-check pe-2"></i> Crear nueva medición </button> </div> </div> <div class=js-measuringprompt> <div class="d-flex justify-content-between"> <div class="col fw-500"> Mida distancias y áreas </div> <div> <span class=js-measuretasks> <button class="js-cancel btn btn-close btn-close-min"></button> </span> </div> </div> <p class=js-starthelp>Empiece a crear la medición añadiendo puntos al mapa</p> <div class="js-results results"></div> <span class="js-measuretasks tasks mt-0"> <div class="js-finish mt-3 d-flex align-items-center justify-content-center"> <button class="btn btn-outline-secondary btn-sm" type=button><i class="fa-solid fa-sm fa-check pe-2"></i>Terminar medición</button> </div> </span> </div> </div>';
   },
   function(e, t, r) {
     e.exports =
-      '<div class=d-flex> <div>Último punto</div> <div>{{ model.lastCoord.dms.y }} <span class=coorddivider>/</span> {{ model.lastCoord.dms.x }}</div> <div>{{ numberFormat(model.lastCoord.dd.y, 6) }} <span class=coorddivider>/</span> {{ numberFormat(model.lastCoord.dd.x, 6) }}</div> </div> ';
+      '<div> <p class=mt-3>Último punto</p> <p class=m-0>{{ model.lastCoord.dms.y }} <span class=coorddivider>/</span> {{ model.lastCoord.dms.x }}</p> <p class=m-0>{{ numberFormat(model.lastCoord.dd.y, 6) }} <span class=coorddivider>/</span> {{ numberFormat(model.lastCoord.dd.x, 6) }}</p> <% if (model.pointCount> 1) { %> <p class=mt-3> Distancia de ruta: </p> <p class=mt-0> {{ model.lengthDisplay }} </p> <% } %> <% if (model.pointCount> 2) { %> <p class=mt-3>Área</p> <p class=m-0> {{ model.areaDisplay }}</p> <% } %> </div> ';
   },
   function(e, t, r) {
     e.exports =
@@ -1974,7 +1974,7 @@
   },
   function(e, t, r) {
     e.exports =
-      '<h3>Medición linear</h3> <p>{{ model.lengthDisplay }}</p> <ul class=tasks> <li><a href=# class="js-zoomto zoomto">Centrar en esta línea</a></li> <li><a href=# class="js-deletemarkup deletemarkup">Eliminar</a></li> </ul> ';
+      'Medición linearww <p>{{ model.lengthDisplay }}</p> <a href=# class="js-zoomto zoomto">Centrar en esta línea</a> <a href=# class="js-deletemarkup deletemarkup">Eliminar</a> ';
   },
   function(e, t, r) {
     e.exports =
