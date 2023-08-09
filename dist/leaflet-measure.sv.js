@@ -1974,7 +1974,7 @@
   },
   function(t, e, r) {
     t.exports =
-      ' <span class=result-wrapper> <div class=startprompt> <div class="d-flex justify-content-between"> <div class="col leaflet-control-measure fw-500"> Längdmätning </div> </div> </div> <p>{{ model.lengthDisplay }}</p> <div class="js-finish mt-3 d-flex align-items-center justify-content-center"> <button class="js-deletemarkup btn btn-outline-secondary btn-sm" type=button><i class="fa-sm fa-regular fa-trash-can pe-2"></i> Radera </button> </div> </span>';
+      ' <span class=result-wrapper> <div class=startprompt> <div class="d-flex justify-content-between"> <div class="col leaflet-control-measure fw-500"> Längdmätning </div> </div> </div> <p>{{ model.lengthDisplay }}</p> <div class="js-finish mt-3 d-flex align-items-center justify-content-center"> <button class="js-deletemarkup btn btn-outline-secondary btn-sm d-flex align-items-center" type=button><i class="fa-sm fa-regular fa-trash-can pe-2"></i> Radera </button> </div> </span>';
   },
   function(t, e, r) {
     t.exports =
