@@ -975,15 +975,15 @@
     function n(e, t, r) {
       var n = d.imports._.templateSettings || d;
       r && c(e, t, r) && (t = void 0), (e = h(e)), (t = o({}, t, n, a));
-      var M,
+      var w,
         O,
         L = o({}, t.imports, n.imports, a),
         P = f(L),
         k = s(L, P),
         C = 0,
         E = t.interpolate || j,
-        S = "__p += '",
-        A = RegExp(
+        A = "__p += '",
+        S = RegExp(
           (t.escape || j).source +
             '|' +
             E.source +
@@ -994,42 +994,42 @@
             '|$',
           'g'
         ),
-        D = w.call(t, 'sourceURL')
+        D = M.call(t, 'sourceURL')
           ? '//# sourceURL=' + (t.sourceURL + '').replace(/\s/g, ' ') + '\n'
           : '';
-      e.replace(A, function(t, r, n, o, i, s) {
+      e.replace(S, function(t, r, n, o, i, s) {
         return (
           n || (n = o),
-          (S += e.slice(C, s).replace(x, u)),
-          r && ((M = !0), (S += "' +\n__e(" + r + ") +\n'")),
-          i && ((O = !0), (S += "';\n" + i + ";\n__p += '")),
-          n && (S += "' +\n((__t = (" + n + ")) == null ? '' : __t) +\n'"),
+          (A += e.slice(C, s).replace(x, u)),
+          r && ((w = !0), (A += "' +\n__e(" + r + ") +\n'")),
+          i && ((O = !0), (A += "';\n" + i + ";\n__p += '")),
+          n && (A += "' +\n((__t = (" + n + ")) == null ? '' : __t) +\n'"),
           (C = s + t.length),
           t
         );
       }),
-        (S += "';\n");
-      var T = w.call(t, 'variable') && t.variable;
+        (A += "';\n");
+      var T = M.call(t, 'variable') && t.variable;
       if (T) {
         if (b.test(T)) throw new Error(m);
-      } else S = 'with (obj) {\n' + S + '\n}\n';
-      (S = (O ? S.replace(y, '') : S).replace(v, '$1').replace(g, '$1;')),
-        (S =
+      } else A = 'with (obj) {\n' + A + '\n}\n';
+      (A = (O ? A.replace(y, '') : A).replace(v, '$1').replace(g, '$1;')),
+        (A =
           'function(' +
           (T || 'obj') +
           ') {\n' +
           (T ? '' : 'obj || (obj = {});\n') +
           "var __t, __p = ''" +
-          (M ? ', __e = _.escape' : '') +
+          (w ? ', __e = _.escape' : '') +
           (O
             ? ", __j = Array.prototype.join;\nfunction print() { __p += __j.call(arguments, '') }\n"
             : ';\n') +
-          S +
+          A +
           'return __p\n}');
       var $ = i(function() {
-        return Function(P, D + 'return ' + S).apply(void 0, k);
+        return Function(P, D + 'return ' + A).apply(void 0, k);
       });
-      if ((($.source = S), l($))) throw $;
+      if ((($.source = A), l($))) throw $;
       return $;
     }
     var o = r(32),
@@ -1051,8 +1051,8 @@
       _ = /\$\{([^\\}]*(?:\\.[^\\}]*)*)\}/g,
       j = /($^)/,
       x = /['\n\r\u2028\u2029\\]/g,
-      M = Object.prototype,
-      w = M.hasOwnProperty;
+      w = Object.prototype,
+      M = w.hasOwnProperty;
     e.exports = n;
   },
   function(e, t, r) {
@@ -1962,11 +1962,11 @@
   },
   function(e, t, r) {
     e.exports =
-      '<a class="{{ model.className }}-toggle js-toggle" href=# title="Misura distanze e aree">Misura</a> <div class="{{ model.className }}-interaction js-interaction"> <div class="js-startprompt startprompt"> <div class="d-flex justify-content-between pb-2"> <div class="col fw-500"> Misura distanze e aree </div> <div></div> </div> <div class="js-start mt-1 d-flex align-items-center justify-content-center"> <button class="btn btn-outline-secondary btn-sm" type=button><i class="fa-regular fa-sm fa-circle-play pe-2"></i> Crea una nuova misurazione </button> </div> </div> <div class=js-measuringprompt> <div class="d-flex justify-content-between"> <div class="col fw-500"> Misura distanze e aree </div> <div> <span class=js-measuretasks> <button class="js-cancel btn btn-close btn-close-min"></button> </span> </div> </div> <p class=js-starthelp>Comincia a creare una misurazione aggiungendo punti alla mappa</p> <div class="js-results results"></div> <span class="js-measuretasks tasks mt-0"> <div class="js-finish mt-3 d-flex align-items-center justify-content-center"> <button class="btn btn-outline-secondary btn-sm" type=button><i class="fa-solid fa-sm fa-check pe-2"></i>Misurazione conclusa</button> </div> </span> </div> </div>';
+      '<a class="{{ model.className }}-toggle js-toggle" href=# title="Misura distanze e aree">Misura</a> <div class="{{ model.className }}-interaction js-interaction"> <div class="js-startprompt startprompt"> <div class="d-flex justify-content-between pb-2"> <div class="col fw-500"> Misura distanze e aree </div> <div></div> </div> <div class="js-start mt-1 d-flex align-items-center justify-content-center"> <button class="btn btn-outline-secondary btn-sm" type=button><i class="fa-regular fa-sm fa-circle-play pe-2"></i> Crea una nuova misurazione </button> </div> </div> <div class=js-measuringprompt> <div class="d-flex justify-content-between"> <div class="col fw-500"> Misura distanze e aree </div> <div> <span class=js-measuretasks> <button class="js-cancel btn btn-close btn-close-min"></button> </span> </div> </div> <p class=js-starthelp>Comincia a creare una misurazione aggiungendo punti alla mappa</p> <div class="js-results results"></div> <span class="js-measuretasks tasks mt-0"> <div class="js-finish mt-3 d-flex align-items-center justify-content-center"> <button class="btn btn-outline-secondary btn-sm" type=button><i class="fa-sm fa-regular fa-circle-stop pe-2"></i>Misurazione conclusa</button> </div> </span> </div> </div>';
   },
   function(e, t, r) {
     e.exports =
-      '<div> <p class=mt-3>Ultimo punto</p> <p class=m-0>{{ model.lastCoord.dms.y }} <span class=coorddivider>/</span> {{ model.lastCoord.dms.x }}</p> <p class=m-0>{{ numberFormat(model.lastCoord.dd.y, 6) }} <span class=coorddivider>/</span> {{ numberFormat(model.lastCoord.dd.x, 6) }}</p> <% if (model.pointCount> 1) { %> <p class=mt-3> Distanza percorso: </p> <p class=mt-0> {{ model.lengthDisplay }} </p> <% } %> <% if (model.pointCount> 2) { %> <p class=mt-3>Area</p> <p class=m-0> {{ model.areaDisplay }}</p> <% } %> </div> ';
+      '<div> <p class=mt-3>Ultimo punto</p> <p class=m-0>{{ model.lastCoord.dms.y }} <span class=coorddivider>/</span> {{ model.lastCoord.dms.x }}</p> <p class=m-0>{{ numberFormat(model.lastCoord.dd.y, 6) }} <span class=coorddivider>/</span> {{ numberFormat(model.lastCoord.dd.x, 6) }}</p> <% if (model.pointCount> 1) { %> <p class=mt-3> Distanza percorso </p> <p class=mt-0> {{ model.lengthDisplay }} </p> <% } %> <% if (model.pointCount> 2) { %> <p class=mt-3>Area</p> <p class=m-0> {{ model.areaDisplay }}</p> <% } %> </div> ';
   },
   function(e, t, r) {
     e.exports =
@@ -1974,10 +1974,10 @@
   },
   function(e, t, r) {
     e.exports =
-      'Misura lineareww <p>{{ model.lengthDisplay }}</p> <a href=# class="js-zoomto zoomto">Centra su questa linea</a> <a href=# class="js-deletemarkup deletemarkup">Cancella</a> ';
+      ' <span class=result-wrapper> <div class=startprompt> <div class="d-flex justify-content-between"> <div class="col leaflet-control-measure fw-500"> Misura lineare </div> </div> </div> <p>{{ model.lengthDisplay }}</p> <div class="js-finish mt-3 d-flex align-items-center justify-content-center"> <button class="js-deletemarkup btn btn-outline-secondary btn-sm" type=button><i class="fa-sm fa-regular fa-trash-can pe-2"></i> Cancella </button> </div> </span>';
   },
   function(e, t, r) {
     e.exports =
-      '<h3>Misura area</h3> <p>{{ model.areaDisplay }}</p> <p>{{ model.lengthDisplay }} Perimetro</p> <ul class=tasks> <li><a href=# class="js-zoomto zoomto">Centra su questa area</a></li> <li><a href=# class="js-deletemarkup deletemarkup">Cancella</a></li> </ul> ';
+      '<span class=result-wrapper> <div class=startprompt> <div class="d-flex justify-content-between"> <div class="col leaflet-control-measure fw-500"> Misura area </div> </div> </div> <p> Distanza percorso </p> <p class=m-0> {{ model.areaDisplay }} </p> <p class=mt-2> Area </p> <p class=m-0> {{ model.lengthDisplay }} Perimetro </p> <div class="js-finish mt-3 d-flex align-items-center justify-content-center"> <button class="js-deletemarkup btn btn-outline-secondary btn-sm" type=button><i class="fa-sm fa-regular fa-trash-can pe-2"></i> Cancella </button> </div> </span>';
   }
 ]);

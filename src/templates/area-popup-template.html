@@ -1,7 +1,30 @@
-<h3>${ __('areaMeasurement') }</h3>
-<p>{{ model.areaDisplay }}</p>
-<p>{{ model.lengthDisplay }} ${ __('perimeter') }</p>
-<ul class="tasks">
-  <li><a href="#" class="js-zoomto zoomto">${ __('centerOnArea') }</a></li>
-  <li><a href="#" class="js-deletemarkup deletemarkup">${ __('delete') }</a></li>
-</ul>
+<span class="result-wrapper">
+  <div class="startprompt">
+    <div class="d-flex justify-content-between">
+      <div class="col leaflet-control-measure fw-500">
+        ${ __('areaMeasurement') }
+      </div>
+    </div>
+  </div>
+  <p>
+    ${ __('pathDistance') }
+  </p>
+  <p class="m-0">
+    {{ model.areaDisplay }}
+  </p>
+  <p class="mt-2">
+    ${ __('area') }
+  </p>
+  <p class="m-0">
+    {{ model.lengthDisplay }} ${ __('perimeter') }
+  </p>
+  <div class="js-finish mt-3 d-flex align-items-center justify-content-center">
+    <!-- <button class="js-zoomto btn btn-outline-secondary btn-sm me-1" type="button"><i class="fa-sm fa-regular fa-circle-stop pe-2"></i>
+      ${ __('centerOnArea') }
+    </button> -->
+    <button class="js-deletemarkup btn btn-outline-secondary btn-sm" type="button"><i
+        class="fa-sm fa-regular fa-trash-can pe-2"></i>
+      ${ __('delete') }
+    </button>
+  </div>
+</span>

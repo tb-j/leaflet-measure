@@ -1962,11 +1962,11 @@
   },
   function(e, t, r) {
     e.exports =
-      '<a class="{{ model.className }}-toggle js-toggle" href=# title="Távolság- és területmérések">Mérés</a> <div class="{{ model.className }}-interaction js-interaction"> <div class="js-startprompt startprompt"> <div class="d-flex justify-content-between pb-2"> <div class="col fw-500"> Távolság- és területmérések </div> <div></div> </div> <div class="js-start mt-1 d-flex align-items-center justify-content-center"> <button class="btn btn-outline-secondary btn-sm" type=button><i class="fa-regular fa-sm fa-circle-play pe-2"></i> Egy új mérés elvégzése </button> </div> </div> <div class=js-measuringprompt> <div class="d-flex justify-content-between"> <div class="col fw-500"> Távolság- és területmérések </div> <div> <span class=js-measuretasks> <button class="js-cancel btn btn-close btn-close-min"></button> </span> </div> </div> <p class=js-starthelp>Végezzen mérést pontok elhelyezésével a térképen.</p> <div class="js-results results"></div> <span class="js-measuretasks tasks mt-0"> <div class="js-finish mt-3 d-flex align-items-center justify-content-center"> <button class="btn btn-outline-secondary btn-sm" type=button><i class="fa-solid fa-sm fa-check pe-2"></i>Mérés befejezése</button> </div> </span> </div> </div>';
+      '<a class="{{ model.className }}-toggle js-toggle" href=# title="Távolság- és területmérések">Mérés</a> <div class="{{ model.className }}-interaction js-interaction"> <div class="js-startprompt startprompt"> <div class="d-flex justify-content-between pb-2"> <div class="col fw-500"> Távolság- és területmérések </div> <div></div> </div> <div class="js-start mt-1 d-flex align-items-center justify-content-center"> <button class="btn btn-outline-secondary btn-sm" type=button><i class="fa-regular fa-sm fa-circle-play pe-2"></i> Egy új mérés elvégzése </button> </div> </div> <div class=js-measuringprompt> <div class="d-flex justify-content-between"> <div class="col fw-500"> Távolság- és területmérések </div> <div> <span class=js-measuretasks> <button class="js-cancel btn btn-close btn-close-min"></button> </span> </div> </div> <p class=js-starthelp>Végezzen mérést pontok elhelyezésével a térképen.</p> <div class="js-results results"></div> <span class="js-measuretasks tasks mt-0"> <div class="js-finish mt-3 d-flex align-items-center justify-content-center"> <button class="btn btn-outline-secondary btn-sm" type=button><i class="fa-sm fa-regular fa-circle-stop pe-2"></i>Mérés befejezése</button> </div> </span> </div> </div>';
   },
   function(e, t, r) {
     e.exports =
-      '<div> <p class=mt-3>Utolsó pont</p> <p class=m-0>{{ model.lastCoord.dms.y }} <span class=coorddivider>/</span> {{ model.lastCoord.dms.x }}</p> <p class=m-0>{{ numberFormat(model.lastCoord.dd.y, 6) }} <span class=coorddivider>/</span> {{ numberFormat(model.lastCoord.dd.x, 6) }}</p> <% if (model.pointCount> 1) { %> <p class=mt-3> Kijelölt vonal távolsága: </p> <p class=mt-0> {{ model.lengthDisplay }} </p> <% } %> <% if (model.pointCount> 2) { %> <p class=mt-3>Terület</p> <p class=m-0> {{ model.areaDisplay }}</p> <% } %> </div> ';
+      '<div> <p class=mt-3>Utolsó pont</p> <p class=m-0>{{ model.lastCoord.dms.y }} <span class=coorddivider>/</span> {{ model.lastCoord.dms.x }}</p> <p class=m-0>{{ numberFormat(model.lastCoord.dd.y, 6) }} <span class=coorddivider>/</span> {{ numberFormat(model.lastCoord.dd.x, 6) }}</p> <% if (model.pointCount> 1) { %> <p class=mt-3> Kijelölt vonal távolsága </p> <p class=mt-0> {{ model.lengthDisplay }} </p> <% } %> <% if (model.pointCount> 2) { %> <p class=mt-3>Terület</p> <p class=m-0> {{ model.areaDisplay }}</p> <% } %> </div> ';
   },
   function(e, t, r) {
     e.exports =
@@ -1974,10 +1974,10 @@
   },
   function(e, t, r) {
     e.exports =
-      'Mért távolságww <p>{{ model.lengthDisplay }}</p> <a href=# class="js-zoomto zoomto">Közelítés erre a vonalra</a> <a href=# class="js-deletemarkup deletemarkup">Törlés</a> ';
+      ' <span class=result-wrapper> <div class=startprompt> <div class="d-flex justify-content-between"> <div class="col leaflet-control-measure fw-500"> Mért távolság </div> </div> </div> <p>{{ model.lengthDisplay }}</p> <div class="js-finish mt-3 d-flex align-items-center justify-content-center"> <button class="js-deletemarkup btn btn-outline-secondary btn-sm" type=button><i class="fa-sm fa-regular fa-trash-can pe-2"></i> Törlés </button> </div> </span>';
   },
   function(e, t, r) {
     e.exports =
-      '<h3>Mért terület</h3> <p>{{ model.areaDisplay }}</p> <p>{{ model.lengthDisplay }} Szegély</p> <ul class=tasks> <li><a href=# class="js-zoomto zoomto">Közelítés erre a területre</a></li> <li><a href=# class="js-deletemarkup deletemarkup">Törlés</a></li> </ul> ';
+      '<span class=result-wrapper> <div class=startprompt> <div class="d-flex justify-content-between"> <div class="col leaflet-control-measure fw-500"> Mért terület </div> </div> </div> <p> Kijelölt vonal távolsága </p> <p class=m-0> {{ model.areaDisplay }} </p> <p class=mt-2> Terület </p> <p class=m-0> {{ model.lengthDisplay }} Szegély </p> <div class="js-finish mt-3 d-flex align-items-center justify-content-center"> <button class="js-deletemarkup btn btn-outline-secondary btn-sm" type=button><i class="fa-sm fa-regular fa-trash-can pe-2"></i> Törlés </button> </div> </span>';
   }
 ]);

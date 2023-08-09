@@ -975,7 +975,7 @@
     function n(e, t, r) {
       var n = d.imports._.templateSettings || d;
       r && c(e, t, r) && (t = void 0), (e = h(e)), (t = o({}, t, n, a));
-      var M,
+      var w,
         O,
         L = o({}, t.imports, n.imports, a),
         P = f(L),
@@ -994,14 +994,14 @@
             '|$',
           'g'
         ),
-        D = w.call(t, 'sourceURL')
+        D = M.call(t, 'sourceURL')
           ? '//# sourceURL=' + (t.sourceURL + '').replace(/\s/g, ' ') + '\n'
           : '';
       e.replace(A, function(t, r, n, o, i, s) {
         return (
           n || (n = o),
           (S += e.slice(E, s).replace(x, u)),
-          r && ((M = !0), (S += "' +\n__e(" + r + ") +\n'")),
+          r && ((w = !0), (S += "' +\n__e(" + r + ") +\n'")),
           i && ((O = !0), (S += "';\n" + i + ";\n__p += '")),
           n && (S += "' +\n((__t = (" + n + ")) == null ? '' : __t) +\n'"),
           (E = s + t.length),
@@ -1009,7 +1009,7 @@
         );
       }),
         (S += "';\n");
-      var T = w.call(t, 'variable') && t.variable;
+      var T = M.call(t, 'variable') && t.variable;
       if (T) {
         if (b.test(T)) throw new Error(m);
       } else S = 'with (obj) {\n' + S + '\n}\n';
@@ -1020,7 +1020,7 @@
           ') {\n' +
           (T ? '' : 'obj || (obj = {});\n') +
           "var __t, __p = ''" +
-          (M ? ', __e = _.escape' : '') +
+          (w ? ', __e = _.escape' : '') +
           (O
             ? ", __j = Array.prototype.join;\nfunction print() { __p += __j.call(arguments, '') }\n"
             : ';\n') +
@@ -1051,8 +1051,8 @@
       _ = /\$\{([^\\}]*(?:\\.[^\\}]*)*)\}/g,
       j = /($^)/,
       x = /['\n\r\u2028\u2029\\]/g,
-      M = Object.prototype,
-      w = M.hasOwnProperty;
+      w = Object.prototype,
+      M = w.hasOwnProperty;
     e.exports = n;
   },
   function(e, t, r) {
@@ -1962,11 +1962,11 @@
   },
   function(e, t, r) {
     e.exports =
-      '<a class="{{ model.className }}-toggle js-toggle" href=# title="Mesurer les distances et superficies">Mesure</a> <div class="{{ model.className }}-interaction js-interaction"> <div class="js-startprompt startprompt"> <div class="d-flex justify-content-between pb-2"> <div class="col fw-500"> Mesurer les distances et superficies </div> <div></div> </div> <div class="js-start mt-1 d-flex align-items-center justify-content-center"> <button class="btn btn-outline-secondary btn-sm" type=button><i class="fa-regular fa-sm fa-circle-play pe-2"></i> Créer une nouvelle mesure </button> </div> </div> <div class=js-measuringprompt> <div class="d-flex justify-content-between"> <div class="col fw-500"> Mesurer les distances et superficies </div> <div> <span class=js-measuretasks> <button class="js-cancel btn btn-close btn-close-min"></button> </span> </div> </div> <p class=js-starthelp>Débuter la création d"une nouvelle mesure en ajoutant des points sur la carte</p> <div class="js-results results"></div> <span class="js-measuretasks tasks mt-0"> <div class="js-finish mt-3 d-flex align-items-center justify-content-center"> <button class="btn btn-outline-secondary btn-sm" type=button><i class="fa-solid fa-sm fa-check pe-2"></i>Finir la mesure</button> </div> </span> </div> </div>';
+      '<a class="{{ model.className }}-toggle js-toggle" href=# title="Mesurer les distances et superficies">Mesure</a> <div class="{{ model.className }}-interaction js-interaction"> <div class="js-startprompt startprompt"> <div class="d-flex justify-content-between pb-2"> <div class="col fw-500"> Mesurer les distances et superficies </div> <div></div> </div> <div class="js-start mt-1 d-flex align-items-center justify-content-center"> <button class="btn btn-outline-secondary btn-sm" type=button><i class="fa-regular fa-sm fa-circle-play pe-2"></i> Créer une nouvelle mesure </button> </div> </div> <div class=js-measuringprompt> <div class="d-flex justify-content-between"> <div class="col fw-500"> Mesurer les distances et superficies </div> <div> <span class=js-measuretasks> <button class="js-cancel btn btn-close btn-close-min"></button> </span> </div> </div> <p class=js-starthelp>Débuter la création d"une nouvelle mesure en ajoutant des points sur la carte</p> <div class="js-results results"></div> <span class="js-measuretasks tasks mt-0"> <div class="js-finish mt-3 d-flex align-items-center justify-content-center"> <button class="btn btn-outline-secondary btn-sm" type=button><i class="fa-sm fa-regular fa-circle-stop pe-2"></i>Finir la mesure</button> </div> </span> </div> </div>';
   },
   function(e, t, r) {
     e.exports =
-      '<div> <p class=mt-3>Dernier point</p> <p class=m-0>{{ model.lastCoord.dms.y }} <span class=coorddivider>/</span> {{ model.lastCoord.dms.x }}</p> <p class=m-0>{{ numberFormat(model.lastCoord.dd.y, 6) }} <span class=coorddivider>/</span> {{ numberFormat(model.lastCoord.dd.x, 6) }}</p> <% if (model.pointCount> 1) { %> <p class=mt-3> Distance du chemin: </p> <p class=mt-0> {{ model.lengthDisplay }} </p> <% } %> <% if (model.pointCount> 2) { %> <p class=mt-3>Superficie</p> <p class=m-0> {{ model.areaDisplay }}</p> <% } %> </div> ';
+      '<div> <p class=mt-3>Dernier point</p> <p class=m-0>{{ model.lastCoord.dms.y }} <span class=coorddivider>/</span> {{ model.lastCoord.dms.x }}</p> <p class=m-0>{{ numberFormat(model.lastCoord.dd.y, 6) }} <span class=coorddivider>/</span> {{ numberFormat(model.lastCoord.dd.x, 6) }}</p> <% if (model.pointCount> 1) { %> <p class=mt-3> Distance du chemin </p> <p class=mt-0> {{ model.lengthDisplay }} </p> <% } %> <% if (model.pointCount> 2) { %> <p class=mt-3>Superficie</p> <p class=m-0> {{ model.areaDisplay }}</p> <% } %> </div> ';
   },
   function(e, t, r) {
     e.exports =
@@ -1974,10 +1974,10 @@
   },
   function(e, t, r) {
     e.exports =
-      'Mesure linéaireww <p>{{ model.lengthDisplay }}</p> <a href=# class="js-zoomto zoomto">Centrer sur cette ligne</a> <a href=# class="js-deletemarkup deletemarkup">Supprimer</a> ';
+      ' <span class=result-wrapper> <div class=startprompt> <div class="d-flex justify-content-between"> <div class="col leaflet-control-measure fw-500"> Mesure linéaire </div> </div> </div> <p>{{ model.lengthDisplay }}</p> <div class="js-finish mt-3 d-flex align-items-center justify-content-center"> <button class="js-deletemarkup btn btn-outline-secondary btn-sm" type=button><i class="fa-sm fa-regular fa-trash-can pe-2"></i> Supprimer </button> </div> </span>';
   },
   function(e, t, r) {
     e.exports =
-      '<h3>Mesure de superficie</h3> <p>{{ model.areaDisplay }}</p> <p>{{ model.lengthDisplay }} Périmètre</p> <ul class=tasks> <li><a href=# class="js-zoomto zoomto">Centrer sur cette zone</a></li> <li><a href=# class="js-deletemarkup deletemarkup">Supprimer</a></li> </ul> ';
+      '<span class=result-wrapper> <div class=startprompt> <div class="d-flex justify-content-between"> <div class="col leaflet-control-measure fw-500"> Mesure de superficie </div> </div> </div> <p> Distance du chemin </p> <p class=m-0> {{ model.areaDisplay }} </p> <p class=mt-2> Superficie </p> <p class=m-0> {{ model.lengthDisplay }} Périmètre </p> <div class="js-finish mt-3 d-flex align-items-center justify-content-center"> <button class="js-deletemarkup btn btn-outline-secondary btn-sm" type=button><i class="fa-sm fa-regular fa-trash-can pe-2"></i> Supprimer </button> </div> </span>';
   }
 ]);

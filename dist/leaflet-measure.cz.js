@@ -107,7 +107,7 @@
     function c(e, t) {
       if (void 0 === e || null === e) throw new Error('radians is required');
       if (t && 'string' != typeof t) throw new Error('units must be a string');
-      var r = y[t || 'kilometers'];
+      var r = v[t || 'kilometers'];
       if (!r) throw new Error(t + ' units is invalid');
       return e * r;
     }
@@ -156,7 +156,7 @@
       r.d(t, 'd', function() {
         return d;
       });
-    var y = {
+    var v = {
       meters: 6371008.8,
       metres: 6371008.8,
       millimeters: 6371008800,
@@ -312,14 +312,14 @@
         d = r || n || c || p,
         h = d ? o(e.length, String) : [],
         m = h.length;
-      for (var y in e)
-        (!t && !f.call(e, y)) ||
+      for (var v in e)
+        (!t && !f.call(e, v)) ||
           (d &&
-            ('length' == y ||
-              (c && ('offset' == y || 'parent' == y)) ||
-              (p && ('buffer' == y || 'byteLength' == y || 'byteOffset' == y)) ||
-              u(y, m))) ||
-          h.push(y);
+            ('length' == v ||
+              (c && ('offset' == v || 'parent' == v)) ||
+              (p && ('buffer' == v || 'byteLength' == v || 'byteOffset' == v)) ||
+              u(v, m))) ||
+          h.push(v);
       return h;
     }
     var o = r(51),
@@ -426,32 +426,32 @@
             d = 0,
             h = e.type,
             m = 'FeatureCollection' === h,
-            y = 'Feature' === h,
-            v = m ? e.features.length : 1,
-            g = 0;
-          g < v;
-          g++
+            v = 'Feature' === h,
+            y = m ? e.features.length : 1,
+            b = 0;
+          b < y;
+          b++
         ) {
-          (c = m ? e.features[g].geometry : y ? e.geometry : e),
+          (c = m ? e.features[b].geometry : v ? e.geometry : e),
             (f = !!c && 'GeometryCollection' === c.type),
             (u = f ? c.geometries.length : 1);
-          for (var b = 0; b < u; b++) {
+          for (var g = 0; g < u; g++) {
             var _ = 0,
               j = 0;
-            if (null !== (a = f ? c.geometries[b] : c)) {
+            if (null !== (a = f ? c.geometries[g] : c)) {
               l = a.coordinates;
               var x = a.type;
               switch (((p = !r || ('Polygon' !== x && 'MultiPolygon' !== x) ? 0 : 1), x)) {
                 case null:
                   break;
                 case 'Point':
-                  if (!1 === t(l, d, g, _, j)) return !1;
+                  if (!1 === t(l, d, b, _, j)) return !1;
                   d++, _++;
                   break;
                 case 'LineString':
                 case 'MultiPoint':
                   for (o = 0; o < l.length; o++) {
-                    if (!1 === t(l[o], d, g, _, j)) return !1;
+                    if (!1 === t(l[o], d, b, _, j)) return !1;
                     d++, 'MultiPoint' === x && _++;
                   }
                   'LineString' === x && _++;
@@ -460,7 +460,7 @@
                 case 'MultiLineString':
                   for (o = 0; o < l.length; o++) {
                     for (i = 0; i < l[o].length - p; i++) {
-                      if (!1 === t(l[o][i], d, g, _, j)) return !1;
+                      if (!1 === t(l[o][i], d, b, _, j)) return !1;
                       d++;
                     }
                     'MultiLineString' === x && _++, 'Polygon' === x && j++;
@@ -471,7 +471,7 @@
                   for (o = 0; o < l.length; o++) {
                     for ('MultiPolygon' === x && (j = 0), i = 0; i < l[o].length; i++) {
                       for (s = 0; s < l[o][i].length - p; s++) {
-                        if (!1 === t(l[o][i][s], d, g, _, j)) return !1;
+                        if (!1 === t(l[o][i][s], d, b, _, j)) return !1;
                         d++;
                       }
                       j++;
@@ -640,12 +640,12 @@
       d = n(p),
       h = r(87),
       m = r(88),
-      y = { imports: { numberFormat: h.numberFormat }, interpolate: /{{([\s\S]+?)}}/g },
-      v = (0, i.default)(m.controlTemplate, y),
-      g = (0, i.default)(m.resultsTemplate, y),
-      b = (0, i.default)(m.pointPopupTemplate, y),
-      _ = (0, i.default)(m.linePopupTemplate, y),
-      j = (0, i.default)(m.areaPopupTemplate, y);
+      v = { imports: { numberFormat: h.numberFormat }, interpolate: /{{([\s\S]+?)}}/g },
+      y = (0, i.default)(m.controlTemplate, v),
+      b = (0, i.default)(m.resultsTemplate, v),
+      g = (0, i.default)(m.pointPopupTemplate, v),
+      _ = (0, i.default)(m.linePopupTemplate, v),
+      j = (0, i.default)(m.areaPopupTemplate, v);
     (L.Control.Measure = L.Control.extend({
       _className: 'leaflet-control-measure',
       options: {
@@ -683,7 +683,7 @@
       _initLayout: function() {
         var e = this._className,
           t = (this._container = L.DomUtil.create('div', e + ' leaflet-bar'));
-        (t.innerHTML = v({ model: { className: e } })),
+        (t.innerHTML = y({ model: { className: e } })),
           t.setAttribute('aria-haspopup', !0),
           L.DomEvent.disableClickPropagation(t),
           L.DomEvent.disableScrollPropagation(t);
@@ -851,7 +851,7 @@
           t = (this._resultsModel = L.extend({}, e, this._getMeasurementDisplayStrings(e), {
             pointCount: this._latlngs.length
           }));
-        this.$results.innerHTML = g({ model: t });
+        this.$results.innerHTML = b({ model: t });
       },
       _handleMeasureMove: function(e) {
         this._measureDrag
@@ -871,7 +871,7 @@
           var n = (0, l.default)(e);
           1 === e.length
             ? ((t = L.circleMarker(e[0], this._symbols.getSymbol('resultPoint'))),
-              (r = b({ model: n })))
+              (r = g({ model: n })))
             : 2 === e.length
             ? ((t = L.polyline(e, this._symbols.getSymbol('resultLine'))),
               (r = _({ model: L.extend({}, n, this._getMeasurementDisplayStrings(n)) })))
@@ -1011,9 +1011,9 @@
         (S += "';\n");
       var T = M.call(t, 'variable') && t.variable;
       if (T) {
-        if (b.test(T)) throw new Error(m);
+        if (g.test(T)) throw new Error(m);
       } else S = 'with (obj) {\n' + S + '\n}\n';
-      (S = (O ? S.replace(y, '') : S).replace(v, '$1').replace(g, '$1;')),
+      (S = (O ? S.replace(v, '') : S).replace(y, '$1').replace(b, '$1;')),
         (S =
           'function(' +
           (T || 'obj') +
@@ -1044,10 +1044,10 @@
       d = r(71),
       h = r(26),
       m = 'Invalid `variable` option passed into `_.template`',
-      y = /\b__p \+= '';/g,
-      v = /\b(__p \+=) '' \+/g,
-      g = /(__e\(.*?\)|\b__t\)) \+\n'';/g,
-      b = /[()=,{}\[\]\/\s]/,
+      v = /\b__p \+= '';/g,
+      y = /\b(__p \+=) '' \+/g,
+      b = /(__e\(.*?\)|\b__t\)) \+\n'';/g,
+      g = /[()=,{}\[\]\/\s]/,
       _ = /\$\{([^\\}]*(?:\\.[^\\}]*)*)\}/g,
       j = /($^)/,
       x = /['\n\r\u2028\u2029\\]/g,
@@ -1962,11 +1962,11 @@
   },
   function(e, t, r) {
     e.exports =
-      '<a class="{{ model.className }}-toggle js-toggle" href=# title="měření vzdáleností a výměr">Měření</a> <div class="{{ model.className }}-interaction js-interaction"> <div class="js-startprompt startprompt"> <div class="d-flex justify-content-between pb-2"> <div class="col fw-500"> měření vzdáleností a výměr </div> <div></div> </div> <div class="js-start mt-1 d-flex align-items-center justify-content-center"> <button class="btn btn-outline-secondary btn-sm" type=button><i class="fa-regular fa-sm fa-circle-play pe-2"></i> provést nové měření </button> </div> </div> <div class=js-measuringprompt> <div class="d-flex justify-content-between"> <div class="col fw-500"> měření vzdáleností a výměr </div> <div> <span class=js-measuretasks> <button class="js-cancel btn btn-close btn-close-min"></button> </span> </div> </div> <p class=js-starthelp>proveďte měření přidáním bodů do mapy</p> <div class="js-results results"></div> <span class="js-measuretasks tasks mt-0"> <div class="js-finish mt-3 d-flex align-items-center justify-content-center"> <button class="btn btn-outline-secondary btn-sm" type=button><i class="fa-solid fa-sm fa-check pe-2"></i>ukončit měření</button> </div> </span> </div> </div>';
+      '<a class="{{ model.className }}-toggle js-toggle" href=# title="měření vzdáleností a výměr">Měření</a> <div class="{{ model.className }}-interaction js-interaction"> <div class="js-startprompt startprompt"> <div class="d-flex justify-content-between pb-2"> <div class="col fw-500"> měření vzdáleností a výměr </div> <div></div> </div> <div class="js-start mt-1 d-flex align-items-center justify-content-center"> <button class="btn btn-outline-secondary btn-sm" type=button><i class="fa-regular fa-sm fa-circle-play pe-2"></i> provést nové měření </button> </div> </div> <div class=js-measuringprompt> <div class="d-flex justify-content-between"> <div class="col fw-500"> měření vzdáleností a výměr </div> <div> <span class=js-measuretasks> <button class="js-cancel btn btn-close btn-close-min"></button> </span> </div> </div> <p class=js-starthelp>proveďte měření přidáním bodů do mapy</p> <div class="js-results results"></div> <span class="js-measuretasks tasks mt-0"> <div class="js-finish mt-3 d-flex align-items-center justify-content-center"> <button class="btn btn-outline-secondary btn-sm" type=button><i class="fa-sm fa-regular fa-circle-stop pe-2"></i>ukončit měření</button> </div> </span> </div> </div>';
   },
   function(e, t, r) {
     e.exports =
-      '<div> <p class=mt-3>poslední bod</p> <p class=m-0>{{ model.lastCoord.dms.y }} <span class=coorddivider>/</span> {{ model.lastCoord.dms.x }}</p> <p class=m-0>{{ numberFormat(model.lastCoord.dd.y, 6) }} <span class=coorddivider>/</span> {{ numberFormat(model.lastCoord.dd.x, 6) }}</p> <% if (model.pointCount> 1) { %> <p class=mt-3> vzdálenost podél úseku: </p> <p class=mt-0> {{ model.lengthDisplay }} </p> <% } %> <% if (model.pointCount> 2) { %> <p class=mt-3>výměra</p> <p class=m-0> {{ model.areaDisplay }}</p> <% } %> </div> ';
+      '<div> <p class=mt-3>poslední bod</p> <p class=m-0>{{ model.lastCoord.dms.y }} <span class=coorddivider>/</span> {{ model.lastCoord.dms.x }}</p> <p class=m-0>{{ numberFormat(model.lastCoord.dd.y, 6) }} <span class=coorddivider>/</span> {{ numberFormat(model.lastCoord.dd.x, 6) }}</p> <% if (model.pointCount> 1) { %> <p class=mt-3> vzdálenost podél úseku </p> <p class=mt-0> {{ model.lengthDisplay }} </p> <% } %> <% if (model.pointCount> 2) { %> <p class=mt-3>výměra</p> <p class=m-0> {{ model.areaDisplay }}</p> <% } %> </div> ';
   },
   function(e, t, r) {
     e.exports =
@@ -1974,10 +1974,10 @@
   },
   function(e, t, r) {
     e.exports =
-      'naměřená vzdálenostww <p>{{ model.lengthDisplay }}</p> <a href=# class="js-zoomto zoomto">zacentrovat na tento úsek</a> <a href=# class="js-deletemarkup deletemarkup">smazat</a> ';
+      ' <span class=result-wrapper> <div class=startprompt> <div class="d-flex justify-content-between"> <div class="col leaflet-control-measure fw-500"> naměřená vzdálenost </div> </div> </div> <p>{{ model.lengthDisplay }}</p> <div class="js-finish mt-3 d-flex align-items-center justify-content-center"> <button class="js-deletemarkup btn btn-outline-secondary btn-sm" type=button><i class="fa-sm fa-regular fa-trash-can pe-2"></i> smazat </button> </div> </span>';
   },
   function(e, t, r) {
     e.exports =
-      '<h3>naměřená výměra</h3> <p>{{ model.areaDisplay }}</p> <p>{{ model.lengthDisplay }} okraj</p> <ul class=tasks> <li><a href=# class="js-zoomto zoomto">zacentrovat na tuto plochu</a></li> <li><a href=# class="js-deletemarkup deletemarkup">smazat</a></li> </ul> ';
+      '<span class=result-wrapper> <div class=startprompt> <div class="d-flex justify-content-between"> <div class="col leaflet-control-measure fw-500"> naměřená výměra </div> </div> </div> <p> vzdálenost podél úseku </p> <p class=m-0> {{ model.areaDisplay }} </p> <p class=mt-2> výměra </p> <p class=m-0> {{ model.lengthDisplay }} okraj </p> <div class="js-finish mt-3 d-flex align-items-center justify-content-center"> <button class="js-deletemarkup btn btn-outline-secondary btn-sm" type=button><i class="fa-sm fa-regular fa-trash-can pe-2"></i> smazat </button> </div> </span>';
   }
 ]);

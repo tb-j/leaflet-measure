@@ -107,7 +107,7 @@
     function c(e, t) {
       if (void 0 === e || null === e) throw new Error('radians is required');
       if (t && 'string' != typeof t) throw new Error('units must be a string');
-      var r = y[t || 'kilometers'];
+      var r = v[t || 'kilometers'];
       if (!r) throw new Error(t + ' units is invalid');
       return e * r;
     }
@@ -156,7 +156,7 @@
       r.d(t, 'd', function() {
         return d;
       });
-    var y = {
+    var v = {
       meters: 6371008.8,
       metres: 6371008.8,
       millimeters: 6371008800,
@@ -312,14 +312,14 @@
         d = r || n || c || p,
         h = d ? o(e.length, String) : [],
         m = h.length;
-      for (var y in e)
-        (!t && !f.call(e, y)) ||
+      for (var v in e)
+        (!t && !f.call(e, v)) ||
           (d &&
-            ('length' == y ||
-              (c && ('offset' == y || 'parent' == y)) ||
-              (p && ('buffer' == y || 'byteLength' == y || 'byteOffset' == y)) ||
-              u(y, m))) ||
-          h.push(y);
+            ('length' == v ||
+              (c && ('offset' == v || 'parent' == v)) ||
+              (p && ('buffer' == v || 'byteLength' == v || 'byteOffset' == v)) ||
+              u(v, m))) ||
+          h.push(v);
       return h;
     }
     var o = r(51),
@@ -426,13 +426,13 @@
             d = 0,
             h = e.type,
             m = 'FeatureCollection' === h,
-            y = 'Feature' === h,
-            v = m ? e.features.length : 1,
+            v = 'Feature' === h,
+            y = m ? e.features.length : 1,
             g = 0;
-          g < v;
+          g < y;
           g++
         ) {
-          (c = m ? e.features[g].geometry : y ? e.geometry : e),
+          (c = m ? e.features[g].geometry : v ? e.geometry : e),
             (f = !!c && 'GeometryCollection' === c.type),
             (u = f ? c.geometries.length : 1);
           for (var b = 0; b < u; b++) {
@@ -640,12 +640,12 @@
       d = n(p),
       h = r(87),
       m = r(88),
-      y = { imports: { numberFormat: h.numberFormat }, interpolate: /{{([\s\S]+?)}}/g },
-      v = (0, i.default)(m.controlTemplate, y),
-      g = (0, i.default)(m.resultsTemplate, y),
-      b = (0, i.default)(m.pointPopupTemplate, y),
-      _ = (0, i.default)(m.linePopupTemplate, y),
-      j = (0, i.default)(m.areaPopupTemplate, y);
+      v = { imports: { numberFormat: h.numberFormat }, interpolate: /{{([\s\S]+?)}}/g },
+      y = (0, i.default)(m.controlTemplate, v),
+      g = (0, i.default)(m.resultsTemplate, v),
+      b = (0, i.default)(m.pointPopupTemplate, v),
+      _ = (0, i.default)(m.linePopupTemplate, v),
+      j = (0, i.default)(m.areaPopupTemplate, v);
     (L.Control.Measure = L.Control.extend({
       _className: 'leaflet-control-measure',
       options: {
@@ -683,7 +683,7 @@
       _initLayout: function() {
         var e = this._className,
           t = (this._container = L.DomUtil.create('div', e + ' leaflet-bar'));
-        (t.innerHTML = v({ model: { className: e } })),
+        (t.innerHTML = y({ model: { className: e } })),
           t.setAttribute('aria-haspopup', !0),
           L.DomEvent.disableClickPropagation(t),
           L.DomEvent.disableScrollPropagation(t);
@@ -1013,7 +1013,7 @@
       if (T) {
         if (b.test(T)) throw new Error(m);
       } else S = 'with (obj) {\n' + S + '\n}\n';
-      (S = (O ? S.replace(y, '') : S).replace(v, '$1').replace(g, '$1;')),
+      (S = (O ? S.replace(v, '') : S).replace(y, '$1').replace(g, '$1;')),
         (S =
           'function(' +
           (T || 'obj') +
@@ -1044,8 +1044,8 @@
       d = r(71),
       h = r(26),
       m = 'Invalid `variable` option passed into `_.template`',
-      y = /\b__p \+= '';/g,
-      v = /\b(__p \+=) '' \+/g,
+      v = /\b__p \+= '';/g,
+      y = /\b(__p \+=) '' \+/g,
       g = /(__e\(.*?\)|\b__t\)) \+\n'';/g,
       b = /[()=,{}\[\]\/\s]/,
       _ = /\$\{([^\\}]*(?:\\.[^\\}]*)*)\}/g,
@@ -1962,11 +1962,11 @@
   },
   function(e, t, r) {
     e.exports =
-      '<a class="{{ model.className }}-toggle js-toggle" href=# title="Meet afstanden en oppervlakten">Meet</a> <div class="{{ model.className }}-interaction js-interaction"> <div class="js-startprompt startprompt"> <div class="d-flex justify-content-between pb-2"> <div class="col fw-500"> Meet afstanden en oppervlakten </div> <div></div> </div> <div class="js-start mt-1 d-flex align-items-center justify-content-center"> <button class="btn btn-outline-secondary btn-sm" type=button><i class="fa-regular fa-sm fa-circle-play pe-2"></i> Maak een nieuwe meting </button> </div> </div> <div class=js-measuringprompt> <div class="d-flex justify-content-between"> <div class="col fw-500"> Meet afstanden en oppervlakten </div> <div> <span class=js-measuretasks> <button class="js-cancel btn btn-close btn-close-min"></button> </span> </div> </div> <p class=js-starthelp>Begin een meting door punten toe te voegen aan de kaart</p> <div class="js-results results"></div> <span class="js-measuretasks tasks mt-0"> <div class="js-finish mt-3 d-flex align-items-center justify-content-center"> <button class="btn btn-outline-secondary btn-sm" type=button><i class="fa-solid fa-sm fa-check pe-2"></i>Beëindig meting</button> </div> </span> </div> </div>';
+      '<a class="{{ model.className }}-toggle js-toggle" href=# title="Meet afstanden en oppervlakten">Meet</a> <div class="{{ model.className }}-interaction js-interaction"> <div class="js-startprompt startprompt"> <div class="d-flex justify-content-between pb-2"> <div class="col fw-500"> Meet afstanden en oppervlakten </div> <div></div> </div> <div class="js-start mt-1 d-flex align-items-center justify-content-center"> <button class="btn btn-outline-secondary btn-sm" type=button><i class="fa-regular fa-sm fa-circle-play pe-2"></i> Maak een nieuwe meting </button> </div> </div> <div class=js-measuringprompt> <div class="d-flex justify-content-between"> <div class="col fw-500"> Meet afstanden en oppervlakten </div> <div> <span class=js-measuretasks> <button class="js-cancel btn btn-close btn-close-min"></button> </span> </div> </div> <p class=js-starthelp>Begin een meting door punten toe te voegen aan de kaart</p> <div class="js-results results"></div> <span class="js-measuretasks tasks mt-0"> <div class="js-finish mt-3 d-flex align-items-center justify-content-center"> <button class="btn btn-outline-secondary btn-sm" type=button><i class="fa-sm fa-regular fa-circle-stop pe-2"></i>Beëindig meting</button> </div> </span> </div> </div>';
   },
   function(e, t, r) {
     e.exports =
-      '<div> <p class=mt-3>Laatste punt</p> <p class=m-0>{{ model.lastCoord.dms.y }} <span class=coorddivider>/</span> {{ model.lastCoord.dms.x }}</p> <p class=m-0>{{ numberFormat(model.lastCoord.dd.y, 6) }} <span class=coorddivider>/</span> {{ numberFormat(model.lastCoord.dd.x, 6) }}</p> <% if (model.pointCount> 1) { %> <p class=mt-3> Afstand over de lijn: </p> <p class=mt-0> {{ model.lengthDisplay }} </p> <% } %> <% if (model.pointCount> 2) { %> <p class=mt-3>Oppervlakte</p> <p class=m-0> {{ model.areaDisplay }}</p> <% } %> </div> ';
+      '<div> <p class=mt-3>Laatste punt</p> <p class=m-0>{{ model.lastCoord.dms.y }} <span class=coorddivider>/</span> {{ model.lastCoord.dms.x }}</p> <p class=m-0>{{ numberFormat(model.lastCoord.dd.y, 6) }} <span class=coorddivider>/</span> {{ numberFormat(model.lastCoord.dd.x, 6) }}</p> <% if (model.pointCount> 1) { %> <p class=mt-3> Afstand over de lijn </p> <p class=mt-0> {{ model.lengthDisplay }} </p> <% } %> <% if (model.pointCount> 2) { %> <p class=mt-3>Oppervlakte</p> <p class=m-0> {{ model.areaDisplay }}</p> <% } %> </div> ';
   },
   function(e, t, r) {
     e.exports =
@@ -1974,10 +1974,10 @@
   },
   function(e, t, r) {
     e.exports =
-      'Gemeten afstandww <p>{{ model.lengthDisplay }}</p> <a href=# class="js-zoomto zoomto">Centreer op deze lijn</a> <a href=# class="js-deletemarkup deletemarkup">Wis</a> ';
+      ' <span class=result-wrapper> <div class=startprompt> <div class="d-flex justify-content-between"> <div class="col leaflet-control-measure fw-500"> Gemeten afstand </div> </div> </div> <p>{{ model.lengthDisplay }}</p> <div class="js-finish mt-3 d-flex align-items-center justify-content-center"> <button class="js-deletemarkup btn btn-outline-secondary btn-sm" type=button><i class="fa-sm fa-regular fa-trash-can pe-2"></i> Wis </button> </div> </span>';
   },
   function(e, t, r) {
     e.exports =
-      '<h3>Oppervlakte meting</h3> <p>{{ model.areaDisplay }}</p> <p>{{ model.lengthDisplay }} Omtrek</p> <ul class=tasks> <li><a href=# class="js-zoomto zoomto">Centreer op dit gebied</a></li> <li><a href=# class="js-deletemarkup deletemarkup">Wis</a></li> </ul> ';
+      '<span class=result-wrapper> <div class=startprompt> <div class="d-flex justify-content-between"> <div class="col leaflet-control-measure fw-500"> Oppervlakte meting </div> </div> </div> <p> Afstand over de lijn </p> <p class=m-0> {{ model.areaDisplay }} </p> <p class=mt-2> Oppervlakte </p> <p class=m-0> {{ model.lengthDisplay }} Omtrek </p> <div class="js-finish mt-3 d-flex align-items-center justify-content-center"> <button class="js-deletemarkup btn btn-outline-secondary btn-sm" type=button><i class="fa-sm fa-regular fa-trash-can pe-2"></i> Wis </button> </div> </span>';
   }
 ]);

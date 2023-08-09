@@ -1,5 +1,20 @@
-${ __('linearMeasurement') }ww
-<p>{{ model.lengthDisplay }}</p>
 
-<a href="#" class="js-zoomto zoomto">${ __('centerOnLine') }</a>
-<a href="#" class="js-deletemarkup deletemarkup">${ __('delete') }</a>
+<span class="result-wrapper">
+  <div class="startprompt">
+    <div class="d-flex justify-content-between">
+      <div class="col leaflet-control-measure fw-500">
+        ${ __('linearMeasurement') }
+      </div>
+    </div>
+  </div>
+  <p>{{ model.lengthDisplay }}</p>
+  <div class="js-finish mt-3 d-flex align-items-center justify-content-center">
+    <!-- <button class="js-zoomto btn btn-outline-secondary btn-sm me-1" type="button"><i class="fa-sm fa-regular fa-circle-stop pe-2"></i>
+      ${ __('centerOnArea') }
+    </button> -->
+    <button class="js-deletemarkup btn btn-outline-secondary btn-sm" type="button"><i
+        class="fa-sm fa-regular fa-trash-can pe-2"></i>
+      ${ __('delete') }
+    </button>
+  </div>
+</span>

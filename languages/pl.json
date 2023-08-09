@@ -1,6 +1,6 @@
 {
   "measure": "Pomiar",
-  "measureDistancesAndAreas": "Pomiar odległości i powierzchni",
+  "measureDistancesAndAreas": "Narzędzia pomiarowe",
   "createNewMeasurement": "Nowy pomiar",
   "startCreating": "Rozpocznij tworzenie nowego pomiaru poprzez dodanie punktów na mapie",
   "finishMeasurement": "Zakończ",
@@ -10,7 +10,7 @@
   "pointLocation": "Punkt lokalizacji",
   "areaMeasurement": "Pomiar powierzchni",
   "linearMeasurement": "Pomiar liniowy",
-  "pathDistance": "Długość ścieżki",
+  "pathDistance": "Długość",
   "centerOnArea": "Środek tego obszaru",
   "centerOnLine": "Środek tej linii",
   "centerOnLocation": "Środek w tej lokalizacji",

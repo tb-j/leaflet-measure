@@ -164,6 +164,13 @@ $button-icon-spacing: 4px;
 }
 
 .leaflet-measure-resultpopup {
+  .leaflet-popup-close-button {
+    padding-top: 16px !important;
+    padding-right: 28px !important;
+    font-size: 20px !important;
+    color: black !important;
+    opacity: 0.5 !important;
+  }
   a.zoomto {
     @include button(focus);
   }
@@ -175,4 +182,8 @@ $button-icon-spacing: 4px;
 
 .fw-500 {
   font-weight: 500;
+}
+
+.result-wrapper {
+  font-size: 0.9rem;
 }

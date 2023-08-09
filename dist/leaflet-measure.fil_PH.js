@@ -29,12 +29,12 @@
 })([
   function(t, e, r) {
     function n(t) {
-      return null == t ? (void 0 === t ? u : s) : l && l in Object(t) ? i(t) : a(t);
+      return null == t ? (void 0 === t ? u : a) : l && l in Object(t) ? i(t) : s(t);
     }
     var o = r(4),
       i = r(38),
-      a = r(39),
-      s = '[object Null]',
+      s = r(39),
+      a = '[object Null]',
       u = '[object Undefined]',
       l = o ? o.toStringTag : void 0;
     t.exports = n;
@@ -68,7 +68,7 @@
       if (!t) throw new Error('coordinates is required');
       if (!Array.isArray(t)) throw new Error('coordinates must be an Array');
       if (t.length < 2) throw new Error('coordinates must be at least 2 numbers long');
-      if (!p(t[0]) || !p(t[1])) throw new Error('coordinates must contain numbers');
+      if (!f(t[0]) || !f(t[1])) throw new Error('coordinates must contain numbers');
       return n({ type: 'Point', coordinates: t }, e, r);
     }
     function i(t, e, r) {
@@ -77,22 +77,22 @@
         var i = t[o];
         if (i.length < 4)
           throw new Error('Each LinearRing of a Polygon must have 4 or more Positions.');
-        for (var a = 0; a < i[i.length - 1].length; a++) {
-          if ((0 === o && 0 === a && !p(i[0][0])) || !p(i[0][1]))
+        for (var s = 0; s < i[i.length - 1].length; s++) {
+          if ((0 === o && 0 === s && !f(i[0][0])) || !f(i[0][1]))
             throw new Error('coordinates must contain numbers');
-          if (i[i.length - 1][a] !== i[0][a])
+          if (i[i.length - 1][s] !== i[0][s])
             throw new Error('First and last Position are not equivalent.');
         }
       }
       return n({ type: 'Polygon', coordinates: t }, e, r);
     }
-    function a(t, e, r) {
+    function s(t, e, r) {
       if (!t) throw new Error('coordinates is required');
       if (t.length < 2) throw new Error('coordinates must be an array of two or more positions');
-      if (!p(t[0][1]) || !p(t[0][1])) throw new Error('coordinates must contain numbers');
+      if (!f(t[0][1]) || !f(t[0][1])) throw new Error('coordinates must contain numbers');
       return n({ type: 'LineString', coordinates: t }, e, r);
     }
-    function s(t, e, r) {
+    function a(t, e, r) {
       if (!t) throw new Error('coordinates is required');
       return n({ type: 'MultiLineString', coordinates: t }, e, r);
     }
@@ -111,11 +111,11 @@
       if (!r) throw new Error(e + ' units is invalid');
       return t * r;
     }
-    function f(t) {
+    function p(t) {
       if (null === t || void 0 === t) throw new Error('degrees is required');
       return ((t % 360) * Math.PI) / 180;
     }
-    function p(t) {
+    function f(t) {
       return !isNaN(t) && null !== t && !Array.isArray(t);
     }
     function d(t) {
@@ -127,7 +127,7 @@
       if (4 !== t.length && 6 !== t.length)
         throw new Error('bbox must be an Array of 4 or 6 numbers');
       t.forEach(function(t) {
-        if (!p(t)) throw new Error('bbox must only contain numbers');
+        if (!f(t)) throw new Error('bbox must only contain numbers');
       });
     }
     function m(t) {
@@ -142,16 +142,16 @@
         return o;
       }),
       r.d(e, 'e', function() {
-        return a;
+        return s;
       }),
       r.d(e, 'g', function() {
         return c;
       }),
       r.d(e, 'a', function() {
-        return f;
+        return p;
       }),
       r.d(e, 'c', function() {
-        return p;
+        return f;
       }),
       r.d(e, 'd', function() {
         return d;
@@ -222,12 +222,12 @@
     function n(t) {
       if (!i(t)) return !1;
       var e = o(t);
-      return e == s || e == u || e == a || e == l;
+      return e == a || e == u || e == s || e == l;
     }
     var o = r(0),
       i = r(2),
-      a = '[object AsyncFunction]',
-      s = '[object Function]',
+      s = '[object AsyncFunction]',
+      a = '[object Function]',
       u = '[object GeneratorFunction]',
       l = '[object Proxy]';
     t.exports = n;
@@ -240,11 +240,11 @@
   },
   function(t, e, r) {
     function n(t, e) {
-      return a(i(t, e, o), t + '');
+      return s(i(t, e, o), t + '');
     }
     var o = r(13),
       i = r(45),
-      a = r(46);
+      s = r(46);
     t.exports = n;
   },
   function(t, e) {
@@ -271,14 +271,14 @@
   },
   function(t, e, r) {
     function n(t, e, r) {
-      if (!s(r)) return !1;
+      if (!a(r)) return !1;
       var n = typeof e;
-      return !!('number' == n ? i(r) && a(e, r.length) : 'string' == n && e in r) && o(r[e], t);
+      return !!('number' == n ? i(r) && s(e, r.length) : 'string' == n && e in r) && o(r[e], t);
     }
     var o = r(6),
       i = r(7),
-      a = r(17),
-      s = r(2);
+      s = r(17),
+      a = r(2);
     t.exports = n;
   },
   function(t, e) {
@@ -305,31 +305,31 @@
   },
   function(t, e, r) {
     function n(t, e) {
-      var r = a(t),
+      var r = s(t),
         n = !r && i(t),
-        c = !r && !n && s(t),
-        p = !r && !n && !c && l(t),
-        d = r || n || c || p,
+        c = !r && !n && a(t),
+        f = !r && !n && !c && l(t),
+        d = r || n || c || f,
         h = d ? o(t.length, String) : [],
         m = h.length;
       for (var y in t)
-        (!e && !f.call(t, y)) ||
+        (!e && !p.call(t, y)) ||
           (d &&
             ('length' == y ||
               (c && ('offset' == y || 'parent' == y)) ||
-              (p && ('buffer' == y || 'byteLength' == y || 'byteOffset' == y)) ||
+              (f && ('buffer' == y || 'byteLength' == y || 'byteOffset' == y)) ||
               u(y, m))) ||
           h.push(y);
       return h;
     }
     var o = r(51),
       i = r(52),
-      a = r(19),
-      s = r(54),
+      s = r(19),
+      a = r(54),
       u = r(17),
       l = r(56),
       c = Object.prototype,
-      f = c.hasOwnProperty;
+      p = c.hasOwnProperty;
     t.exports = n;
   },
   function(t, e) {
@@ -373,13 +373,13 @@
       if (!i(t)) return !1;
       var e = o(t);
       return (
-        e == u || e == s || ('string' == typeof t.message && 'string' == typeof t.name && !a(t))
+        e == u || e == a || ('string' == typeof t.message && 'string' == typeof t.name && !s(t))
       );
     }
     var o = r(0),
       i = r(1),
-      a = r(63),
-      s = '[object DOMException]',
+      s = r(63),
+      a = '[object DOMException]',
       u = '[object Error]';
     t.exports = n;
   },
@@ -416,42 +416,42 @@
         for (
           var o,
             i,
-            a,
             s,
+            a,
             u,
             l,
             c,
-            f,
-            p = 0,
+            p,
+            f = 0,
             d = 0,
             h = t.type,
             m = 'FeatureCollection' === h,
             y = 'Feature' === h,
-            g = m ? t.features.length : 1,
-            v = 0;
-          v < g;
-          v++
+            v = m ? t.features.length : 1,
+            g = 0;
+          g < v;
+          g++
         ) {
-          (c = m ? t.features[v].geometry : y ? t.geometry : t),
-            (f = !!c && 'GeometryCollection' === c.type),
-            (u = f ? c.geometries.length : 1);
+          (c = m ? t.features[g].geometry : y ? t.geometry : t),
+            (p = !!c && 'GeometryCollection' === c.type),
+            (u = p ? c.geometries.length : 1);
           for (var b = 0; b < u; b++) {
             var _ = 0,
               j = 0;
-            if (null !== (s = f ? c.geometries[b] : c)) {
-              l = s.coordinates;
-              var x = s.type;
-              switch (((p = !r || ('Polygon' !== x && 'MultiPolygon' !== x) ? 0 : 1), x)) {
+            if (null !== (a = p ? c.geometries[b] : c)) {
+              l = a.coordinates;
+              var x = a.type;
+              switch (((f = !r || ('Polygon' !== x && 'MultiPolygon' !== x) ? 0 : 1), x)) {
                 case null:
                   break;
                 case 'Point':
-                  if (!1 === e(l, d, v, _, j)) return !1;
+                  if (!1 === e(l, d, g, _, j)) return !1;
                   d++, _++;
                   break;
                 case 'LineString':
                 case 'MultiPoint':
                   for (o = 0; o < l.length; o++) {
-                    if (!1 === e(l[o], d, v, _, j)) return !1;
+                    if (!1 === e(l[o], d, g, _, j)) return !1;
                     d++, 'MultiPoint' === x && _++;
                   }
                   'LineString' === x && _++;
@@ -459,8 +459,8 @@
                 case 'Polygon':
                 case 'MultiLineString':
                   for (o = 0; o < l.length; o++) {
-                    for (i = 0; i < l[o].length - p; i++) {
-                      if (!1 === e(l[o][i], d, v, _, j)) return !1;
+                    for (i = 0; i < l[o].length - f; i++) {
+                      if (!1 === e(l[o][i], d, g, _, j)) return !1;
                       d++;
                     }
                     'MultiLineString' === x && _++, 'Polygon' === x && j++;
@@ -470,8 +470,8 @@
                 case 'MultiPolygon':
                   for (o = 0; o < l.length; o++) {
                     for ('MultiPolygon' === x && (j = 0), i = 0; i < l[o].length; i++) {
-                      for (a = 0; a < l[o][i].length - p; a++) {
-                        if (!1 === e(l[o][i][a], d, v, _, j)) return !1;
+                      for (s = 0; s < l[o][i].length - f; s++) {
+                        if (!1 === e(l[o][i][s], d, g, _, j)) return !1;
                         d++;
                       }
                       j++;
@@ -480,8 +480,8 @@
                   }
                   break;
                 case 'GeometryCollection':
-                  for (o = 0; o < s.geometries.length; o++)
-                    if (!1 === n(s.geometries[o], e, r)) return !1;
+                  for (o = 0; o < a.geometries.length; o++)
+                    if (!1 === n(a.geometries[o], e, r)) return !1;
                   break;
                 default:
                   throw new Error('Unknown Geometry Type');
@@ -495,29 +495,29 @@
         n,
         o,
         i,
-        a,
         s,
+        a,
         u,
         l,
         c,
-        f,
-        p = 0,
+        p,
+        f = 0,
         d = 'FeatureCollection' === t.type,
         h = 'Feature' === t.type,
         m = d ? t.features.length : 1;
       for (r = 0; r < m; r++) {
         for (
-          s = d ? t.features[r].geometry : h ? t.geometry : t,
+          a = d ? t.features[r].geometry : h ? t.geometry : t,
             l = d ? t.features[r].properties : h ? t.properties : {},
             c = d ? t.features[r].bbox : h ? t.bbox : void 0,
-            f = d ? t.features[r].id : h ? t.id : void 0,
-            u = !!s && 'GeometryCollection' === s.type,
-            a = u ? s.geometries.length : 1,
+            p = d ? t.features[r].id : h ? t.id : void 0,
+            u = !!a && 'GeometryCollection' === a.type,
+            s = u ? a.geometries.length : 1,
             o = 0;
-          o < a;
+          o < s;
           o++
         )
-          if (null !== (i = u ? s.geometries[o] : s))
+          if (null !== (i = u ? a.geometries[o] : a))
             switch (i.type) {
               case 'Point':
               case 'LineString':
@@ -525,32 +525,32 @@
               case 'Polygon':
               case 'MultiLineString':
               case 'MultiPolygon':
-                if (!1 === e(i, p, l, c, f)) return !1;
+                if (!1 === e(i, f, l, c, p)) return !1;
                 break;
               case 'GeometryCollection':
                 for (n = 0; n < i.geometries.length; n++)
-                  if (!1 === e(i.geometries[n], p, l, c, f)) return !1;
+                  if (!1 === e(i.geometries[n], f, l, c, p)) return !1;
                 break;
               default:
                 throw new Error('Unknown Geometry Type');
             }
-          else if (!1 === e(null, p, l, c, f)) return !1;
-        p++;
+          else if (!1 === e(null, f, l, c, p)) return !1;
+        f++;
       }
     }
     function i(t, e, r) {
       var n = r;
       return (
-        o(t, function(t, o, i, a, s) {
-          n = 0 === o && void 0 === r ? t : e(n, t, o, i, a, s);
+        o(t, function(t, o, i, s, a) {
+          n = 0 === o && void 0 === r ? t : e(n, t, o, i, s, a);
         }),
         n
       );
     }
-    function a(t, e) {
+    function s(t, e) {
       o(t, function(t, r, n, o, i) {
-        var a = null === t ? null : t.type;
-        switch (a) {
+        var s = null === t ? null : t.type;
+        switch (s) {
           case null:
           case 'Point':
           case 'LineString':
@@ -558,38 +558,38 @@
             if (!1 === e(Object(l.b)(t, n, { bbox: o, id: i }), r, 0)) return !1;
             return;
         }
-        var s;
-        switch (a) {
+        var a;
+        switch (s) {
           case 'MultiPoint':
-            s = 'Point';
+            a = 'Point';
             break;
           case 'MultiLineString':
-            s = 'LineString';
+            a = 'LineString';
             break;
           case 'MultiPolygon':
-            s = 'Polygon';
+            a = 'Polygon';
         }
         for (var u = 0; u < t.coordinates.length; u++) {
           var c = t.coordinates[u],
-            f = { type: s, coordinates: c };
-          if (!1 === e(Object(l.b)(f, n), r, u)) return !1;
+            p = { type: a, coordinates: c };
+          if (!1 === e(Object(l.b)(p, n), r, u)) return !1;
         }
       });
     }
-    function s(t, e) {
-      a(t, function(t, r, o) {
+    function a(t, e) {
+      s(t, function(t, r, o) {
         var i = 0;
         if (t.geometry) {
-          var a = t.geometry.type;
-          if ('Point' !== a && 'MultiPoint' !== a) {
-            var s;
+          var s = t.geometry.type;
+          if ('Point' !== s && 'MultiPoint' !== s) {
+            var a;
             return (
               !1 !==
-                n(t, function(n, a, u, c, f) {
-                  if (void 0 === s) return void (s = n);
-                  var p = Object(l.e)([s, n], t.properties);
-                  if (!1 === e(p, r, o, f, i)) return !1;
-                  i++, (s = n);
+                n(t, function(n, s, u, c, p) {
+                  if (void 0 === a) return void (a = n);
+                  var f = Object(l.e)([a, n], t.properties);
+                  if (!1 === e(f, r, o, p, i)) return !1;
+                  i++, (a = n);
                 }) && void 0
             );
           }
@@ -600,8 +600,8 @@
       var n = r,
         o = !1;
       return (
-        s(t, function(t, i, a, s, u) {
-          (n = !1 === o && void 0 === r ? t : e(n, t, i, a, s, u)), (o = !0);
+        a(t, function(t, i, s, a, u) {
+          (n = !1 === o && void 0 === r ? t : e(n, t, i, s, a, u)), (o = !0);
         }),
         n
       );
@@ -625,24 +625,24 @@
     r(30);
     var o = r(31),
       i = n(o),
-      a = r(79),
-      s = n(a),
+      s = r(79),
+      a = n(s),
       u = r(80),
       l = n(u),
       c = r(85),
-      f = (function(t) {
+      p = (function(t) {
         if (t && t.__esModule) return t;
         var e = {};
         if (null != t) for (var r in t) Object.prototype.hasOwnProperty.call(t, r) && (e[r] = t[r]);
         return (e.default = t), e;
       })(c),
-      p = r(86),
-      d = n(p),
+      f = r(86),
+      d = n(f),
       h = r(87),
       m = r(88),
       y = { imports: { numberFormat: h.numberFormat }, interpolate: /{{([\s\S]+?)}}/g },
-      g = (0, i.default)(m.controlTemplate, y),
-      v = (0, i.default)(m.resultsTemplate, y),
+      v = (0, i.default)(m.controlTemplate, y),
+      g = (0, i.default)(m.resultsTemplate, y),
       b = (0, i.default)(m.pointPopupTemplate, y),
       _ = (0, i.default)(m.linePopupTemplate, y),
       j = (0, i.default)(m.areaPopupTemplate, y);
@@ -665,7 +665,7 @@
           r = e.activeColor,
           n = e.completedColor;
         (this._symbols = new d.default({ activeColor: r, completedColor: n })),
-          (this.options.units = L.extend({}, s.default, this.options.units));
+          (this.options.units = L.extend({}, a.default, this.options.units));
       },
       onAdd: function(t) {
         return (
@@ -683,7 +683,7 @@
       _initLayout: function() {
         var t = this._className,
           e = (this._container = L.DomUtil.create('div', t + ' leaflet-bar'));
-        (e.innerHTML = g({ model: { className: t } })),
+        (e.innerHTML = v({ model: { className: t } })),
           e.setAttribute('aria-haspopup', !0),
           L.DomEvent.disableClickPropagation(e),
           L.DomEvent.disableScrollPropagation(e);
@@ -714,31 +714,31 @@
           L.DomEvent.on(i, 'click', this._handleMeasureDoubleClick, this);
       },
       _expand: function() {
-        f.hide(this.$toggle), f.show(this.$interaction);
+        p.hide(this.$toggle), p.show(this.$interaction);
       },
       _collapse: function() {
-        this._locked || (f.hide(this.$interaction), f.show(this.$toggle));
+        this._locked || (p.hide(this.$interaction), p.show(this.$toggle));
       },
       _updateMeasureNotStarted: function() {
-        f.hide(this.$startHelp),
-          f.hide(this.$results),
-          f.hide(this.$measureTasks),
-          f.hide(this.$measuringPrompt),
-          f.show(this.$startPrompt);
+        p.hide(this.$startHelp),
+          p.hide(this.$results),
+          p.hide(this.$measureTasks),
+          p.hide(this.$measuringPrompt),
+          p.show(this.$startPrompt);
       },
       _updateMeasureStartedNoPoints: function() {
-        f.hide(this.$results),
-          f.show(this.$startHelp),
-          f.show(this.$measureTasks),
-          f.hide(this.$startPrompt),
-          f.show(this.$measuringPrompt);
+        p.hide(this.$results),
+          p.show(this.$startHelp),
+          p.show(this.$measureTasks),
+          p.hide(this.$startPrompt),
+          p.show(this.$measuringPrompt);
       },
       _updateMeasureStartedWithPoints: function() {
-        f.hide(this.$startHelp),
-          f.show(this.$results),
-          f.show(this.$measureTasks),
-          f.hide(this.$startPrompt),
-          f.show(this.$measuringPrompt);
+        p.hide(this.$startHelp),
+          p.show(this.$results),
+          p.show(this.$measureTasks),
+          p.hide(this.$startPrompt),
+          p.show(this.$measuringPrompt);
       },
       _startMeasure: function() {
         (this._locked = !0),
@@ -800,15 +800,15 @@
         this._captureMarker.setIcon(L.divIcon({ iconSize: this._map.getSize().multiplyBy(2) }));
       },
       _getMeasurementDisplayStrings: function(t) {
-        function e(t, e, o, i, a) {
+        function e(t, e, o, i, s) {
           if (e && n[e]) {
-            var s = r(t, n[e], i, a);
+            var a = r(t, n[e], i, s);
             if (o && n[o]) {
-              s = s + ' (' + r(t, n[o], i, a) + ')';
+              a = a + ' (' + r(t, n[o], i, s) + ')';
             }
-            return s;
+            return a;
           }
-          return r(t, null, i, a);
+          return r(t, null, i, s);
         }
         function r(t, e, r, n) {
           var o = {
@@ -851,7 +851,7 @@
           e = (this._resultsModel = L.extend({}, t, this._getMeasurementDisplayStrings(t), {
             pointCount: this._latlngs.length
           }));
-        this.$results.innerHTML = v({ model: e });
+        this.$results.innerHTML = g({ model: e });
       },
       _handleMeasureMove: function(t) {
         this._measureDrag
@@ -892,11 +892,11 @@
               },
               this
             ));
-          var a = (0, c.selectOne)('.js-deletemarkup', o);
-          a &&
-            (L.DomEvent.on(a, 'click', L.DomEvent.stop),
+          var s = (0, c.selectOne)('.js-deletemarkup', o);
+          s &&
+            (L.DomEvent.on(s, 'click', L.DomEvent.stop),
             L.DomEvent.on(
-              a,
+              s,
               'click',
               function() {
                 this._layer.removeLayer(e);
@@ -974,12 +974,12 @@
   function(t, e, r) {
     function n(t, e, r) {
       var n = d.imports._.templateSettings || d;
-      r && c(t, e, r) && (e = void 0), (t = h(t)), (e = o({}, e, n, s));
+      r && c(t, e, r) && (e = void 0), (t = h(t)), (e = o({}, e, n, a));
       var w,
         k,
-        L = o({}, e.imports, n.imports, s),
-        O = f(L),
-        P = a(L, O),
+        L = o({}, e.imports, n.imports, a),
+        O = p(L),
+        P = s(L, O),
         E = 0,
         C = e.interpolate || j,
         S = "__p += '",
@@ -988,7 +988,7 @@
             '|' +
             C.source +
             '|' +
-            (C === p ? _ : j).source +
+            (C === f ? _ : j).source +
             '|' +
             (e.evaluate || j).source +
             '|$',
@@ -997,14 +997,14 @@
         D = M.call(e, 'sourceURL')
           ? '//# sourceURL=' + (e.sourceURL + '').replace(/\s/g, ' ') + '\n'
           : '';
-      t.replace(A, function(e, r, n, o, i, a) {
+      t.replace(A, function(e, r, n, o, i, s) {
         return (
           n || (n = o),
-          (S += t.slice(E, a).replace(x, u)),
+          (S += t.slice(E, s).replace(x, u)),
           r && ((w = !0), (S += "' +\n__e(" + r + ") +\n'")),
           i && ((k = !0), (S += "';\n" + i + ";\n__p += '")),
           n && (S += "' +\n((__t = (" + n + ")) == null ? '' : __t) +\n'"),
-          (E = a + e.length),
+          (E = s + e.length),
           e
         );
       }),
@@ -1013,7 +1013,7 @@
       if (T) {
         if (b.test(T)) throw new Error(m);
       } else S = 'with (obj) {\n' + S + '\n}\n';
-      (S = (k ? S.replace(y, '') : S).replace(g, '$1').replace(v, '$1;')),
+      (S = (k ? S.replace(y, '') : S).replace(v, '$1').replace(g, '$1;')),
         (S =
           'function(' +
           (T || 'obj') +
@@ -1034,19 +1034,19 @@
     }
     var o = r(32),
       i = r(62),
-      a = r(65),
-      s = r(66),
+      s = r(65),
+      a = r(66),
       u = r(67),
       l = r(22),
       c = r(15),
-      f = r(68),
-      p = r(25),
+      p = r(68),
+      f = r(25),
       d = r(71),
       h = r(26),
       m = 'Invalid `variable` option passed into `_.template`',
       y = /\b__p \+= '';/g,
-      g = /\b(__p \+=) '' \+/g,
-      v = /(__e\(.*?\)|\b__t\)) \+\n'';/g,
+      v = /\b(__p \+=) '' \+/g,
+      g = /(__e\(.*?\)|\b__t\)) \+\n'';/g,
       b = /[()=,{}\[\]\/\s]/,
       _ = /\$\{([^\\}]*(?:\\.[^\\}]*)*)\}/g,
       j = /($^)/,
@@ -1059,19 +1059,19 @@
     var n = r(33),
       o = r(44),
       i = r(50),
-      a = o(function(t, e, r, o) {
+      s = o(function(t, e, r, o) {
         n(e, i(e), t, o);
       });
-    t.exports = a;
+    t.exports = s;
   },
   function(t, e, r) {
     function n(t, e, r, n) {
-      var a = !r;
+      var s = !r;
       r || (r = {});
-      for (var s = -1, u = e.length; ++s < u; ) {
-        var l = e[s],
+      for (var a = -1, u = e.length; ++a < u; ) {
+        var l = e[a],
           c = n ? n(r[l], t[l], l, r, t) : void 0;
-        void 0 === c && (c = t[l]), a ? i(r, l, c) : o(r, l, c);
+        void 0 === c && (c = t[l]), s ? i(r, l, c) : o(r, l, c);
       }
       return r;
     }
@@ -1082,12 +1082,12 @@
   function(t, e, r) {
     function n(t, e, r) {
       var n = t[e];
-      (s.call(t, e) && i(n, r) && (void 0 !== r || e in t)) || o(t, e, r);
+      (a.call(t, e) && i(n, r) && (void 0 !== r || e in t)) || o(t, e, r);
     }
     var o = r(8),
       i = r(6),
-      a = Object.prototype,
-      s = a.hasOwnProperty;
+      s = Object.prototype,
+      a = s.hasOwnProperty;
     t.exports = n;
   },
   function(t, e, r) {
@@ -1101,21 +1101,21 @@
   },
   function(t, e, r) {
     function n(t) {
-      return !(!a(t) || i(t)) && (o(t) ? h : l).test(s(t));
+      return !(!s(t) || i(t)) && (o(t) ? h : l).test(a(t));
     }
     var o = r(10),
       i = r(40),
-      a = r(2),
-      s = r(42),
+      s = r(2),
+      a = r(42),
       u = /[\\^$.*+?()[\]{}|]/g,
       l = /^\[object .+?Constructor\]$/,
       c = Function.prototype,
-      f = Object.prototype,
-      p = c.toString,
-      d = f.hasOwnProperty,
+      p = Object.prototype,
+      f = c.toString,
+      d = p.hasOwnProperty,
       h = RegExp(
         '^' +
-          p
+          f
             .call(d)
             .replace(u, '\\$&')
             .replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, '$1.*?') +
@@ -1137,19 +1137,19 @@
   },
   function(t, e, r) {
     function n(t) {
-      var e = a.call(t, u),
+      var e = s.call(t, u),
         r = t[u];
       try {
         t[u] = void 0;
         var n = !0;
       } catch (t) {}
-      var o = s.call(t);
+      var o = a.call(t);
       return n && (e ? (t[u] = r) : delete t[u]), o;
     }
     var o = r(4),
       i = Object.prototype,
-      a = i.hasOwnProperty,
-      s = i.toString,
+      s = i.hasOwnProperty,
+      a = i.toString,
       u = o ? o.toStringTag : void 0;
     t.exports = n;
   },
@@ -1204,17 +1204,17 @@
       return o(function(e, r) {
         var n = -1,
           o = r.length,
-          a = o > 1 ? r[o - 1] : void 0,
-          s = o > 2 ? r[2] : void 0;
+          s = o > 1 ? r[o - 1] : void 0,
+          a = o > 2 ? r[2] : void 0;
         for (
-          a = t.length > 3 && 'function' == typeof a ? (o--, a) : void 0,
-            s && i(r[0], r[1], s) && ((a = o < 3 ? void 0 : a), (o = 1)),
+          s = t.length > 3 && 'function' == typeof s ? (o--, s) : void 0,
+            a && i(r[0], r[1], a) && ((s = o < 3 ? void 0 : s), (o = 1)),
             e = Object(e);
           ++n < o;
 
         ) {
           var u = r[n];
-          u && t(e, u, n, a);
+          u && t(e, u, n, s);
         }
         return e;
       });
@@ -1228,10 +1228,10 @@
       return (
         (e = i(void 0 === e ? t.length - 1 : e, 0)),
         function() {
-          for (var n = arguments, a = -1, s = i(n.length - e, 0), u = Array(s); ++a < s; )
-            u[a] = n[e + a];
-          a = -1;
-          for (var l = Array(e + 1); ++a < e; ) l[a] = n[a];
+          for (var n = arguments, s = -1, a = i(n.length - e, 0), u = Array(a); ++s < a; )
+            u[s] = n[e + s];
+          s = -1;
+          for (var l = Array(e + 1); ++s < e; ) l[s] = n[s];
           return (l[e] = r(u)), o(t, this, l);
         }
       );
@@ -1250,7 +1250,7 @@
     var n = r(48),
       o = r(9),
       i = r(13),
-      a = o
+      s = o
         ? function(t, e) {
             return o(t, 'toString', {
               configurable: !0,
@@ -1260,7 +1260,7 @@
             });
           }
         : i;
-    t.exports = a;
+    t.exports = s;
   },
   function(t, e) {
     function r(t) {
@@ -1275,9 +1275,9 @@
       var e = 0,
         r = 0;
       return function() {
-        var a = i(),
-          s = o - (a - r);
-        if (((r = a), s > 0)) {
+        var s = i(),
+          a = o - (s - r);
+        if (((r = s), a > 0)) {
           if (++e >= n) return arguments[0];
         } else e = 0;
         return t.apply(void 0, arguments);
@@ -1290,11 +1290,11 @@
   },
   function(t, e, r) {
     function n(t) {
-      return a(t) ? o(t, !0) : i(t);
+      return s(t) ? o(t, !0) : i(t);
     }
     var o = r(18),
       i = r(60),
-      a = r(7);
+      s = r(7);
     t.exports = n;
   },
   function(t, e) {
@@ -1308,8 +1308,8 @@
     var n = r(53),
       o = r(1),
       i = Object.prototype,
-      a = i.hasOwnProperty,
-      s = i.propertyIsEnumerable,
+      s = i.hasOwnProperty,
+      a = i.propertyIsEnumerable,
       u = n(
         (function() {
           return arguments;
@@ -1317,17 +1317,17 @@
       )
         ? n
         : function(t) {
-            return o(t) && a.call(t, 'callee') && !s.call(t, 'callee');
+            return o(t) && s.call(t, 'callee') && !a.call(t, 'callee');
           };
     t.exports = u;
   },
   function(t, e, r) {
     function n(t) {
-      return i(t) && o(t) == a;
+      return i(t) && o(t) == s;
     }
     var o = r(0),
       i = r(1),
-      a = '[object Arguments]';
+      s = '[object Arguments]';
     t.exports = n;
   },
   function(t, e, r) {
@@ -1335,9 +1335,9 @@
       var n = r(5),
         o = r(55),
         i = 'object' == typeof e && e && !e.nodeType && e,
-        a = i && 'object' == typeof t && t && !t.nodeType && t,
-        s = a && a.exports === i,
-        u = s ? n.Buffer : void 0,
+        s = i && 'object' == typeof t && t && !t.nodeType && t,
+        a = s && s.exports === i,
+        u = a ? n.Buffer : void 0,
         l = u ? u.isBuffer : void 0,
         c = l || o;
       t.exports = c;
@@ -1353,30 +1353,30 @@
     var n = r(57),
       o = r(58),
       i = r(59),
-      a = i && i.isTypedArray,
-      s = a ? o(a) : n;
-    t.exports = s;
+      s = i && i.isTypedArray,
+      a = s ? o(s) : n;
+    t.exports = a;
   },
   function(t, e, r) {
     function n(t) {
-      return a(t) && i(t.length) && !!s[o(t)];
+      return s(t) && i(t.length) && !!a[o(t)];
     }
     var o = r(0),
       i = r(16),
-      a = r(1),
-      s = {};
-    (s['[object Float32Array]'] = s['[object Float64Array]'] = s['[object Int8Array]'] = s[
+      s = r(1),
+      a = {};
+    (a['[object Float32Array]'] = a['[object Float64Array]'] = a['[object Int8Array]'] = a[
       '[object Int16Array]'
-    ] = s['[object Int32Array]'] = s['[object Uint8Array]'] = s['[object Uint8ClampedArray]'] = s[
+    ] = a['[object Int32Array]'] = a['[object Uint8Array]'] = a['[object Uint8ClampedArray]'] = a[
       '[object Uint16Array]'
-    ] = s['[object Uint32Array]'] = !0),
-      (s['[object Arguments]'] = s['[object Array]'] = s['[object ArrayBuffer]'] = s[
+    ] = a['[object Uint32Array]'] = !0),
+      (a['[object Arguments]'] = a['[object Array]'] = a['[object ArrayBuffer]'] = a[
         '[object Boolean]'
-      ] = s['[object DataView]'] = s['[object Date]'] = s['[object Error]'] = s[
+      ] = a['[object DataView]'] = a['[object Date]'] = a['[object Error]'] = a[
         '[object Function]'
-      ] = s['[object Map]'] = s['[object Number]'] = s['[object Object]'] = s[
+      ] = a['[object Map]'] = a['[object Number]'] = a['[object Object]'] = a[
         '[object RegExp]'
-      ] = s['[object Set]'] = s['[object String]'] = s['[object WeakMap]'] = !1),
+      ] = a['[object Set]'] = a['[object String]'] = a['[object WeakMap]'] = !1),
       (t.exports = n);
   },
   function(t, e) {
@@ -1392,12 +1392,12 @@
       var n = r(11),
         o = 'object' == typeof e && e && !e.nodeType && e,
         i = o && 'object' == typeof t && t && !t.nodeType && t,
-        a = i && i.exports === o,
-        s = a && n.process,
+        s = i && i.exports === o,
+        a = s && n.process,
         u = (function() {
           try {
             var t = i && i.require && i.require('util').types;
-            return t || (s && s.binding && s.binding('util'));
+            return t || (a && a.binding && a.binding('util'));
           } catch (t) {}
         })();
       t.exports = u;
@@ -1405,7 +1405,7 @@
   },
   function(t, e, r) {
     function n(t) {
-      if (!o(t)) return a(t);
+      if (!o(t)) return s(t);
       var e = i(t),
         r = [];
       for (var n in t) ('constructor' != n || (!e && u.call(t, n))) && r.push(n);
@@ -1413,9 +1413,9 @@
     }
     var o = r(2),
       i = r(21),
-      a = r(61),
-      s = Object.prototype,
-      u = s.hasOwnProperty;
+      s = r(61),
+      a = Object.prototype,
+      u = a.hasOwnProperty;
     t.exports = n;
   },
   function(t, e) {
@@ -1430,32 +1430,32 @@
     var n = r(14),
       o = r(12),
       i = r(22),
-      a = o(function(t, e) {
+      s = o(function(t, e) {
         try {
           return n(t, void 0, e);
         } catch (t) {
           return i(t) ? t : new Error(t);
         }
       });
-    t.exports = a;
+    t.exports = s;
   },
   function(t, e, r) {
     function n(t) {
-      if (!a(t) || o(t) != s) return !1;
+      if (!s(t) || o(t) != a) return !1;
       var e = i(t);
       if (null === e) return !0;
-      var r = f.call(e, 'constructor') && e.constructor;
-      return 'function' == typeof r && r instanceof r && c.call(r) == p;
+      var r = p.call(e, 'constructor') && e.constructor;
+      return 'function' == typeof r && r instanceof r && c.call(r) == f;
     }
     var o = r(0),
       i = r(64),
-      a = r(1),
-      s = '[object Object]',
+      s = r(1),
+      a = '[object Object]',
       u = Function.prototype,
       l = Object.prototype,
       c = u.toString,
-      f = l.hasOwnProperty,
-      p = c.call(Object);
+      p = l.hasOwnProperty,
+      f = c.call(Object);
     t.exports = n;
   },
   function(t, e, r) {
@@ -1474,11 +1474,11 @@
   },
   function(t, e, r) {
     function n(t, e, r, n) {
-      return void 0 === t || (o(t, i[r]) && !a.call(n, r)) ? e : t;
+      return void 0 === t || (o(t, i[r]) && !s.call(n, r)) ? e : t;
     }
     var o = r(6),
       i = Object.prototype,
-      a = i.hasOwnProperty;
+      s = i.hasOwnProperty;
     t.exports = n;
   },
   function(t, e) {
@@ -1490,24 +1490,24 @@
   },
   function(t, e, r) {
     function n(t) {
-      return a(t) ? o(t) : i(t);
+      return s(t) ? o(t) : i(t);
     }
     var o = r(18),
       i = r(69),
-      a = r(7);
+      s = r(7);
     t.exports = n;
   },
   function(t, e, r) {
     function n(t) {
       if (!o(t)) return i(t);
       var e = [];
-      for (var r in Object(t)) s.call(t, r) && 'constructor' != r && e.push(r);
+      for (var r in Object(t)) a.call(t, r) && 'constructor' != r && e.push(r);
       return e;
     }
     var o = r(21),
       i = r(70),
-      a = Object.prototype,
-      s = a.hasOwnProperty;
+      s = Object.prototype,
+      a = s.hasOwnProperty;
     t.exports = n;
   },
   function(t, e, r) {
@@ -1519,18 +1519,18 @@
     var n = r(72),
       o = r(77),
       i = r(78),
-      a = r(25),
-      s = { escape: o, evaluate: i, interpolate: a, variable: '', imports: { _: { escape: n } } };
-    t.exports = s;
+      s = r(25),
+      a = { escape: o, evaluate: i, interpolate: s, variable: '', imports: { _: { escape: n } } };
+    t.exports = a;
   },
   function(t, e, r) {
     function n(t) {
-      return (t = i(t)), t && s.test(t) ? t.replace(a, o) : t;
+      return (t = i(t)), t && a.test(t) ? t.replace(s, o) : t;
     }
     var o = r(73),
       i = r(26),
-      a = /[&<>"']/g,
-      s = RegExp(a.source);
+      s = /[&<>"']/g,
+      a = RegExp(s.source);
     t.exports = n;
   },
   function(t, e, r) {
@@ -1550,15 +1550,15 @@
   function(t, e, r) {
     function n(t) {
       if ('string' == typeof t) return t;
-      if (a(t)) return i(t, n) + '';
-      if (s(t)) return c ? c.call(t) : '';
+      if (s(t)) return i(t, n) + '';
+      if (a(t)) return c ? c.call(t) : '';
       var e = t + '';
       return '0' == e && 1 / t == -u ? '-0' : e;
     }
     var o = r(4),
       i = r(24),
-      a = r(19),
-      s = r(76),
+      s = r(19),
+      a = r(76),
       u = 1 / 0,
       l = o ? o.prototype : void 0,
       c = l ? l.toString : void 0;
@@ -1566,11 +1566,11 @@
   },
   function(t, e, r) {
     function n(t) {
-      return 'symbol' == typeof t || (i(t) && o(t) == a);
+      return 'symbol' == typeof t || (i(t) && o(t) == s);
     }
     var o = r(0),
       i = r(1),
-      a = '[object Symbol]';
+      s = '[object Symbol]';
     t.exports = n;
   },
   function(t, e) {
@@ -1607,39 +1607,39 @@
     function i(t, e, r) {
       var n = Math.abs(t),
         i = Math.floor(n),
-        a = Math.floor(60 * (n - i)),
-        s = Math.round(3600 * (n - i - a / 60) * 100) / 100,
+        s = Math.floor(60 * (n - i)),
+        a = Math.round(3600 * (n - i - s / 60) * 100) / 100,
         u = n === t ? e : r;
-      return o(i) + '&deg; ' + o(a) + "' " + o(s) + '" ' + u;
+      return o(i) + '&deg; ' + o(s) + "' " + o(a) + '" ' + u;
     }
-    function a(t) {
+    function s(t) {
       var e = t[t.length - 1],
         r = t.map(function(t) {
           return [t.lat, t.lng];
         }),
         n = L.polyline(r),
         o = L.polygon(r),
-        a = 1e3 * (0, u.default)(n.toGeoJSON(), { units: 'kilometers' }),
-        s = (0, c.default)(o.toGeoJSON());
+        s = 1e3 * (0, u.default)(n.toGeoJSON(), { units: 'kilometers' }),
+        a = (0, c.default)(o.toGeoJSON());
       return {
         lastCoord: {
           dd: { x: e.lng, y: e.lat },
           dms: { x: i(e.lng, 'E', 'W'), y: i(e.lat, 'N', 'S') }
         },
-        length: a,
-        area: s
+        length: s,
+        area: a
       };
     }
-    Object.defineProperty(e, '__esModule', { value: !0 }), (e.default = a);
-    var s = r(81),
-      u = n(s),
+    Object.defineProperty(e, '__esModule', { value: !0 }), (e.default = s);
+    var a = r(81),
+      u = n(a),
       l = r(84),
       c = n(l);
   },
   function(t, e, r) {
     'use strict';
     function n(t, e) {
-      if (((e = e || {}), !Object(a.d)(e))) throw new Error('options is invalid');
+      if (((e = e || {}), !Object(s.d)(e))) throw new Error('options is invalid');
       if (!t) throw new Error('geojson is required');
       return Object(i.b)(
         t,
@@ -1653,7 +1653,7 @@
     Object.defineProperty(e, '__esModule', { value: !0 });
     var o = r(82),
       i = r(27),
-      a = r(3);
+      s = r(3);
     e.default = n;
   },
   function(t, e, r) {
@@ -1661,14 +1661,14 @@
     function n(t, e, r) {
       if (((r = r || {}), !Object(i.d)(r))) throw new Error('options is invalid');
       var n = r.units,
-        a = Object(o.a)(t),
-        s = Object(o.a)(e),
-        u = Object(i.a)(s[1] - a[1]),
-        l = Object(i.a)(s[0] - a[0]),
-        c = Object(i.a)(a[1]),
-        f = Object(i.a)(s[1]),
-        p = Math.pow(Math.sin(u / 2), 2) + Math.pow(Math.sin(l / 2), 2) * Math.cos(c) * Math.cos(f);
-      return Object(i.g)(2 * Math.atan2(Math.sqrt(p), Math.sqrt(1 - p)), n);
+        s = Object(o.a)(t),
+        a = Object(o.a)(e),
+        u = Object(i.a)(a[1] - s[1]),
+        l = Object(i.a)(a[0] - s[0]),
+        c = Object(i.a)(s[1]),
+        p = Object(i.a)(a[1]),
+        f = Math.pow(Math.sin(u / 2), 2) + Math.pow(Math.sin(l / 2), 2) * Math.cos(c) * Math.cos(p);
+      return Object(i.g)(2 * Math.atan2(Math.sqrt(f), Math.sqrt(1 - f)), n);
     }
     var o = r(83),
       i = r(3);
@@ -1723,37 +1723,37 @@
     function i(t) {
       var e = 0;
       if (t && t.length > 0) {
-        e += Math.abs(a(t[0]));
-        for (var r = 1; r < t.length; r++) e -= Math.abs(a(t[r]));
+        e += Math.abs(s(t[0]));
+        for (var r = 1; r < t.length; r++) e -= Math.abs(s(t[r]));
       }
       return e;
     }
-    function a(t) {
+    function s(t) {
       var e,
         r,
         n,
         o,
         i,
-        a,
+        s,
         u,
         c = 0,
-        f = t.length;
-      if (f > 2) {
-        for (u = 0; u < f; u++)
-          u === f - 2
-            ? ((o = f - 2), (i = f - 1), (a = 0))
-            : u === f - 1
-            ? ((o = f - 1), (i = 0), (a = 1))
-            : ((o = u), (i = u + 1), (a = u + 2)),
+        p = t.length;
+      if (p > 2) {
+        for (u = 0; u < p; u++)
+          u === p - 2
+            ? ((o = p - 2), (i = p - 1), (s = 0))
+            : u === p - 1
+            ? ((o = p - 1), (i = 0), (s = 1))
+            : ((o = u), (i = u + 1), (s = u + 2)),
             (e = t[o]),
             (r = t[i]),
-            (n = t[a]),
-            (c += (s(n[0]) - s(e[0])) * Math.sin(s(r[1])));
+            (n = t[s]),
+            (c += (a(n[0]) - a(e[0])) * Math.sin(a(r[1])));
         c = (c * l * l) / 2;
       }
       return c;
     }
-    function s(t) {
+    function a(t) {
       return (t * Math.PI) / 180;
     }
     Object.defineProperty(e, '__esModule', { value: !0 });
@@ -1772,14 +1772,14 @@
     function i(t) {
       if (t) return t.setAttribute('style', 'display:none;'), t;
     }
-    function a(t) {
+    function s(t) {
       if (t) return t.removeAttribute('style'), t;
     }
     Object.defineProperty(e, '__esModule', { value: !0 }),
       (e.selectOne = n),
       (e.selectAll = o),
       (e.hide = i),
-      (e.show = a);
+      (e.show = s);
   },
   function(t, e, r) {
     'use strict';
@@ -1802,7 +1802,7 @@
         };
       })(),
       i = { activeColor: '#ABE67E', completedColor: '#C8F2BE' },
-      a = (function() {
+      s = (function() {
         function t(e) {
           n(this, t), (this._options = L.extend({}, i, this._options, e));
         }
@@ -1891,7 +1891,7 @@
           t
         );
       })();
-    e.default = a;
+    e.default = s;
   },
   function(t, e, r) {
     'use strict';
@@ -1901,16 +1901,16 @@
         n = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : ',',
         o = t < 0 ? '-' : '',
         i = Math.abs(+t || 0),
-        a = parseInt(i.toFixed(e), 10) + '',
-        s = a.length > 3 ? a.length % 3 : 0;
+        s = parseInt(i.toFixed(e), 10) + '',
+        a = s.length > 3 ? s.length % 3 : 0;
       return [
         o,
-        s ? a.substr(0, s) + n : '',
-        a.substr(s).replace(/(\d{3})(?=\d)/g, '$1' + n),
+        a ? s.substr(0, a) + n : '',
+        s.substr(a).replace(/(\d{3})(?=\d)/g, '$1' + n),
         e
           ? '' +
             r +
-            Math.abs(i - a)
+            Math.abs(i - s)
               .toFixed(e)
               .slice(2)
           : ''
@@ -1938,18 +1938,18 @@
         return n(i).default;
       }
     });
-    var a = r(91);
+    var s = r(91);
     Object.defineProperty(e, 'pointPopupTemplate', {
       enumerable: !0,
       get: function() {
-        return n(a).default;
+        return n(s).default;
       }
     });
-    var s = r(92);
+    var a = r(92);
     Object.defineProperty(e, 'linePopupTemplate', {
       enumerable: !0,
       get: function() {
-        return n(s).default;
+        return n(a).default;
       }
     });
     var u = r(93);
@@ -1962,11 +1962,11 @@
   },
   function(t, e, r) {
     t.exports =
-      '<a class="{{ model.className }}-toggle js-toggle" href=# title="Kalkulahin ang tamang distansya at sukat">Sukat</a> <div class="{{ model.className }}-interaction js-interaction"> <div class="js-startprompt startprompt"> <div class="d-flex justify-content-between pb-2"> <div class="col fw-500"> Kalkulahin ang tamang distansya at sukat </div> <div></div> </div> <div class="js-start mt-1 d-flex align-items-center justify-content-center"> <button class="btn btn-outline-secondary btn-sm" type=button><i class="fa-regular fa-sm fa-circle-play pe-2"></i> Lumikha ng isang bagong pagsukat </button> </div> </div> <div class=js-measuringprompt> <div class="d-flex justify-content-between"> <div class="col fw-500"> Kalkulahin ang tamang distansya at sukat </div> <div> <span class=js-measuretasks> <button class="js-cancel btn btn-close btn-close-min"></button> </span> </div> </div> <p class=js-starthelp>Simulan ang paglikha ng isang pagsukat sa pamamagitan ng pagdaragdag ng mga puntos sa mapa</p> <div class="js-results results"></div> <span class="js-measuretasks tasks mt-0"> <div class="js-finish mt-3 d-flex align-items-center justify-content-center"> <button class="btn btn-outline-secondary btn-sm" type=button><i class="fa-solid fa-sm fa-check pe-2"></i>Tapusin ang pagsukat</button> </div> </span> </div> </div>';
+      '<a class="{{ model.className }}-toggle js-toggle" href=# title="Kalkulahin ang tamang distansya at sukat">Sukat</a> <div class="{{ model.className }}-interaction js-interaction"> <div class="js-startprompt startprompt"> <div class="d-flex justify-content-between pb-2"> <div class="col fw-500"> Kalkulahin ang tamang distansya at sukat </div> <div></div> </div> <div class="js-start mt-1 d-flex align-items-center justify-content-center"> <button class="btn btn-outline-secondary btn-sm" type=button><i class="fa-regular fa-sm fa-circle-play pe-2"></i> Lumikha ng isang bagong pagsukat </button> </div> </div> <div class=js-measuringprompt> <div class="d-flex justify-content-between"> <div class="col fw-500"> Kalkulahin ang tamang distansya at sukat </div> <div> <span class=js-measuretasks> <button class="js-cancel btn btn-close btn-close-min"></button> </span> </div> </div> <p class=js-starthelp>Simulan ang paglikha ng isang pagsukat sa pamamagitan ng pagdaragdag ng mga puntos sa mapa</p> <div class="js-results results"></div> <span class="js-measuretasks tasks mt-0"> <div class="js-finish mt-3 d-flex align-items-center justify-content-center"> <button class="btn btn-outline-secondary btn-sm" type=button><i class="fa-sm fa-regular fa-circle-stop pe-2"></i>Tapusin ang pagsukat</button> </div> </span> </div> </div>';
   },
   function(t, e, r) {
     t.exports =
-      '<div> <p class=mt-3>Huling punto sa mapa</p> <p class=m-0>{{ model.lastCoord.dms.y }} <span class=coorddivider>/</span> {{ model.lastCoord.dms.x }}</p> <p class=m-0>{{ numberFormat(model.lastCoord.dd.y, 6) }} <span class=coorddivider>/</span> {{ numberFormat(model.lastCoord.dd.x, 6) }}</p> <% if (model.pointCount> 1) { %> <p class=mt-3> Distansya ng daanan: </p> <p class=mt-0> {{ model.lengthDisplay }} </p> <% } %> <% if (model.pointCount> 2) { %> <p class=mt-3>Sukat</p> <p class=m-0> {{ model.areaDisplay }}</p> <% } %> </div> ';
+      '<div> <p class=mt-3>Huling punto sa mapa</p> <p class=m-0>{{ model.lastCoord.dms.y }} <span class=coorddivider>/</span> {{ model.lastCoord.dms.x }}</p> <p class=m-0>{{ numberFormat(model.lastCoord.dd.y, 6) }} <span class=coorddivider>/</span> {{ numberFormat(model.lastCoord.dd.x, 6) }}</p> <% if (model.pointCount> 1) { %> <p class=mt-3> Distansya ng daanan </p> <p class=mt-0> {{ model.lengthDisplay }} </p> <% } %> <% if (model.pointCount> 2) { %> <p class=mt-3>Sukat</p> <p class=m-0> {{ model.areaDisplay }}</p> <% } %> </div> ';
   },
   function(t, e, r) {
     t.exports =
@@ -1974,10 +1974,10 @@
   },
   function(t, e, r) {
     t.exports =
-      'Pagsukat ng guhitww <p>{{ model.lengthDisplay }}</p> <a href=# class="js-zoomto zoomto">I-sentro sa linya na ito</a> <a href=# class="js-deletemarkup deletemarkup">Tanggalin</a> ';
+      ' <span class=result-wrapper> <div class=startprompt> <div class="d-flex justify-content-between"> <div class="col leaflet-control-measure fw-500"> Pagsukat ng guhit </div> </div> </div> <p>{{ model.lengthDisplay }}</p> <div class="js-finish mt-3 d-flex align-items-center justify-content-center"> <button class="js-deletemarkup btn btn-outline-secondary btn-sm" type=button><i class="fa-sm fa-regular fa-trash-can pe-2"></i> Tanggalin </button> </div> </span>';
   },
   function(t, e, r) {
     t.exports =
-      '<h3>Kabuuang sukat</h3> <p>{{ model.areaDisplay }}</p> <p>{{ model.lengthDisplay }} Palibot</p> <ul class=tasks> <li><a href=# class="js-zoomto zoomto">I-sentro sa lugar na ito</a></li> <li><a href=# class="js-deletemarkup deletemarkup">Tanggalin</a></li> </ul> ';
+      '<span class=result-wrapper> <div class=startprompt> <div class="d-flex justify-content-between"> <div class="col leaflet-control-measure fw-500"> Kabuuang sukat </div> </div> </div> <p> Distansya ng daanan </p> <p class=m-0> {{ model.areaDisplay }} </p> <p class=mt-2> Sukat </p> <p class=m-0> {{ model.lengthDisplay }} Palibot </p> <div class="js-finish mt-3 d-flex align-items-center justify-content-center"> <button class="js-deletemarkup btn btn-outline-secondary btn-sm" type=button><i class="fa-sm fa-regular fa-trash-can pe-2"></i> Tanggalin </button> </div> </span>';
   }
 ]);
