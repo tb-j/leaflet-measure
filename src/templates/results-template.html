@@ -1,3 +1,9 @@
+<div class="d-flex">
+  <div>${ __('lastPoint') }</div>
+  <div>{{ model.lastCoord.dms.y }} <span class="coorddivider">/</span> {{ model.lastCoord.dms.x }}</div>
+  <div>{{ numberFormat(model.lastCoord.dd.y, 6) }} <span class="coorddivider">/</span> {{ numberFormat(model.lastCoord.dd.x, 6) }}</div>
+</div>
+<!-- 
 <div class="group">
   <p class="lastpoint heading">${ __('lastPoint') }</p>
   <p>{{ model.lastCoord.dms.y }} <span class="coorddivider">/</span> {{ model.lastCoord.dms.x }}</p>
@@ -12,4 +18,5 @@
 <div class="group">
   <p><span class="heading">${ __('area') }</span> {{ model.areaDisplay }}</p>
 </div>
-<% } %>
+<% } %> 
+-->
