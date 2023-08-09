@@ -978,8 +978,8 @@
       var w,
         O,
         L = o({}, t.imports, n.imports, a),
-        k = f(L),
-        P = s(L, k),
+        P = f(L),
+        k = s(L, P),
         E = 0,
         C = t.interpolate || j,
         S = "__p += '",
@@ -1027,7 +1027,7 @@
           S +
           'return __p\n}');
       var $ = i(function() {
-        return Function(k, D + 'return ' + S).apply(void 0, P);
+        return Function(P, D + 'return ' + S).apply(void 0, k);
       });
       if ((($.source = S), l($))) throw $;
       return $;
@@ -1962,7 +1962,7 @@
   },
   function(e, t, r) {
     e.exports =
-      '<a class="{{ model.className }}-toggle js-toggle" href=# title="同时测量距离和面积">测量</a> <div class="{{ model.className }}-interaction js-interaction"> <div class="js-startprompt startprompt"> <div class="d-flex justify-content-between pb-2"> <div class="col fw-500"> 同时测量距离和面积 </div> <div></div> </div> <div class="js-start mt-1 d-flex align-items-center justify-content-center"> <button class="btn btn-outline-secondary btn-sm" type=button><i class="fa-solid fa-sm fa-check pe-2"></i> 开始一次新的测量 </button> </div> </div> <div class=js-measuringprompt> <div class="d-flex justify-content-between"> <div class="col fw-500"> 同时测量距离和面积 </div> <div> <span class=js-measuretasks> <button class="js-cancel btn btn-close btn-close-min"></button> </span> </div> </div> <p class=js-starthelp>点击地图加点以开始创建测量</p> <div class="js-results results"></div> <span class="js-measuretasks tasks mt-0"> <div class="js-finish mt-3 d-flex align-items-center justify-content-center"> <button class="btn btn-outline-secondary btn-sm" type=button><i class="fa-solid fa-sm fa-check pe-2"></i>完成测量</button> </div> </span> </div> </div>';
+      '<a class="{{ model.className }}-toggle js-toggle" href=# title="同时测量距离和面积">测量</a> <div class="{{ model.className }}-interaction js-interaction"> <div class="js-startprompt startprompt"> <div class="d-flex justify-content-between pb-2"> <div class="col fw-500"> 同时测量距离和面积 </div> <div></div> </div> <div class="js-start mt-1 d-flex align-items-center justify-content-center"> <button class="btn btn-outline-secondary btn-sm" type=button><i class="fa-regular fa-sm fa-circle-play pe-2"></i> 开始一次新的测量 </button> </div> </div> <div class=js-measuringprompt> <div class="d-flex justify-content-between"> <div class="col fw-500"> 同时测量距离和面积 </div> <div> <span class=js-measuretasks> <button class="js-cancel btn btn-close btn-close-min"></button> </span> </div> </div> <p class=js-starthelp>点击地图加点以开始创建测量</p> <div class="js-results results"></div> <span class="js-measuretasks tasks mt-0"> <div class="js-finish mt-3 d-flex align-items-center justify-content-center"> <button class="btn btn-outline-secondary btn-sm" type=button><i class="fa-solid fa-sm fa-check pe-2"></i>完成测量</button> </div> </span> </div> </div>';
   },
   function(e, t, r) {
     e.exports =

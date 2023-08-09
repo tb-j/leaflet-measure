@@ -1,9 +1,9 @@
 {
   "measure": "Pomiar",
   "measureDistancesAndAreas": "Pomiar odległości i powierzchni",
-  "createNewMeasurement": "Utwórz nowy pomiar",
+  "createNewMeasurement": "Nowy pomiar",
   "startCreating": "Rozpocznij tworzenie nowego pomiaru poprzez dodanie punktów na mapie",
-  "finishMeasurement": "Zakończ pomiar",
+  "finishMeasurement": "Zakończ",
   "lastPoint": "Ostatni punkt",
   "area": "Powierzchnia",
   "perimeter": "Obwód",

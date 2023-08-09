@@ -978,8 +978,8 @@
       var M,
         L,
         O = o({}, t.imports, n.imports, a),
-        k = f(O),
-        P = s(O, k),
+        P = f(O),
+        k = s(O, P),
         E = 0,
         C = t.interpolate || j,
         A = "__p += '",
@@ -1027,7 +1027,7 @@
           A +
           'return __p\n}');
       var T = i(function() {
-        return Function(k, D + 'return ' + A).apply(void 0, P);
+        return Function(P, D + 'return ' + A).apply(void 0, k);
       });
       if (((T.source = A), l(T))) throw T;
       return T;
@@ -1962,7 +1962,7 @@
   },
   function(e, t, r) {
     e.exports =
-      '<a class="{{ model.className }}-toggle js-toggle" href=# title="Messung von Abständen und Flächen">Messung</a> <div class="{{ model.className }}-interaction js-interaction"> <div class="js-startprompt startprompt"> <div class="d-flex justify-content-between pb-2"> <div class="col fw-500"> Messung von Abständen und Flächen </div> <div></div> </div> <div class="js-start mt-1 d-flex align-items-center justify-content-center"> <button class="btn btn-outline-secondary btn-sm" type=button><i class="fa-solid fa-sm fa-check pe-2"></i> Eine neue Messung durchführen </button> </div> </div> <div class=js-measuringprompt> <div class="d-flex justify-content-between"> <div class="col fw-500"> Messung von Abständen und Flächen </div> <div> <span class=js-measuretasks> <button class="js-cancel btn btn-close btn-close-min"></button> </span> </div> </div> <p class=js-starthelp>Führen Sie die Messung durch, indem Sie der Karte Punkte hinzufügen.</p> <div class="js-results results"></div> <span class="js-measuretasks tasks mt-0"> <div class="js-finish mt-3 d-flex align-items-center justify-content-center"> <button class="btn btn-outline-secondary btn-sm" type=button><i class="fa-solid fa-sm fa-check pe-2"></i>Messung beenden</button> </div> </span> </div> </div>';
+      '<a class="{{ model.className }}-toggle js-toggle" href=# title="Messung von Abständen und Flächen">Messung</a> <div class="{{ model.className }}-interaction js-interaction"> <div class="js-startprompt startprompt"> <div class="d-flex justify-content-between pb-2"> <div class="col fw-500"> Messung von Abständen und Flächen </div> <div></div> </div> <div class="js-start mt-1 d-flex align-items-center justify-content-center"> <button class="btn btn-outline-secondary btn-sm" type=button><i class="fa-regular fa-sm fa-circle-play pe-2"></i> Eine neue Messung durchführen </button> </div> </div> <div class=js-measuringprompt> <div class="d-flex justify-content-between"> <div class="col fw-500"> Messung von Abständen und Flächen </div> <div> <span class=js-measuretasks> <button class="js-cancel btn btn-close btn-close-min"></button> </span> </div> </div> <p class=js-starthelp>Führen Sie die Messung durch, indem Sie der Karte Punkte hinzufügen.</p> <div class="js-results results"></div> <span class="js-measuretasks tasks mt-0"> <div class="js-finish mt-3 d-flex align-items-center justify-content-center"> <button class="btn btn-outline-secondary btn-sm" type=button><i class="fa-solid fa-sm fa-check pe-2"></i>Messung beenden</button> </div> </span> </div> </div>';
   },
   function(e, t, r) {
     e.exports =
